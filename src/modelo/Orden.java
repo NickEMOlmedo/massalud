@@ -1,36 +1,34 @@
-
 package modelo;
 
 import java.time.LocalDate;
 
-
 public class Orden {
-   
+
     private int idOrden;
     private LocalDate fecha;
     private String formaPago;
     private double importe;
     private Afiliado idAfiliado;
-    private Prestador idPrestador;
+    private Prestador prestador;
 
     public Orden() {
     }
 
-    public Orden(int idOrden, LocalDate fecha, String formaPago, double importe, Afiliado idAfiliado, Prestador idPrestador) {
+    public Orden(int idOrden, LocalDate fecha, String formaPago, double importe, Afiliado idAfiliado, Prestador prestador) {
         this.idOrden = idOrden;
         this.fecha = fecha;
         this.formaPago = formaPago;
         this.importe = importe;
         this.idAfiliado = idAfiliado;
-        this.idPrestador = idPrestador;
+        this.prestador = prestador;
     }
 
-    public Orden(LocalDate fecha, String formaPago, double importe, Afiliado idAfiliado, Prestador idPrestador) {
+    public Orden(LocalDate fecha, String formaPago, double importe, Afiliado idAfiliado, Prestador prestador) {
         this.fecha = fecha;
         this.formaPago = formaPago;
         this.importe = importe;
         this.idAfiliado = idAfiliado;
-        this.idPrestador = idPrestador;
+        this.prestador = prestador;
     }
 
     public int getIdOrden() {
@@ -73,18 +71,17 @@ public class Orden {
         this.idAfiliado = idAfiliado;
     }
 
-    public Prestador getIdPrestador() {
-        return idPrestador;
+    public Prestador getPrestador() {
+        return prestador;
     }
 
-    public void setIdPrestador(Prestador idPrestador) {
-        this.idPrestador = idPrestador;
+    public void setPrestador(Prestador prestador) {
+        this.prestador = prestador;
     }
 
     @Override
     public String toString() {
-        return "Orden{" + "idOrden=" + idOrden + ", fecha=" + fecha + ", formaPago=" + formaPago + ", importe=" + importe + ", idAfiliado=" + idAfiliado + ", idPrestador=" + idPrestador + '}';
+        return "ORDEN: " + "ID: " + idOrden + " FECHA: " + fecha + " FORMA DE PAGO: " + formaPago + " IMPORTE: " + importe + " ID-AFILIADO: " + idAfiliado + " ID-PRESTADOR: " + prestador + "";
     }
-    
-    
+
 }

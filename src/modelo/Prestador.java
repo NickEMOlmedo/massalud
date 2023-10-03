@@ -1,14 +1,94 @@
 package modelo;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
 /**
  *
- * @author Nickolas
+ * @author @NickEMOlmedo
  */
 public class Prestador {
+    
+    private int idPrestador;
+    private String nombre;
+    private String apellido;
+    private int dni;
+    private boolean activo;
+    private Especialidad especialidad;
+
+    public Prestador() {}
+
+    public Prestador(int idPrestador, String nombre, String apellido, int dni, boolean activo, Especialidad especialidad) {
+        this.idPrestador = idPrestador;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.activo = activo;
+        this.especialidad = especialidad;
+    }
+
+    public Prestador(String nombre, String apellido, int dni, boolean activo, Especialidad especialidad) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.activo = activo;
+        this.especialidad = especialidad;
+    }
+
+    public int getIdPrestador() {
+        return idPrestador;
+    }
+
+    public void setIdPrestador(int idPrestador) {
+        this.idPrestador = idPrestador;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public int getDni() {
+        return dni;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public Especialidad getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(Especialidad especialidad) {
+        this.especialidad = especialidad;
+    }
+
+    @Override
+    public String toString() {
+        return "PRESTADOR: " + "ID: " + idPrestador + " NOMBRE: " + nombre + " APELLIDO: " + apellido + " DNI: " + dni + " ACTIVO: " + activo + " ESPECIALIDAD: " + especialidad;
+    }
+    
+    
+    
+    
+    
     
 }

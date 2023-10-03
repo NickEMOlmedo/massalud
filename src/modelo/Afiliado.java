@@ -81,7 +81,7 @@ public class Afiliado {
 
     @Override
     public String toString() {
-        return "Afiliado{" + "idAfiliado=" + idAfiliado + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", telefono=" + telefono + ", activo=" + activo + '}';
+        return "AFILIADO: " + "ID: " + idAfiliado + " NOMBRE: " + nombre + " APELLIDO: " + apellido + " DNI: " + dni + " TELEFONO: " + telefono + " ACTIVO: " + activo;
     }
 
     

@@ -1,4 +1,3 @@
-
 package controlador;
 
 import java.sql.Connection;
@@ -11,13 +10,14 @@ import javax.swing.JOptionPane;
  * @author Nickolas
  */
 public class Conexion {
-     private static final String URL = "jdbc:mariadb://localhost:3306/massalud";
+
+    private static final String URL = "jdbc:mariadb://localhost:3306/massalud";
     private static final String USUARIO = "root";
     private static final String PASS = "";
 
     private static Conexion conexion = null;
-    
-     private Conexion() {
+
+    private Conexion() {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
@@ -25,8 +25,8 @@ public class Conexion {
         }
 
     }
-     
-      public static Connection getConexion() {
+
+    public static Connection getConexion() {
         Connection con = null;
         if (conexion == null) {
 
@@ -44,5 +44,5 @@ public class Conexion {
         return con;
 
     }
-    
+
 }
