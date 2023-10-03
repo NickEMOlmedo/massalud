@@ -8,23 +8,26 @@ public class Afiliado {
     private String nombre;
     private String apellido;
     private int dni;
+    private int telefono;
     private boolean activo;
 
     public Afiliado() {
     }
 
-    public Afiliado(int idAfiliado, String nombre, String apellido, int dni, boolean activo) {
+    public Afiliado(int idAfiliado, String nombre, String apellido, int dni, int telefono, boolean activo) {
         this.idAfiliado = idAfiliado;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+        this.telefono = telefono;
         this.activo = activo;
     }
 
-    public Afiliado(String nombre, String apellido, int dni, boolean activo) {
+    public Afiliado(String nombre, String apellido, int dni, int telefono, boolean activo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+        this.telefono = telefono;
         this.activo = activo;
     }
 
@@ -60,6 +63,14 @@ public class Afiliado {
         this.dni = dni;
     }
 
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
     public boolean isActivo() {
         return activo;
     }
@@ -70,9 +81,8 @@ public class Afiliado {
 
     @Override
     public String toString() {
-        return "Afiliado{" + "idAfiliado=" + idAfiliado + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", activo=" + activo + '}';
+        return "Afiliado{" + "idAfiliado=" + idAfiliado + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", telefono=" + telefono + ", activo=" + activo + '}';
     }
 
-    
     
 }
