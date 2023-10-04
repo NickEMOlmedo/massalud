@@ -11,8 +11,7 @@ public class Orden {
     private Afiliado idAfiliado;
     private Prestador prestador;
 
-    public Orden() {
-    }
+    public Orden() {}
 
     public Orden(int idOrden, LocalDate fecha, String formaPago, double importe, Afiliado idAfiliado, Prestador prestador) {
         this.idOrden = idOrden;
