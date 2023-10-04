@@ -1,32 +1,33 @@
-
 package modelo;
 
-
 public class Afiliado {
-    
+
     private int idAfiliado;
     private String nombre;
     private String apellido;
     private int dni;
+    private String domicilio;
     private int telefono;
     private boolean activo;
 
     public Afiliado() {
     }
 
-    public Afiliado(int idAfiliado, String nombre, String apellido, int dni, int telefono, boolean activo) {
+    public Afiliado(int idAfiliado, String nombre, String apellido, int dni, String domicilio, int telefono, boolean activo) {
         this.idAfiliado = idAfiliado;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+        this.domicilio = domicilio;
         this.telefono = telefono;
         this.activo = activo;
     }
 
-    public Afiliado(String nombre, String apellido, int dni, int telefono, boolean activo) {
+    public Afiliado(String nombre, String apellido, int dni, String domicilio, int telefono, boolean activo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+        this.domicilio = domicilio;
         this.telefono = telefono;
         this.activo = activo;
     }
@@ -63,6 +64,14 @@ public class Afiliado {
         this.dni = dni;
     }
 
+    public String getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
+    }
+
     public int getTelefono() {
         return telefono;
     }
@@ -81,8 +90,7 @@ public class Afiliado {
 
     @Override
     public String toString() {
-        return "AFILIADO: " + "ID: " + idAfiliado + " NOMBRE: " + nombre + " APELLIDO: " + apellido + " DNI: " + dni + " TELEFONO: " + telefono + " ACTIVO: " + activo;
+        return "AFILIADO: " + "ID: " + idAfiliado + " NOMBRE: " + nombre + " APELLIDO: " + apellido + " DNI: " + dni + " DOMICILIO: " + domicilio + " TELEFONO: " + telefono + " ACTIVO: " + activo;
     }
 
-    
 }
