@@ -83,6 +83,34 @@ public class PrestadorData {
 
     }
 
-    // Metodo que permite buscar un Prestador en la tabla por el apellido
+    // Metodo que permite MODIFICAR un Prestador
+    
+    public void modificarPrestador (Prestador prestador) {
+        
+         String QUERY = "UPDATE prestador SET nombre = ?,apellido = ?,dni = ?,domicilio = ?,telefono = ?,activo  =? WHERE idPrestador=?";
+          //Cargamos los datos en el statement
+          try{
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);  
+            statement.setString(1, prestador.getNombre());
+            statement.setString(2, prestador.getApellido());
+            statement.setInt(3, prestador.getDni());
+            statement.setString(4, prestador.getDomicilio());
+            statement.setInt(5, prestador.getTelefono());
+            statement.setBoolean(6, prestador.isActivo());
+            statement.setInt(7, prestador.getIdPrestador());
+             int updateExitoso = statement.executeUpdate();
+            if (updateExitoso == 1) {
 
-}
+                JOptionPane.showMessageDialog(null, "!Se modificaron los datos del Prestador correctamente!");
+            } else {
+
+                JOptionPane.showMessageDialog(null, "!Error al Modificar los Datos del Prestador, intente Nuevamente!");
+
+            }
+          }
+        catch (SQLException ex){
+            
+             JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+    }
+
+}}
