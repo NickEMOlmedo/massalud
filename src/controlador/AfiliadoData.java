@@ -10,7 +10,9 @@ import modelo.Afiliado;
 /**
  *
  * @author @NickEMOlmedo
+ *
  */
+
 public class AfiliadoData {
 
     private Connection nuevaConexion = null;
@@ -20,6 +22,7 @@ public class AfiliadoData {
     public AfiliadoData() {
 
         //Probamos si la conexion se ha realizado correctamente y lo almacenamos en una variable.
+        
         nuevaConexion = Conexion.getConexion();
 
         if (nuevaConexion != null) {
@@ -35,10 +38,11 @@ public class AfiliadoData {
 
     }
 
+    //Metodo que guarda un nuevo afiliado en la base de datos.
     public void guardarAfiliado(Afiliado afiliado) {
 
-        String QUERY = "INSERT INTO afiliado(nombre,apellido,dni,domicilio,telefono)"
-                + " VALUES(?,?,?,?,?)";
+        final String QUERY = "INSERT INTO afiliado(nombre,apellido,dni,domicilio,telefono)"
+                + "VALUES(?,?,?,?,?)";
 
         //Cargamos los datos en el statement y procedemos a enviarlos.
         try {
@@ -66,14 +70,19 @@ public class AfiliadoData {
 
     }
 
+    //Metodo que setea el campo "activo" de la tabla "afiliado" en 0, esta accion genera que el afiliado figure como eliminado.
     public void eliminarAfiliado(int id) {
 
-        String QUERY = "UPDATE afiliado SET activo = 0 WHERE idAfiliado = ?";
+        final String QUERY = "UPDATE afiliado SET activo = 0 WHERE idAfiliado = ?";
 
         try {
-
             PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
             statement.setInt(1, id);
+            int envioExitoso = statement.executeUpdate();
+            if (envioExitoso == 1) {
+
+                JOptionPane.showMessageDialog(null, "¡El afiliado se elimino satisfactoriamente!");
+            }
 
         } catch (SQLException ex) {
 
@@ -83,7 +92,7 @@ public class AfiliadoData {
 
     }
 
-    public void listarAfiliados() {
+    public void modificarAfiliados(int id) {
 
     }
 
