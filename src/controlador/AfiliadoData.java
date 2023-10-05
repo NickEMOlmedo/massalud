@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Afiliado;
 
@@ -12,7 +14,6 @@ import modelo.Afiliado;
  * @author @NickEMOlmedo
  *
  */
-
 public class AfiliadoData {
 
     private Connection nuevaConexion = null;
@@ -22,7 +23,6 @@ public class AfiliadoData {
     public AfiliadoData() {
 
         //Probamos si la conexion se ha realizado correctamente y lo almacenamos en una variable.
-        
         nuevaConexion = Conexion.getConexion();
 
         if (nuevaConexion != null) {
@@ -86,13 +86,40 @@ public class AfiliadoData {
 
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente!");
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
 
         }
 
     }
 
-    public void modificarAfiliados(int id) {
+    public void modificarAfiliado(Afiliado afiliado) {
+
+        final String QUERY = "UPDATE afiliado SET nombre = ?, apellido = ?, dni = ?, domicilio = ?, telefono = ?, activo = ? WHERE idAfiliado = ? ";
+
+        try {
+
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            statement.setString(1, afiliado.getNombre());
+            statement.setString(2, afiliado.getApellido());
+            statement.setInt(3, afiliado.getDni());
+            statement.setString(4, afiliado.getDomicilio());
+            statement.setInt(5, afiliado.getTelefono());
+            statement.setBoolean(6, afiliado.isActivo());
+            statement.setInt(6, afiliado.getIdAfiliado());
+            int updateExitoso = statement.executeUpdate();
+            if (updateExitoso == 1) {
+
+                JOptionPane.showMessageDialog(null, "!Se modificaron los datos del afiliado Satisfactoriamente!");
+            } else {
+
+                JOptionPane.showMessageDialog(null, "!Error al Modificar los Datos del Afiliado, intente Nuevamente!");
+
+            }
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+        }
 
     }
 
