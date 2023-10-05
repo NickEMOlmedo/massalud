@@ -3,7 +3,7 @@ package modelo;
 
 /**
  *
- * @author @NickEMOlmedo
+ * @author @Fabiana76
  */
 public class Prestador {
     

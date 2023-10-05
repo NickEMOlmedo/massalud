@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 /**
  *
- * @author Nickolas
+ * @author @Fabiana76
  */
 public class PrestadorData {
    
@@ -30,7 +30,7 @@ public class PrestadorData {
     public static boolean conexionExitosa(){
         return conexionExitosa;
     }
-    
+        //Metodo que guarda un nuevo Prestador a la base de datos
      public void guardarPrestdor(Prestador prestador) {
 
         String QUERY = "INSERT INTO prestador(nombre,apellido,dni,domicilio,telefono,activo)"
@@ -57,6 +57,32 @@ public class PrestadorData {
             }
         } catch (SQLException ex) {
     
+             JOptionPane.showMessageDialog(null, "¡No se pudo agregar el Prestador, intente nuevamente! " + ex);
     }
 
-     }}
+     }
+ //Metodo que modifia el campo "activo" de la tabla "prestador" en 0, esta accion genera que el prestador figure como eliminado.
+    public void eliminarPrestador(int id) {
+
+        final String QUERY = "UPDATE prestador SET activo = 0 WHERE idPrestador = ?";
+
+        try {
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            statement.setInt(1, id);
+            int envioExitoso = statement.executeUpdate();
+            if (envioExitoso == 1) {
+
+                JOptionPane.showMessageDialog(null, "¡El presatdor se elimino correctamente!");
+            }
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "¡No se pudo eliminar el prestador, intente nuevamente!");
+
+        }
+
+    }
+
+    // Metodo que permite buscar un Prestador en la tabla por el apellido
+
+}
