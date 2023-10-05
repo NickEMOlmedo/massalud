@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
 
+    //Datos de conexion a la DB,
     private static final String URL = "jdbc:mariadb://localhost:3306/massalud";
     private static final String USUARIO = "root";
     private static final String PASS = "";
@@ -26,22 +27,23 @@ public class Conexion {
 
     }
 
+    // Verificamos que no exista una conexion establecida anteriormente.
     public static Connection getConexion() {
-        Connection con = null;
+        Connection nuevaConexion = null;
         if (conexion == null) {
 
             conexion = new Conexion();
 
         }
         try {
-            con = DriverManager.getConnection(URL + "?useLegacyDatetimeCode=false&serverTimezone=UTC" + "&user=" + USUARIO + "&password=" + PASS);
+            nuevaConexion = DriverManager.getConnection(URL + "?useLegacyDatetimeCode=false&serverTimezone=UTC" + "&user=" + USUARIO + "&password=" + PASS);
 
         } catch (SQLException ex) {
 
             JOptionPane.showMessageDialog(null, "Error de conexion.");
 
         }
-        return con;
+        return nuevaConexion;
 
     }
 

@@ -10,7 +10,9 @@ import modelo.Afiliado;
 /**
  *
  * @author @NickEMOlmedo
+ *
  */
+
 public class AfiliadoData {
 
     private Connection nuevaConexion = null;
@@ -20,6 +22,7 @@ public class AfiliadoData {
     public AfiliadoData() {
 
         //Probamos si la conexion se ha realizado correctamente y lo almacenamos en una variable.
+        
         nuevaConexion = Conexion.getConexion();
 
         if (nuevaConexion != null) {
@@ -91,8 +94,6 @@ public class AfiliadoData {
 
     public void modificarAfiliados(int id) {
 
-        
-        
     }
 
 }
