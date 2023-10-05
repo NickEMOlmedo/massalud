@@ -11,24 +11,32 @@ public class Prestador {
     private String nombre;
     private String apellido;
     private int dni;
+    private String domicilio;
+    private int telefono;
+
+   
     private boolean activo;
     private Especialidad especialidad;
 
     public Prestador() {}
 
-    public Prestador(int idPrestador, String nombre, String apellido, int dni, boolean activo, Especialidad especialidad) {
+    public Prestador(int idPrestador, String nombre, String apellido, int dni,String domicilio,int telefono, boolean activo, Especialidad especialidad) {
         this.idPrestador = idPrestador;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+        this.domicilio=domicilio;
+        this.telefono = telefono;
         this.activo = activo;
         this.especialidad = especialidad;
     }
 
-    public Prestador(String nombre, String apellido, int dni, boolean activo, Especialidad especialidad) {
+    public Prestador(String nombre, String apellido, int dni,String domicilio,int telefono, boolean activo, Especialidad especialidad) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+        this.domicilio=domicilio;
+        this.telefono = telefono;
         this.activo = activo;
         this.especialidad = especialidad;
     }
@@ -65,6 +73,22 @@ public class Prestador {
         this.dni = dni;
     }
 
+    public String getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
     public boolean isActivo() {
         return activo;
     }
@@ -83,7 +107,7 @@ public class Prestador {
 
     @Override
     public String toString() {
-        return "PRESTADOR: " + "ID: " + idPrestador + " NOMBRE: " + nombre + " APELLIDO: " + apellido + " DNI: " + dni + " ACTIVO: " + activo + " ESPECIALIDAD: " + especialidad;
+        return "PRESTADOR: " + "ID: " + idPrestador + " NOMBRE: " + nombre + " APELLIDO: " + apellido + " DNI: " + dni + "DOMICILIO:  " +domicilio +"TELEFONO: "+ telefono + "ACTIVO: " + activo + " ESPECIALIDAD: " + especialidad;
     }
     
     
