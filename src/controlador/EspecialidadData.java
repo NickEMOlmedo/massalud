@@ -56,4 +56,51 @@ public class EspecialidadData {
             JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla Especialidad");
         }
     }
+    
+    public void eliminarEspecialidad(int idEspecialidad,String especialidad){
+    
+        String QUERY= "DELETE FROM especialidad WHERE idEspecialidad=? AND especialidad=?";
+        
+        try {
+            PreparedStatement ps=nuevaConexion.prepareStatement(QUERY);
+            
+            ps.setInt(1,idEspecialidad);
+            ps.setString(2, especialidad);
+            
+            int filas = ps.executeUpdate();
+            if (filas > 0) {
+                JOptionPane.showMessageDialog(null, "Especialidad Eliminada");
+            }
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla Especialidad");
+        }
+    }
+    
+    public Especialidad buscarEspecialidad(int id){
+    
+        String QUERY= "SELECT especialidad FROM especialidad WHERE idEspecialidad=?";
+        Especialidad especialista = null;
+        try {
+            PreparedStatement ps=nuevaConexion.prepareStatement(QUERY);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+            
+                especialista=new Especialidad();
+                especialista.setIdEspecialidad(id);
+                especialista.setEspecialidad(rs.getString("especialidad"));
+            } else {
+                JOptionPane.showMessageDialog(null, " No esxiste esa Especialidaad");
+            }
+            ps.close();
+                       
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla Especialidad");
+        }
+        return especialista;
+    }
+    
 }
