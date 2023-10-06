@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Especialidad;
+import org.mariadb.jdbc.Statement;
 
 public class EspecialidadData {
 
@@ -38,7 +39,7 @@ public class EspecialidadData {
 
         //Cargamos los datos en el statement y procedemos a enviarlos..
         try {
-            PreparedStatement ps = nuevaConexion.prepareStatement(QUERY);
+            PreparedStatement ps = nuevaConexion.prepareStatement(QUERY,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, especialidad.getEspecialidad());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -101,6 +102,29 @@ public class EspecialidadData {
             JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla Especialidad");
         }
         return especialista;
+    }
+    
+    public void modificarEspecialidad(Especialidad especialidad){
+    
+        String QUERY= "UPDATE especialidad SET especialidad = ? WHERE idEspecialidad = ?";
+        
+         PreparedStatement ps = null;
+         
+        try {
+            ps= nuevaConexion.prepareStatement(QUERY);
+            ps.setString(1, especialidad.getEspecialidad());
+            ps.setInt(2,especialidad.getIdEspecialidad());
+            
+             int exito = ps.executeUpdate();
+            if (exito == 1) {
+                JOptionPane.showMessageDialog(null, " Especialidad Modificada ");
+            } else {
+                JOptionPane.showMessageDialog(null, " La Especialidad  No Existe ");
+            }
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla Especialidad");
+        }
     }
     
 }
