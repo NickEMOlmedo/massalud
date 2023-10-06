@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -41,17 +42,18 @@ public class AfiliadoData {
     //Metodo que guarda un nuevo afiliado en la base de datos.
     public void guardarAfiliado(Afiliado afiliado) {
 
-        final String QUERY = "INSERT INTO afiliado(nombre,apellido,dni,domicilio,telefono)"
-                + "VALUES(?,?,?,?,?)";
+        final String QUERY = "INSERT INTO afiliado(nombre,apellido,dni,domicilio,telefono,activo)"
+                + "VALUES(?,?,?,?,?,?)";
 
         //Cargamos los datos en el statement y procedemos a enviarlos.
         try {
-            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY,Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, afiliado.getNombre());
             statement.setString(2, afiliado.getApellido());
             statement.setInt(3, afiliado.getDni());
             statement.setString(4, afiliado.getDomicilio());
             statement.setInt(5, afiliado.getTelefono());
+           statement.setBoolean(6,afiliado.isActivo());
             statement.executeUpdate();
             ResultSet result = statement.getGeneratedKeys();
 
@@ -97,15 +99,15 @@ public class AfiliadoData {
         final String QUERY = "UPDATE afiliado SET nombre = ?, apellido = ?, dni = ?, domicilio = ?, telefono = ?, activo = ? WHERE idAfiliado = ? ";
 
         try {
-
-            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            PreparedStatement statement = null;
+            statement = nuevaConexion.prepareStatement(QUERY);
             statement.setString(1, afiliado.getNombre());
             statement.setString(2, afiliado.getApellido());
             statement.setInt(3, afiliado.getDni());
             statement.setString(4, afiliado.getDomicilio());
             statement.setInt(5, afiliado.getTelefono());
             statement.setBoolean(6, afiliado.isActivo());
-            statement.setInt(6, afiliado.getIdAfiliado());
+            statement.setInt(7, afiliado.getIdAfiliado());
             int updateExitoso = statement.executeUpdate();
             if (updateExitoso == 1) {
 
