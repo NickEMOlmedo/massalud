@@ -5,8 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Afiliado;
 
@@ -47,13 +46,13 @@ public class AfiliadoData {
 
         //Cargamos los datos en el statement y procedemos a enviarlos.
         try {
-            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY,Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, afiliado.getNombre());
             statement.setString(2, afiliado.getApellido());
             statement.setInt(3, afiliado.getDni());
             statement.setString(4, afiliado.getDomicilio());
             statement.setInt(5, afiliado.getTelefono());
-           statement.setBoolean(6,afiliado.isActivo());
+            statement.setBoolean(6, afiliado.isActivo());
             statement.executeUpdate();
             ResultSet result = statement.getGeneratedKeys();
 
@@ -94,12 +93,13 @@ public class AfiliadoData {
 
     }
 
+    //Metodo que nos permite la modificacion de los datos de un afiliado.
     public void modificarAfiliado(Afiliado afiliado) {
 
         final String QUERY = "UPDATE afiliado SET nombre = ?, apellido = ?, dni = ?, domicilio = ?, telefono = ?, activo = ? WHERE idAfiliado = ? ";
 
         try {
-            PreparedStatement statement = null;
+            PreparedStatement statement;
             statement = nuevaConexion.prepareStatement(QUERY);
             statement.setString(1, afiliado.getNombre());
             statement.setString(2, afiliado.getApellido());
@@ -122,6 +122,113 @@ public class AfiliadoData {
 
             JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
         }
+
+    }
+
+    public ArrayList<Afiliado> listarActivos() {
+
+        final String QUERY = "SELECT idAfiliado, nombre, dni, domicilio, telefono WHERE activo = 1 ";
+
+        ArrayList<Afiliado> listaAfiliados = new ArrayList<>();
+
+        try {
+
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            try (ResultSet result = statement.executeQuery()) {
+                while (result.next()) {
+                    Afiliado afiliado = new Afiliado();
+                    afiliado.setIdAfiliado(result.getInt("idAfiliado"));
+                    afiliado.setNombre(result.getString("nombre"));
+                    afiliado.setApellido(result.getString("apellido"));
+                    afiliado.setDni(result.getInt("dni"));
+                    afiliado.setDomicilio(result.getString("domicilio"));
+                    afiliado.setTelefono(result.getInt("telefono"));
+                    afiliado.setActivo(result.getBoolean("activo"));
+
+                    listaAfiliados.add(afiliado);
+                }
+            }
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "!Error al Modificar los Datos del Afiliado, intente Nuevamente! " + ex);
+
+        }
+
+        return listaAfiliados;
+
+    }
+
+    public Afiliado buscarAfiliado_id(int id) {
+
+        Afiliado afiliado = null;
+
+        final String QUERY = "SELECT idAfiliado, nombre, apellido, dni, domicilio, telefono, activo FROM afiliado WHERE idAfiliado = ? && activo = 1";
+
+        try {
+
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            statement.setInt(1, id);
+            ResultSet result = statement.executeQuery();
+
+            if (result.next()) {
+                afiliado = new Afiliado();
+                afiliado.setIdAfiliado(id);
+                afiliado.setNombre(result.getString("nombre"));
+                afiliado.setApellido(result.getString("apellido"));
+                afiliado.setDni(result.getInt("dni"));
+                afiliado.setDomicilio(result.getString("domicilio"));
+                afiliado.setTelefono(result.getInt("telefono"));
+                afiliado.setActivo(result.getBoolean("activo"));
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "¡El afiliado no existe!");
+
+            }
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+
+        }
+
+        return afiliado;
+
+    }
+
+    public Afiliado buscarAfiliado_dni(int dni) {
+
+        Afiliado afiliado = null;
+
+        final String QUERY = "SELECT idAfiliado, nombre, apellido, dni, domicilio, telefono, activo FROM afiliado WHERE dni = ? && activo = 1";
+
+        try {
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            statement.setInt(1, dni);
+            ResultSet result = statement.executeQuery();
+            if (result.next()) {
+                afiliado = new Afiliado();
+                afiliado.setIdAfiliado(result.getInt(result.getInt("idAfiliado")));
+                afiliado.setNombre(result.getString("nombre"));
+                afiliado.setApellido(result.getString("Apellido"));
+                afiliado.setDni(dni);
+                afiliado.setDomicilio(result.getString("domicilio"));
+                afiliado.setTelefono(result.getInt("telefono"));
+                afiliado.setActivo(result.getBoolean("activo"));
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "¡El afiliado no existe!");
+
+            }
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+
+        }
+
+        return afiliado;
 
     }
 
