@@ -1,15 +1,18 @@
-## Directorio de configuración privada de NetBeans
+# Directorio de configuración de NetBeans
 nbproject/private/
 
-# Archivo de construcción generado por NetBeans
-nbproject/build-impl.xml
+# Directorio de compilación de NetBeans
+build/
+
+# Directorio de distribución de NetBeans
+dist/
 
 # Archivos específicos de NetBeans
-nbproject/genfiles.properties
-nbproject/configs/
+nbproject/*.properties
+nbproject/*.xml
+nbproject/*.private
 
-# Archivos específicos del proyecto NetBeans
+# Logs y archivos de configuración generados por NetBeans
+nbactions.xml
+.nb-gradle/
 build.xml
-manifest.mf
-nbproject/project.properties
-nbproject/project.xml
