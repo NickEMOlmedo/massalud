@@ -112,5 +112,43 @@ public class PrestadorData {
             
              JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
     }
+    }
+       public Prestador buscarPrestadorApellido(String apellido) {
 
-}}
+        String QUERY = "SELECT idPrestador, nombre,apellido, dni, domicilio, telefono FROM prestador WHERE apellido = ? AND estado = 1";
+        Prestador prestador = null;
+        
+        try {
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+           
+            statement.setString(1, apellido);
+            ResultSet rs = statement.executeQuery();
+            
+            if (rs.next()){
+                prestador = new Prestador();
+            
+            prestador.setIdPrestador(rs.getInt("idPrestador"));
+            prestador.setNombre(rs.getString("nombre"));
+            prestador.setDni(rs.getInt("dni"));
+            prestador.setDomicilio(rs.getString("domicilio"));
+            prestador.setTelefono(rs.getInt("telefono"));
+            prestador.setActivo(true);
+            }
+             else{
+                    JOptionPane.showMessageDialog(null, "No existe ese prestador");
+     
+            }
+         statement.close();
+           
+
+              
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+        }
+        return prestador;
+    }
+}
+
+          
+          
