@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import modelo.Afiliado;
 import modelo.Orden;
 
 public class OrdenData {
@@ -67,33 +68,39 @@ public class OrdenData {
             JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla Orden");
         }
     }
+////    
+////    public ArrayList<Orden> Orden_EmitidaPrFecha(LocalDate fecha){
+////    
+////        
+////    }
 //    
-//    public ArrayList<Orden> Orden_EmitidaPrFecha(LocalDate fecha){
+//    public ArrayList<Orden> Orden_SacadasPorAfilido(int idAfiliado){
 //    
+//        ArrayList<Orden> ordenes=new ArrayList();
+//        final String QUERY="SELECT * FROM orden WHERE idAfiliado = ? ";
 //        
+//        try {
+//            PreparedStatement statement=nuevaConexion.prepareStatement(QUERY);
+//            statement.setInt(1, idAfiliado);
+//            ResultSet result=statement.executeQuery();
+//            while(result.next()){
+//            Orden orden=new Orden();
+//            orden.setIdOrden(result.getInt("idOrden"));
+//            orden.setFecha(result.getDate("fecha").toLocalDate());
+//            orden.setFormaPago(result.getString("formaPago"));
+//            orden.setImporte(result.getDouble("importe"));
+//            Afiliado afiliado = afiData.buscarAfiliado_id(result.getInt("idAfiliado"));
+//            Prestador prestador=presData.
+//                
+//            }
+//            
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla Orden");
+//        }
 //    }
-    
-    public ArrayList<Orden> Orden_SacadasPorAfilido(int idAfiliado){
-    
-        ArrayList<Orden> ordenes=new ArrayList();
-        final String QUERY="SELECT * FROM orden WHERE idAfiliado = ? ";
-        
-        try {
-            PreparedStatement statement=nuevaConexion.prepareStatement(QUERY);
-            statement.setInt(1, idAfiliado);
-            ResultSet result=statement.executeQuery();
-            while(result.next()){
-            
-                
-            }
-            
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla Orden");
-        }
-    }
-    
-//    public ArrayList<Orden> Orden_SacadasSegunPrestador(int idPrestador){
 //    
-//        
-//    }
+////    public ArrayList<Orden> Orden_SacadasSegunPrestador(int idPrestador){
+////    
+////        
+////    }
 }
