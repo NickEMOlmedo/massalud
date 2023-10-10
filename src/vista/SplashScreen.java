@@ -6,6 +6,8 @@
 
 package vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Nickolas
@@ -34,13 +36,13 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
-        jTextField3 = new javax.swing.JTextField();
+        text_usuario = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        Ingresar_Button = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        text_password = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -74,21 +76,21 @@ public class SplashScreen extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 110, 30));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 370, 10));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 230, 30));
+        getContentPane().add(text_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 230, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("MasSalud");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
-        jButton3.setBackground(new java.awt.Color(51, 102, 255));
-        jButton3.setText("Ingresar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Ingresar_Button.setBackground(new java.awt.Color(51, 102, 255));
+        Ingresar_Button.setText("Ingresar");
+        Ingresar_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                Ingresar_ButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 110, 30));
+        getContentPane().add(Ingresar_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 110, 30));
 
         jSeparator3.setForeground(new java.awt.Color(51, 102, 255));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 30));
@@ -99,8 +101,8 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel8.setText("@NickEMOlmedo | @Fabiana76 | @GustavoAcosta84");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, -1, -1));
 
-        jPasswordField1.setText("dsadsadasdas");
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 230, 30));
+        text_password.setText("dsadsadasdas");
+        getContentPane().add(text_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 230, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
@@ -119,9 +121,22 @@ public class SplashScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void Ingresar_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ingresar_ButtonActionPerformed
+  
+        String Usuario = "Administrador";
+       String Contraseña = "massalud";
+       
+       String Pass = new String (text_password.getPassword());
+       if (text_usuario.getText().equals(Usuario)&& Pass.equals(Contraseña)){
+           
+       }
+       else{
+      JOptionPane.showMessageDialog(this, " Usuario / Contraseña incorrecto ");
+    }
+        
+
+
+    }//GEN-LAST:event_Ingresar_ButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,8 +174,8 @@ public class SplashScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Ingresar_Button;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -170,9 +185,9 @@ public class SplashScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JPasswordField text_password;
+    private javax.swing.JTextField text_usuario;
     // End of variables declaration//GEN-END:variables
 }
