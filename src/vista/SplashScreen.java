@@ -34,11 +34,11 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        salir_button = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         text_usuario = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        Ingresar_Button = new javax.swing.JButton();
+        ingresar_Button = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -67,14 +67,14 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel4.setText("Contraseña:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(51, 102, 255));
-        jButton1.setText("Salir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        salir_button.setBackground(new java.awt.Color(51, 102, 255));
+        salir_button.setText("Salir");
+        salir_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                salir_buttonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 110, 30));
+        getContentPane().add(salir_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 110, 30));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 370, 10));
         getContentPane().add(text_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 230, 30));
 
@@ -83,14 +83,14 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel5.setText("MasSalud");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
-        Ingresar_Button.setBackground(new java.awt.Color(51, 102, 255));
-        Ingresar_Button.setText("Ingresar");
-        Ingresar_Button.addActionListener(new java.awt.event.ActionListener() {
+        ingresar_Button.setBackground(new java.awt.Color(51, 102, 255));
+        ingresar_Button.setText("Ingresar");
+        ingresar_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Ingresar_ButtonActionPerformed(evt);
+                ingresar_ButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(Ingresar_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 110, 30));
+        getContentPane().add(ingresar_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 110, 30));
 
         jSeparator3.setForeground(new java.awt.Color(51, 102, 255));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 30));
@@ -100,8 +100,6 @@ public class SplashScreen extends javax.swing.JFrame {
 
         jLabel8.setText("@NickEMOlmedo | @Fabiana76 | @GustavoAcosta84");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, -1, -1));
-
-        text_password.setText("dsadsadasdas");
         getContentPane().add(text_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 230, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -117,11 +115,13 @@ public class SplashScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void salir_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salir_buttonActionPerformed
 
-    private void Ingresar_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ingresar_ButtonActionPerformed
+        this.dispose();
+
+    }//GEN-LAST:event_salir_buttonActionPerformed
+
+    private void ingresar_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresar_ButtonActionPerformed
   
         String Usuario = "Administrador";
        String Contraseña = "massalud";
@@ -136,7 +136,7 @@ public class SplashScreen extends javax.swing.JFrame {
         
 
 
-    }//GEN-LAST:event_Ingresar_ButtonActionPerformed
+    }//GEN-LAST:event_ingresar_ButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,8 +174,7 @@ public class SplashScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Ingresar_Button;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton ingresar_Button;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -187,6 +186,7 @@ public class SplashScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JButton salir_button;
     private javax.swing.JPasswordField text_password;
     private javax.swing.JTextField text_usuario;
     // End of variables declaration//GEN-END:variables
