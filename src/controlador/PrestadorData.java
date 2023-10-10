@@ -31,10 +31,10 @@ public class PrestadorData {
         return conexionExitosa;
     }
         //Metodo que guarda un nuevo Prestador a la base de datos
-     public void guardarPrestdor(Prestador prestador) {
+     public void guardarPrestador(Prestador prestador) {
 
         String QUERY = "INSERT INTO prestador(nombre,apellido,dni,domicilio,telefono,activo)"
-                + " VALUES(?,?,?,?,?,?)";
+                + " VALUES(?,?,?,?,?,?,?)";
 
         //Cargamos los datos en el statement y procedemos a enviarlos.
         try {
@@ -148,7 +148,45 @@ public class PrestadorData {
         }
         return prestador;
     }
-}
+       
+       public Prestador buscarPrestador_id(int id) {
 
+        Prestador prestador = null;
+
+        final String QUERY = "SELECT idPrestador, nombre, apellido, dni, domicilio, telefono, activo FROM prestador WHERE idPrestador = ? AND estado = 1";
+
+        try {
+
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            statement.setInt(1, id);
+            ResultSet result = statement.executeQuery();
+
+            if (result.next()) {
+                
+                 prestador = new Prestador();
+                 
+               prestador.setIdPrestador(id);
+               prestador.setNombre(result.getString("nombre"));
+               prestador.setApellido(result.getString("apellido"));
+               prestador.setDni(result.getInt("dni"));
+               prestador.setDomicilio(result.getString("domicilio"));
+               prestador.setTelefono(result.getInt("telefono"));
+               prestador.setActivo(result.getBoolean("activo"));
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "¡El prestador no existe!");
+
+            }
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+
+        }
+
+        return prestador;
+}
+}
           
           
