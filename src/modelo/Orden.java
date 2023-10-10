@@ -66,7 +66,7 @@ public class Orden {
         return afiliado;
     }
 
-    public void setIdAfiliado(Afiliado afiliado) {
+    public void setAfiliado(Afiliado afiliado) {
         this.afiliado = afiliado;
     }
 
