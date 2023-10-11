@@ -125,7 +125,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
         text_telefono.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         getContentPane().add(text_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 280, 30));
 
-        button_limpiar.setBackground(new java.awt.Color(51, 102, 255));
+        button_limpiar.setBackground(new java.awt.Color(255, 255, 255));
         button_limpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_limpiar.setForeground(new java.awt.Color(51, 51, 51));
         button_limpiar.setText("Limpiar");
@@ -136,9 +136,8 @@ public class VistaAfiliado extends javax.swing.JFrame {
         });
         getContentPane().add(button_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 530, 110, 30));
 
-        button_principal.setBackground(new java.awt.Color(51, 102, 255));
+        button_principal.setBackground(new java.awt.Color(255, 255, 255));
         button_principal.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        button_principal.setForeground(new java.awt.Color(51, 51, 51));
         button_principal.setText("Principal");
         button_principal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,9 +146,8 @@ public class VistaAfiliado extends javax.swing.JFrame {
         });
         getContentPane().add(button_principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 60));
 
-        button_guardar.setBackground(new java.awt.Color(51, 102, 255));
+        button_guardar.setBackground(new java.awt.Color(255, 255, 255));
         button_guardar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        button_guardar.setForeground(new java.awt.Color(51, 51, 51));
         button_guardar.setText("Guardar");
         button_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,9 +159,8 @@ public class VistaAfiliado extends javax.swing.JFrame {
         jSeparator6.setForeground(new java.awt.Color(51, 102, 255));
         getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 10));
 
-        button_atras.setBackground(new java.awt.Color(51, 102, 255));
-        button_atras.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        button_atras.setForeground(new java.awt.Color(51, 51, 51));
+        button_atras.setBackground(new java.awt.Color(255, 255, 255));
+        button_atras.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         button_atras.setText("Atras");
         button_atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

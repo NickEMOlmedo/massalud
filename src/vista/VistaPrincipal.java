@@ -10,12 +10,12 @@ package vista;
  *
  * @author Nickolas
  */
-public class Principal extends javax.swing.JFrame {
+public class VistaPrincipal extends javax.swing.JFrame {
 
     /**
-     * Creates new form Principal
+     * Creates new form VistaPrincipal
      */
-    public Principal() {
+    public VistaPrincipal() {
         initComponents();
     }
 
@@ -28,73 +28,35 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel5 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
-        button_salir = new javax.swing.JButton();
-        button_inicio = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
+        jButton7 = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(204, 204, 204));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel5.setText("MasSalud");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 230, 10));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 230, 10));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Principal");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, -1, -1));
-        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 230, 10));
 
-        button_salir.setBackground(new java.awt.Color(51, 102, 255));
-        button_salir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        button_salir.setForeground(new java.awt.Color(51, 51, 51));
-        button_salir.setText("Salir");
-        button_salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_salirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 60));
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setText("MasSalud");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
 
-        button_inicio.setBackground(new java.awt.Color(51, 102, 255));
-        button_inicio.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        button_inicio.setForeground(new java.awt.Color(51, 51, 51));
-        button_inicio.setText("Inicio");
-        button_inicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_inicioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(button_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 60));
-
-        jButton7.setBackground(new java.awt.Color(51, 102, 255));
-        jButton7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(51, 51, 51));
-        jButton7.setText("ESPECIALIDADES");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 280, 70));
-
-        jButton8.setBackground(new java.awt.Color(51, 102, 255));
+        jButton8.setBackground(new java.awt.Color(255, 255, 255));
         jButton8.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(51, 51, 51));
         jButton8.setText("AFILIADOS");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,9 +65,8 @@ public class Principal extends javax.swing.JFrame {
         });
         getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 280, 70));
 
-        jButton9.setBackground(new java.awt.Color(51, 102, 255));
+        jButton9.setBackground(new java.awt.Color(255, 255, 255));
         jButton9.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(51, 51, 51));
         jButton9.setText("PRESTADORES");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,9 +75,8 @@ public class Principal extends javax.swing.JFrame {
         });
         getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 280, 70));
 
-        jButton10.setBackground(new java.awt.Color(51, 102, 255));
+        jButton10.setBackground(new java.awt.Color(255, 255, 255));
         jButton10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(51, 51, 51));
         jButton10.setText("ORDENES");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,32 +85,28 @@ public class Principal extends javax.swing.JFrame {
         });
         getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 280, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/image 8.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
+        jButton7.setBackground(new java.awt.Color(255, 255, 255));
+        jButton7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jButton7.setText("ESPECIALIDADES");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 280, 70));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Ellipse 6.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 330, 460));
-
-        jSeparator6.setForeground(new java.awt.Color(51, 102, 255));
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 800, 10));
-
-        jSeparator9.setForeground(new java.awt.Color(51, 102, 255));
+        jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 800, 10));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Ellipse 6.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 420, -1));
+
+        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 800, 10));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_button_salirActionPerformed
-
-    private void button_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_inicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_button_inicioActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
@@ -163,6 +119,10 @@ public class Principal extends javax.swing.JFrame {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,33 +141,30 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new VistaPrincipal().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton button_inicio;
-    private javax.swing.JButton button_salir;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JSeparator jSeparator2;

@@ -71,9 +71,8 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel4.setText("Contraseña:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
-        button_salir.setBackground(new java.awt.Color(51, 102, 255));
+        button_salir.setBackground(new java.awt.Color(255, 255, 255));
         button_salir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        button_salir.setForeground(new java.awt.Color(51, 51, 51));
         button_salir.setText("Salir");
         button_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +90,7 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel5.setText("MasSalud");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
-        button_ingresar.setBackground(new java.awt.Color(51, 102, 255));
+        button_ingresar.setBackground(new java.awt.Color(255, 255, 255));
         button_ingresar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_ingresar.setForeground(new java.awt.Color(51, 51, 51));
         button_ingresar.setText("Ingresar");
@@ -142,7 +141,7 @@ public class SplashScreen extends javax.swing.JFrame {
        
        String Pass = new String (text_password.getPassword());
        if (text_usuario.getText().equals(Usuario)&& Pass.equals(Contraseña)){
-        Principal ppal = new Principal();
+        VistaPrincipal ppal = new VistaPrincipal();
         ppal.setVisible(true);
         dispose();
        }
