@@ -30,6 +30,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        button_verAfiliados = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -51,9 +52,10 @@ public class VistaAfiliado extends javax.swing.JFrame {
         button_guardar = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JSeparator();
         button_atras = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(204, 204, 204));
+        setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
@@ -65,16 +67,33 @@ public class VistaAfiliado extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Cargar Nuevo Afiliado:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
+
+        button_verAfiliados.setBackground(new java.awt.Color(255, 255, 255));
+        button_verAfiliados.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        button_verAfiliados.setForeground(new java.awt.Color(51, 51, 51));
+        button_verAfiliados.setText("Ver Afiliados");
+        button_verAfiliados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_verAfiliadosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_verAfiliados, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 120, 70));
+
+        jSeparator2.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 230, 10));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/female doctor_fococlipping_removed 1.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 470, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 470, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Afiliados");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, -1, -1));
+
+        jSeparator4.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 200, 10));
+
+        jSeparator5.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 230, 10));
 
         text_nombre.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -138,6 +157,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
         button_principal.setBackground(new java.awt.Color(255, 255, 255));
         button_principal.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        button_principal.setForeground(new java.awt.Color(51, 51, 51));
         button_principal.setText("Principal");
         button_principal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +168,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
         button_guardar.setBackground(new java.awt.Color(255, 255, 255));
         button_guardar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button_guardar.setForeground(new java.awt.Color(51, 51, 51));
         button_guardar.setText("Guardar");
         button_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,11 +177,12 @@ public class VistaAfiliado extends javax.swing.JFrame {
         });
         getContentPane().add(button_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, 110, 30));
 
-        jSeparator6.setForeground(new java.awt.Color(51, 102, 255));
+        jSeparator6.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 10));
 
         button_atras.setBackground(new java.awt.Color(255, 255, 255));
         button_atras.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        button_atras.setForeground(new java.awt.Color(51, 51, 51));
         button_atras.setText("Atras");
         button_atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,6 +190,9 @@ public class VistaAfiliado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(button_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 60));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Ellipse 6.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 440, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -184,13 +209,17 @@ public class VistaAfiliado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_button_guardarActionPerformed
 
-    private void button_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_atrasActionPerformed
+    private void button_verAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_verAfiliadosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_button_atrasActionPerformed
+    }//GEN-LAST:event_button_verAfiliadosActionPerformed
 
     private void button_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_principalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_button_principalActionPerformed
+
+    private void button_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_atrasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_atrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,9 +261,11 @@ public class VistaAfiliado extends javax.swing.JFrame {
     private javax.swing.JButton button_guardar;
     private javax.swing.JButton button_limpiar;
     private javax.swing.JButton button_principal;
+    private javax.swing.JButton button_verAfiliados;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

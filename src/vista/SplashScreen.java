@@ -48,10 +48,9 @@ public class SplashScreen extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
-        jSeparator8 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(204, 204, 204));
+        setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/female-doctor_fococlipping_removed 1.png"))); // NOI18N
@@ -73,6 +72,7 @@ public class SplashScreen extends javax.swing.JFrame {
 
         button_salir.setBackground(new java.awt.Color(255, 255, 255));
         button_salir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button_salir.setForeground(new java.awt.Color(51, 51, 51));
         button_salir.setText("Salir");
         button_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +81,7 @@ public class SplashScreen extends javax.swing.JFrame {
         });
         getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 110, 30));
 
-        jSeparator2.setForeground(new java.awt.Color(51, 102, 255));
+        jSeparator2.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 370, 10));
         getContentPane().add(text_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 230, 30));
 
@@ -101,7 +101,7 @@ public class SplashScreen extends javax.swing.JFrame {
         });
         getContentPane().add(button_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 110, 30));
 
-        jSeparator3.setForeground(new java.awt.Color(51, 102, 255));
+        jSeparator3.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 30));
 
         jLabel7.setText("Desarrollado Por:");
@@ -120,10 +120,13 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("Usuario:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+
+        jSeparator4.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 230, 10));
         getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 230, 10));
-        getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 230, 10));
-        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 230, 10));
+
+        jSeparator7.setForeground(new java.awt.Color(153, 204, 255));
+        getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 230, 10));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -205,7 +208,6 @@ public class SplashScreen extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JPasswordField text_password;
     private javax.swing.JTextField text_usuario;
     // End of variables declaration//GEN-END:variables

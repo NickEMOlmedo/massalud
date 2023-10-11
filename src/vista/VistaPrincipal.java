@@ -38,11 +38,19 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
+        button_salir = new javax.swing.JButton();
+        button_inicio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jSeparator5.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 230, 10));
+
+        jSeparator2.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 230, 10));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -57,6 +65,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jButton8.setBackground(new java.awt.Color(255, 255, 255));
         jButton8.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(51, 51, 51));
         jButton8.setText("AFILIADOS");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +76,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jButton9.setBackground(new java.awt.Color(255, 255, 255));
         jButton9.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jButton9.setForeground(new java.awt.Color(51, 51, 51));
         jButton9.setText("PRESTADORES");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +87,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jButton10.setBackground(new java.awt.Color(255, 255, 255));
         jButton10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jButton10.setForeground(new java.awt.Color(51, 51, 51));
         jButton10.setText("ORDENES");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +98,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jButton7.setBackground(new java.awt.Color(255, 255, 255));
         jButton7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(51, 51, 51));
         jButton7.setText("ESPECIALIDADES");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,15 +107,40 @@ public class VistaPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 280, 70));
 
-        jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator9.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 800, 10));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Ellipse 6.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 420, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/female-doctor_fococlipping_removed 1.png"))); // NOI18N
+        jLabel1.setAutoscrolls(true);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 390, -1));
 
-        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Ellipse 6.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 440, 340));
+
+        jSeparator6.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 800, 10));
+
+        button_salir.setBackground(new java.awt.Color(255, 255, 255));
+        button_salir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        button_salir.setForeground(new java.awt.Color(51, 51, 51));
+        button_salir.setText("Salir");
+        button_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_salirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 60));
+
+        button_inicio.setBackground(new java.awt.Color(255, 255, 255));
+        button_inicio.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        button_inicio.setForeground(new java.awt.Color(51, 51, 51));
+        button_inicio.setText("Inicio / Logout");
+        button_inicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_inicioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 110, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -123,6 +160,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_salirActionPerformed
+
+    private void button_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_inicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_inicioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,11 +205,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_inicio;
+    private javax.swing.JButton button_salir;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JSeparator jSeparator2;
