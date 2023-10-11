@@ -45,6 +45,10 @@ public class SplashScreen extends javax.swing.JFrame {
         text_password = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -65,7 +69,7 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Contraseña:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
         button_salir.setBackground(new java.awt.Color(51, 102, 255));
         button_salir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -76,9 +80,11 @@ public class SplashScreen extends javax.swing.JFrame {
                 button_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 110, 30));
+        getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 110, 30));
+
+        jSeparator2.setForeground(new java.awt.Color(51, 102, 255));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 370, 10));
-        getContentPane().add(text_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 230, 30));
+        getContentPane().add(text_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 230, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
@@ -94,7 +100,7 @@ public class SplashScreen extends javax.swing.JFrame {
                 button_ingresarActionPerformed(evt);
             }
         });
-        getContentPane().add(button_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 110, 30));
+        getContentPane().add(button_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 110, 30));
 
         jSeparator3.setForeground(new java.awt.Color(51, 102, 255));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 30));
@@ -104,7 +110,7 @@ public class SplashScreen extends javax.swing.JFrame {
 
         jLabel8.setText("@NickEMOlmedo | @Fabiana76 | @GustavoAcosta84");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, -1, -1));
-        getContentPane().add(text_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 230, 30));
+        getContentPane().add(text_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 230, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
@@ -114,7 +120,11 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("Usuario:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 230, 10));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 230, 10));
+        getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 230, 10));
+        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 230, 10));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -191,6 +201,10 @@ public class SplashScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JPasswordField text_password;
     private javax.swing.JTextField text_usuario;
     // End of variables declaration//GEN-END:variables

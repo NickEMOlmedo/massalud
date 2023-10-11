@@ -64,7 +64,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Cargar Nuevo Afiliado:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 230, 10));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 230, 10));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/female doctor_fococlipping_removed 1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 470, -1));
@@ -72,9 +72,9 @@ public class VistaAfiliado extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Afiliados");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, -1, -1));
-        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 200, 10));
-        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 230, 10));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, -1, -1));
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 200, 10));
+        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 230, 10));
 
         text_nombre.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         text_nombre.addActionListener(new java.awt.event.ActionListener() {

@@ -32,15 +32,16 @@ public class Principal extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
         button_salir = new javax.swing.JButton();
         button_inicio = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator9 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -49,16 +50,13 @@ public class Principal extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("MasSalud");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 230, 10));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 230, 10));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Principal");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, -1, -1));
-        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 230, 10));
-
-        jSeparator6.setForeground(new java.awt.Color(51, 102, 255));
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 10));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, -1, -1));
+        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 230, 10));
 
         button_salir.setBackground(new java.awt.Color(51, 102, 255));
         button_salir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -91,7 +89,7 @@ public class Principal extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 280, 70));
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 280, 70));
 
         jButton8.setBackground(new java.awt.Color(51, 102, 255));
         jButton8.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -102,7 +100,7 @@ public class Principal extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 280, 70));
+        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 280, 70));
 
         jButton9.setBackground(new java.awt.Color(51, 102, 255));
         jButton9.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -113,7 +111,7 @@ public class Principal extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 280, 70));
+        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 280, 70));
 
         jButton10.setBackground(new java.awt.Color(51, 102, 255));
         jButton10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -124,13 +122,19 @@ public class Principal extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 280, 70));
+        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 280, 70));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/female-doctor_fococlipping_removed 1.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 360, 430));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/image 8.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Ellipse 6.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 400, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Ellipse 6.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 330, 460));
+
+        jSeparator6.setForeground(new java.awt.Color(51, 102, 255));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 800, 10));
+
+        jSeparator9.setForeground(new java.awt.Color(51, 102, 255));
+        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 800, 10));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -208,5 +212,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator9;
     // End of variables declaration//GEN-END:variables
 }
