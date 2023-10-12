@@ -30,7 +30,7 @@ public class MasSalud {
 //PRUEBA DE AFILIADODATA
         //Guardar un afiliado
         //Afiliado jose=new Afiliado("Carlos","Gauna",29456090,"Junín 1800",15349099,true);
-        //AfiliadoData afil=new AfiliadoData();
+        AfiliadoData afil=new AfiliadoData();
         //afil.guardarAfiliado(jose);
         
         //Eliminar Afiliado
@@ -39,6 +39,17 @@ public class MasSalud {
         //Modificar Afiliado
 //      Afiliado jose=new Afiliado(6,"Juan Carlos","Gauna",29456090,"Junín 1800",15349099,true);
 //      afil.modificarAfiliado(jose);
+
+        //Listar Afiliados Activos
+        for(Afiliado afiliado:afil.listarActivos()){
+            //System.out.println(afiliado.getIdAfiliado());
+            System.out.println(afiliado.getNombre());
+            System.out.println(afiliado.getApellido());
+            System.out.println(afiliado.getDni());
+            System.out.println(afiliado.getDomicilio());
+            System.out.println(afiliado.getTelefono());
+                    
+        }
 
 // PRUEBA DE PRESTADOR DATA
   // Guardar un prestador
