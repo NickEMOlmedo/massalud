@@ -1,10 +1,22 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package vista;
 
-public class VistaVerAfiliados extends javax.swing.JFrame {
+/**
+ *
+ * @author Nickolas
+ */
+public class VistaVerOrdenes extends javax.swing.JFrame {
 
-    public VistaVerAfiliados() {
+    /**
+     * Creates new form VistaVerOrdenes
+     */
+    public VistaVerOrdenes() {
         initComponents();
-        setResizable(false);
     }
 
     /**
@@ -18,24 +30,24 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
 
         jLabel5 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jLabel4 = new javax.swing.JLabel();
         button_atras = new javax.swing.JButton();
         button_salir = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        table_afiliados = new javax.swing.JTable();
         jSeparator8 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table_prestadores = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
         radio_MostrarInactivos = new javax.swing.JRadioButton();
         radio_mostrarActivos = new javax.swing.JRadioButton();
-        jSeparator6 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
-        jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
-        button_altaAfiliado = new javax.swing.JButton();
+        button_altaPrestador = new javax.swing.JButton();
         button_guardar = new javax.swing.JButton();
         jSeparator12 = new javax.swing.JSeparator();
-        button_bajaAfiliado = new javax.swing.JButton();
+        button_bajaPrestador = new javax.swing.JButton();
         jSeparator13 = new javax.swing.JSeparator();
+        jSeparator10 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -47,11 +59,6 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
 
         jSeparator2.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 230, 10));
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel4.setText("Listado de Afiliados ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
 
         button_atras.setBackground(new java.awt.Color(255, 255, 255));
         button_atras.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -77,10 +84,16 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel6.setText("Informacion de Afiliados");
+        jLabel6.setText("Informacion de Prestadores");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, -1));
 
-        table_afiliados.setModel(new javax.swing.table.DefaultTableModel(
+        jSeparator8.setForeground(new java.awt.Color(153, 204, 255));
+        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 230, 10));
+
+        jSeparator6.setForeground(new java.awt.Color(153, 204, 255));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 10));
+
+        table_prestadores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -91,12 +104,14 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(table_afiliados);
+        jScrollPane1.setViewportView(table_prestadores);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 600, 380));
 
-        jSeparator8.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 230, 10));
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel4.setText("Listado de Prestadores");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
 
         radio_MostrarInactivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_MostrarInactivos.setForeground(new java.awt.Color(102, 102, 102));
@@ -108,22 +123,16 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         radio_mostrarActivos.setText("Mostrar Activos");
         getContentPane().add(radio_mostrarActivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, -1, -1));
 
-        jSeparator6.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 10));
-
         jSeparator9.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 550, 150, 10));
-
-        jSeparator10.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 230, 10));
 
         jSeparator11.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 150, -1));
 
-        button_altaAfiliado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        button_altaAfiliado.setForeground(new java.awt.Color(102, 102, 102));
-        button_altaAfiliado.setText("Alta Afiliado");
-        getContentPane().add(button_altaAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 300, 150, 60));
+        button_altaPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button_altaPrestador.setForeground(new java.awt.Color(102, 102, 102));
+        button_altaPrestador.setText("Alta Prestador");
+        getContentPane().add(button_altaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 300, 150, 60));
 
         button_guardar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_guardar.setForeground(new java.awt.Color(102, 102, 102));
@@ -133,13 +142,16 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         jSeparator12.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 150, 10));
 
-        button_bajaAfiliado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        button_bajaAfiliado.setForeground(new java.awt.Color(102, 102, 102));
-        button_bajaAfiliado.setText("Baja Afiliado");
-        getContentPane().add(button_bajaAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 150, 60));
+        button_bajaPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button_bajaPrestador.setForeground(new java.awt.Color(102, 102, 102));
+        button_bajaPrestador.setText("Baja Afiliado");
+        getContentPane().add(button_bajaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 150, 60));
 
         jSeparator13.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, 150, 10));
+
+        jSeparator10.setForeground(new java.awt.Color(153, 204, 255));
+        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 260, 10));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -171,28 +183,28 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaVerAfiliados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerOrdenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaVerAfiliados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerOrdenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaVerAfiliados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerOrdenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaVerAfiliados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerOrdenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaVerAfiliados().setVisible(true);
+                new VistaVerOrdenes().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton button_altaAfiliado;
+    private javax.swing.JButton button_altaPrestador;
     private javax.swing.JButton button_atras;
-    private javax.swing.JButton button_bajaAfiliado;
+    private javax.swing.JButton button_bajaPrestador;
     private javax.swing.JButton button_guardar;
     private javax.swing.JButton button_salir;
     private javax.swing.JLabel jLabel4;
@@ -209,6 +221,6 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JRadioButton radio_MostrarInactivos;
     private javax.swing.JRadioButton radio_mostrarActivos;
-    private javax.swing.JTable table_afiliados;
+    private javax.swing.JTable table_prestadores;
     // End of variables declaration//GEN-END:variables
 }
