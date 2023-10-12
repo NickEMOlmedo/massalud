@@ -119,7 +119,7 @@ public class SplashScreen extends javax.swing.JFrame {
 
     private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
 
-        this.dispose();
+        dispose();
 
     }//GEN-LAST:event_button_salirActionPerformed
 

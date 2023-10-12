@@ -198,11 +198,16 @@ public class VistaPrestador extends javax.swing.JFrame {
     }//GEN-LAST:event_text_nombreActionPerformed
 
     private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
-        // TODO add your handling code here:
+
+        dispose();
+
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_principalActionPerformed
-        // TODO add your handling code here:
+
+        VistaPrincipal ppal = new VistaPrincipal();
+        ppal.setVisible(true);
+        dispose();
     }//GEN-LAST:event_button_principalActionPerformed
 
     private void button_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarActionPerformed

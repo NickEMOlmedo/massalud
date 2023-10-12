@@ -148,11 +148,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_button_vistaEspecialidadesActionPerformed
 
     private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_inicioActionPerformed
-        // TODO add your handling code here:
+
+        SplashScreen splash = new SplashScreen();
+        splash.setVisible(true);
+        dispose();
+
     }//GEN-LAST:event_button_inicioActionPerformed
 
     /**
