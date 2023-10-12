@@ -33,7 +33,7 @@ public class VistaEspecialidad extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         button_principal = new javax.swing.JButton();
-        button_salir = new javax.swing.JButton();
+        button_limpiarEspecialidad = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
@@ -41,6 +41,9 @@ public class VistaEspecialidad extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         text_nombreEspecialidad = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        button_salir1 = new javax.swing.JButton();
+        button_cargarEspecialidad = new javax.swing.JButton();
+        button_limpiarEspecialidad1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -72,16 +75,16 @@ public class VistaEspecialidad extends javax.swing.JFrame {
         });
         getContentPane().add(button_principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 60));
 
-        button_salir.setBackground(new java.awt.Color(255, 255, 255));
-        button_salir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        button_salir.setForeground(new java.awt.Color(51, 51, 51));
-        button_salir.setText("Salir");
-        button_salir.addActionListener(new java.awt.event.ActionListener() {
+        button_limpiarEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
+        button_limpiarEspecialidad.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        button_limpiarEspecialidad.setForeground(new java.awt.Color(51, 51, 51));
+        button_limpiarEspecialidad.setText("Ver Especialidades");
+        button_limpiarEspecialidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_salirActionPerformed(evt);
+                button_limpiarEspecialidadActionPerformed(evt);
             }
         });
-        getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 60));
+        getContentPane().add(button_limpiarEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 170, 60));
 
         jSeparator6.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 10));
@@ -113,6 +116,39 @@ public class VistaEspecialidad extends javax.swing.JFrame {
         jLabel7.setText("Nombre de Especialidad:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
+        button_salir1.setBackground(new java.awt.Color(255, 255, 255));
+        button_salir1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        button_salir1.setForeground(new java.awt.Color(51, 51, 51));
+        button_salir1.setText("Salir");
+        button_salir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_salir1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 60));
+
+        button_cargarEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
+        button_cargarEspecialidad.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        button_cargarEspecialidad.setForeground(new java.awt.Color(51, 51, 51));
+        button_cargarEspecialidad.setText("Cargar");
+        button_cargarEspecialidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_cargarEspecialidadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_cargarEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 120, 60));
+
+        button_limpiarEspecialidad1.setBackground(new java.awt.Color(255, 255, 255));
+        button_limpiarEspecialidad1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        button_limpiarEspecialidad1.setForeground(new java.awt.Color(51, 51, 51));
+        button_limpiarEspecialidad1.setText("Limpiar");
+        button_limpiarEspecialidad1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_limpiarEspecialidad1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_limpiarEspecialidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 120, 60));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -120,13 +156,25 @@ public class VistaEspecialidad extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_button_principalActionPerformed
 
-    private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
+    private void button_limpiarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarEspecialidadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_button_salirActionPerformed
+    }//GEN-LAST:event_button_limpiarEspecialidadActionPerformed
 
     private void text_nombreEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_nombreEspecialidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_text_nombreEspecialidadActionPerformed
+
+    private void button_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salir1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_salir1ActionPerformed
+
+    private void button_cargarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cargarEspecialidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_cargarEspecialidadActionPerformed
+
+    private void button_limpiarEspecialidad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarEspecialidad1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_limpiarEspecialidad1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,8 +212,11 @@ public class VistaEspecialidad extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_cargarEspecialidad;
+    private javax.swing.JButton button_limpiarEspecialidad;
+    private javax.swing.JButton button_limpiarEspecialidad1;
     private javax.swing.JButton button_principal;
-    private javax.swing.JButton button_salir;
+    private javax.swing.JButton button_salir1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
