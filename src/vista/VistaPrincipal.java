@@ -32,10 +32,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        button_vistaAfiliados = new javax.swing.JButton();
+        button_vistaPrestadores = new javax.swing.JButton();
+        button_vistaOrdenes = new javax.swing.JButton();
+        button_vistaEspecialidades = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -62,49 +62,49 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jLabel5.setText("MasSalud");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
 
-        jButton8.setBackground(new java.awt.Color(255, 255, 255));
-        jButton8.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(51, 51, 51));
-        jButton8.setText("AFILIADOS");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        button_vistaAfiliados.setBackground(new java.awt.Color(255, 255, 255));
+        button_vistaAfiliados.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        button_vistaAfiliados.setForeground(new java.awt.Color(51, 51, 51));
+        button_vistaAfiliados.setText("AFILIADOS");
+        button_vistaAfiliados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                button_vistaAfiliadosActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 280, 70));
+        getContentPane().add(button_vistaAfiliados, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 280, 70));
 
-        jButton9.setBackground(new java.awt.Color(255, 255, 255));
-        jButton9.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(51, 51, 51));
-        jButton9.setText("PRESTADORES");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        button_vistaPrestadores.setBackground(new java.awt.Color(255, 255, 255));
+        button_vistaPrestadores.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        button_vistaPrestadores.setForeground(new java.awt.Color(51, 51, 51));
+        button_vistaPrestadores.setText("PRESTADORES");
+        button_vistaPrestadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                button_vistaPrestadoresActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 280, 70));
+        getContentPane().add(button_vistaPrestadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 280, 70));
 
-        jButton10.setBackground(new java.awt.Color(255, 255, 255));
-        jButton10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(51, 51, 51));
-        jButton10.setText("ORDENES");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        button_vistaOrdenes.setBackground(new java.awt.Color(255, 255, 255));
+        button_vistaOrdenes.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        button_vistaOrdenes.setForeground(new java.awt.Color(51, 51, 51));
+        button_vistaOrdenes.setText("ORDENES");
+        button_vistaOrdenes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                button_vistaOrdenesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 280, 70));
+        getContentPane().add(button_vistaOrdenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 280, 70));
 
-        jButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jButton7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(51, 51, 51));
-        jButton7.setText("ESPECIALIDADES");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        button_vistaEspecialidades.setBackground(new java.awt.Color(255, 255, 255));
+        button_vistaEspecialidades.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        button_vistaEspecialidades.setForeground(new java.awt.Color(51, 51, 51));
+        button_vistaEspecialidades.setText("ESPECIALIDADES");
+        button_vistaEspecialidades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                button_vistaEspecialidadesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 280, 70));
+        getContentPane().add(button_vistaEspecialidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 280, 70));
 
         jSeparator9.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 800, 10));
@@ -144,21 +144,21 @@ public class VistaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void button_vistaAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_vistaAfiliadosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_button_vistaAfiliadosActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void button_vistaPrestadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_vistaPrestadoresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_button_vistaPrestadoresActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void button_vistaOrdenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_vistaOrdenesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_button_vistaOrdenesActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void button_vistaEspecialidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_vistaEspecialidadesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_button_vistaEspecialidadesActionPerformed
 
     private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
         // TODO add your handling code here:
@@ -206,10 +206,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_inicio;
     private javax.swing.JButton button_salir;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton button_vistaAfiliados;
+    private javax.swing.JButton button_vistaEspecialidades;
+    private javax.swing.JButton button_vistaOrdenes;
+    private javax.swing.JButton button_vistaPrestadores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
