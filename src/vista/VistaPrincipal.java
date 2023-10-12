@@ -4,6 +4,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     public VistaPrincipal() {
         initComponents();
+        setResizable(false);
     }
 
     /**

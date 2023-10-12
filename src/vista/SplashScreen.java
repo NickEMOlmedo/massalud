@@ -6,6 +6,7 @@ public class SplashScreen extends javax.swing.JFrame {
 
     public SplashScreen() {
         initComponents();
+        setResizable(false);
     }
 
     /**
@@ -118,9 +119,7 @@ public class SplashScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
-
         dispose();
-
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_ingresarActionPerformed

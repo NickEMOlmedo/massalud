@@ -4,6 +4,7 @@ public class VistaEspecialidad extends javax.swing.JFrame {
 
     public VistaEspecialidad() {
         initComponents();
+        setResizable(false);
     }
 
     /**

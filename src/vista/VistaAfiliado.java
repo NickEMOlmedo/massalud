@@ -4,6 +4,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
     public VistaAfiliado() {
         initComponents();
+        setResizable(false);
     }
 
     /**
@@ -197,7 +198,9 @@ public class VistaAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_button_guardarActionPerformed
 
     private void button_verAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_verAfiliadosActionPerformed
-        // TODO add your handling code here:
+        VistaVerAfiliados verafiliados = new VistaVerAfiliados();
+        verafiliados.setVisible(true);
+        dispose();
     }//GEN-LAST:event_button_verAfiliadosActionPerformed
 
     private void button_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_principalActionPerformed

@@ -4,6 +4,7 @@ public class VistaPrestador extends javax.swing.JFrame {
 
     public VistaPrestador() {
         initComponents();
+        setResizable(false);
     }
 
     /**
