@@ -1,22 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package vista;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Nickolas
- */
 public class SplashScreen extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SplashScreen
-     */
     public SplashScreen() {
         initComponents();
     }
@@ -104,10 +91,10 @@ public class SplashScreen extends javax.swing.JFrame {
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 30));
 
         jLabel7.setText("Desarrollado Por:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, -1, -1));
 
         jLabel8.setText("@NickEMOlmedo | @Fabiana76 | @GustavoAcosta84");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, -1, -1));
         getContentPane().add(text_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 230, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -137,20 +124,18 @@ public class SplashScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_ingresarActionPerformed
-  
+
         String Usuario = "Administrador";
-       String Contraseña = "massalud";
-       
-       String Pass = new String (text_password.getPassword());
-       if (text_usuario.getText().equals(Usuario)&& Pass.equals(Contraseña)){
-        VistaPrincipal ppal = new VistaPrincipal();
-        ppal.setVisible(true);
-        dispose();
-       }
-       else{
-      JOptionPane.showMessageDialog(this, " Usuario / Contraseña incorrecto ");
-    }
-        
+        String Contraseña = "massalud";
+
+        String Pass = new String(text_password.getPassword());
+        if (text_usuario.getText().equals(Usuario) && Pass.equals(Contraseña)) {
+            VistaPrincipal ppal = new VistaPrincipal();
+            ppal.setVisible(true);
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, " Usuario / Contraseña incorrecto ");
+        }
 
 
     }//GEN-LAST:event_button_ingresarActionPerformed

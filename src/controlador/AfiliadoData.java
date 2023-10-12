@@ -9,11 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Afiliado;
 
-/**
- *
- * @author @NickEMOlmedo
- *
- */
+
 public class AfiliadoData {
 
     private Connection nuevaConexion = null;

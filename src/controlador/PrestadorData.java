@@ -7,10 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-/**
- *
- * @author @Fabiana76
- */
+
 public class PrestadorData {
    
     private Connection nuevaConexion = null;
