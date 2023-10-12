@@ -10,12 +10,12 @@ package vista;
  *
  * @author Nickolas
  */
-public class VistaVerOrdenes extends javax.swing.JFrame {
+public class VistaVerPrestadores extends javax.swing.JFrame {
 
     /**
      * Creates new form VistaVerOrdenes
      */
-    public VistaVerOrdenes() {
+    public VistaVerPrestadores() {
         initComponents();
     }
 
@@ -42,12 +42,13 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
         radio_mostrarActivos = new javax.swing.JRadioButton();
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
-        button_altaPrestador = new javax.swing.JButton();
+        button_prestadorEspecialidad = new javax.swing.JButton();
         button_guardar = new javax.swing.JButton();
         jSeparator12 = new javax.swing.JSeparator();
         button_bajaPrestador = new javax.swing.JButton();
         jSeparator13 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
+        button_altaPrestador = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,7 +107,7 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(table_prestadores);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 600, 380));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 620, 380));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
@@ -116,42 +117,47 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
         radio_MostrarInactivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_MostrarInactivos.setForeground(new java.awt.Color(102, 102, 102));
         radio_MostrarInactivos.setText("Mostrar Inactivos");
-        getContentPane().add(radio_MostrarInactivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, -1, -1));
+        getContentPane().add(radio_MostrarInactivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, -1, -1));
 
         radio_mostrarActivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_mostrarActivos.setForeground(new java.awt.Color(102, 102, 102));
         radio_mostrarActivos.setText("Mostrar Activos");
-        getContentPane().add(radio_mostrarActivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, -1, -1));
+        getContentPane().add(radio_mostrarActivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, -1, -1));
 
         jSeparator9.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 550, 150, 10));
+        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 580, 150, 10));
 
         jSeparator11.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 150, -1));
+        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 150, -1));
 
-        button_altaPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        button_altaPrestador.setForeground(new java.awt.Color(102, 102, 102));
-        button_altaPrestador.setText("Alta Prestador");
-        getContentPane().add(button_altaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 300, 150, 60));
+        button_prestadorEspecialidad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button_prestadorEspecialidad.setForeground(new java.awt.Color(102, 102, 102));
+        button_prestadorEspecialidad.setText("Por Especialidad");
+        getContentPane().add(button_prestadorEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, 150, 30));
 
         button_guardar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_guardar.setForeground(new java.awt.Color(102, 102, 102));
         button_guardar.setText("Guardar");
-        getContentPane().add(button_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, 150, 60));
+        getContentPane().add(button_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 500, 150, 60));
 
         jSeparator12.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 150, 10));
+        getContentPane().add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 150, 10));
 
         button_bajaPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_bajaPrestador.setForeground(new java.awt.Color(102, 102, 102));
         button_bajaPrestador.setText("Baja Afiliado");
-        getContentPane().add(button_bajaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 150, 60));
+        getContentPane().add(button_bajaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 150, 60));
 
         jSeparator13.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, 150, 10));
+        getContentPane().add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 480, 150, 10));
 
         jSeparator10.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 260, 10));
+
+        button_altaPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button_altaPrestador.setForeground(new java.awt.Color(102, 102, 102));
+        button_altaPrestador.setText("Alta Prestador");
+        getContentPane().add(button_altaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 330, 150, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -183,20 +189,20 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaVerOrdenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerPrestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaVerOrdenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerPrestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaVerOrdenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerPrestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaVerOrdenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerPrestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaVerOrdenes().setVisible(true);
+                new VistaVerPrestadores().setVisible(true);
             }
         });
     }
@@ -206,6 +212,7 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
     private javax.swing.JButton button_atras;
     private javax.swing.JButton button_bajaPrestador;
     private javax.swing.JButton button_guardar;
+    private javax.swing.JButton button_prestadorEspecialidad;
     private javax.swing.JButton button_salir;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

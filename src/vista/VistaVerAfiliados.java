@@ -93,7 +93,7 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(table_afiliados);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 600, 380));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 620, 380));
 
         jSeparator8.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 230, 10));
