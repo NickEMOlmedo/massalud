@@ -123,7 +123,7 @@ public class AfiliadoData {
 
     public ArrayList<Afiliado> listarActivos() {
 
-        final String QUERY = "SELECT idAfiliado, nombre, dni, domicilio, telefono WHERE activo = 1 ";
+        final String QUERY = "SELECT idAfiliado, nombre, apellido, dni, domicilio, telefono WHERE activo = 1 ";
 
         ArrayList<Afiliado> listaAfiliados = new ArrayList<>();
 

@@ -181,11 +181,13 @@ public class VistaOrden extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_principalActionPerformed
-        // TODO add your handling code here:
+        VistaPrincipal principal = new VistaPrincipal();
+        principal.setVisible(true);
+        dispose();
     }//GEN-LAST:event_button_principalActionPerformed
 
     private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarActionPerformed

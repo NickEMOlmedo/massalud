@@ -132,27 +132,37 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_vistaAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_vistaAfiliadosActionPerformed
-        // TODO add your handling code here:
+        VistaAfiliado afiliado = new VistaAfiliado();
+        afiliado.setVisible(true);
+        dispose();
     }//GEN-LAST:event_button_vistaAfiliadosActionPerformed
 
     private void button_vistaPrestadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_vistaPrestadoresActionPerformed
-        // TODO add your handling code here:
+        VistaPrestador prestador = new VistaPrestador();
+        prestador.setVisible(true);
+        dispose();
     }//GEN-LAST:event_button_vistaPrestadoresActionPerformed
 
     private void button_vistaOrdenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_vistaOrdenesActionPerformed
-        // TODO add your handling code here:
+        VistaOrden orden = new VistaOrden();
+        orden.setVisible(true);
+        dispose();
     }//GEN-LAST:event_button_vistaOrdenesActionPerformed
 
     private void button_vistaEspecialidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_vistaEspecialidadesActionPerformed
-        // TODO add your handling code here:
+        VistaEspecialidad especialidad = new VistaEspecialidad();
+        especialidad.setVisible(true);
+        dispose();
     }//GEN-LAST:event_button_vistaEspecialidadesActionPerformed
 
     private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_inicioActionPerformed
-        // TODO add your handling code here:
+        SplashScreen splash = new SplashScreen();
+        splash.setVisible(true);
+        dispose();
     }//GEN-LAST:event_button_inicioActionPerformed
 
     /**
