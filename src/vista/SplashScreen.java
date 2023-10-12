@@ -50,7 +50,6 @@ public class SplashScreen extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/female-doctor_fococlipping_removed 1.png"))); // NOI18N

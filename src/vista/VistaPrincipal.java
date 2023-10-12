@@ -44,7 +44,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
         button_inicio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSeparator5.setForeground(new java.awt.Color(153, 204, 255));

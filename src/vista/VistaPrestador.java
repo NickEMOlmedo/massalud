@@ -48,6 +48,12 @@ public class VistaPrestador extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
+        button_salir = new javax.swing.JButton();
+        button_principal = new javax.swing.JButton();
+        button_limpiar = new javax.swing.JButton();
+        button_guardar = new javax.swing.JButton();
+        combobox_especialidad = new javax.swing.JComboBox();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -77,16 +83,16 @@ public class VistaPrestador extends javax.swing.JFrame {
                 button_verPrestadoresActionPerformed(evt);
             }
         });
-        getContentPane().add(button_verPrestadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 130, 70));
+        getContentPane().add(button_verPrestadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 130, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/female doctor_fococlipping_removed 1.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 470, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 480, 440));
 
         jSeparator6.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 10));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Ellipse 6.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 440, 340));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 440, 340));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
@@ -114,7 +120,7 @@ public class VistaPrestador extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel10.setText("Domicilio:");
+        jLabel10.setText("Domicilio de Atencion:");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, -1));
 
         text_domicilio.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -122,8 +128,8 @@ public class VistaPrestador extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel11.setText("Telefono:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
+        jLabel11.setText("Especialidad:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, -1, -1));
 
         text_telefono.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         getContentPane().add(text_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 280, 30));
@@ -141,6 +147,58 @@ public class VistaPrestador extends javax.swing.JFrame {
         jSeparator4.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 200, 10));
 
+        button_salir.setBackground(new java.awt.Color(255, 255, 255));
+        button_salir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        button_salir.setForeground(new java.awt.Color(51, 51, 51));
+        button_salir.setText("Salir");
+        button_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_salirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 60));
+
+        button_principal.setBackground(new java.awt.Color(255, 255, 255));
+        button_principal.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        button_principal.setForeground(new java.awt.Color(51, 51, 51));
+        button_principal.setText("Principal");
+        button_principal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_principalActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 60));
+
+        button_limpiar.setBackground(new java.awt.Color(255, 255, 255));
+        button_limpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button_limpiar.setForeground(new java.awt.Color(51, 51, 51));
+        button_limpiar.setText("Limpiar");
+        button_limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_limpiarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 590, 110, 30));
+
+        button_guardar.setBackground(new java.awt.Color(255, 255, 255));
+        button_guardar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button_guardar.setForeground(new java.awt.Color(51, 51, 51));
+        button_guardar.setText("Guardar");
+        button_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_guardarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 590, 110, 30));
+
+        combobox_especialidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(combobox_especialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 280, 30));
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel12.setText("Telefono:");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -151,6 +209,22 @@ public class VistaPrestador extends javax.swing.JFrame {
     private void text_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_nombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_text_nombreActionPerformed
+
+    private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_salirActionPerformed
+
+    private void button_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_principalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_principalActionPerformed
+
+    private void button_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_limpiarActionPerformed
+
+    private void button_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_guardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,10 +262,16 @@ public class VistaPrestador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_guardar;
+    private javax.swing.JButton button_limpiar;
+    private javax.swing.JButton button_principal;
+    private javax.swing.JButton button_salir;
     private javax.swing.JButton button_verPrestadores;
+    private javax.swing.JComboBox combobox_especialidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -51,7 +51,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
         button_principal = new javax.swing.JButton();
         button_guardar = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JSeparator();
-        button_atras = new javax.swing.JButton();
+        button_salir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,13 +77,13 @@ public class VistaAfiliado extends javax.swing.JFrame {
                 button_verAfiliadosActionPerformed(evt);
             }
         });
-        getContentPane().add(button_verAfiliados, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 120, 70));
+        getContentPane().add(button_verAfiliados, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 120, 70));
 
         jSeparator2.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 230, 10));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/female doctor_fococlipping_removed 1.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 470, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 470, 440));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
@@ -180,16 +180,16 @@ public class VistaAfiliado extends javax.swing.JFrame {
         jSeparator6.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 10));
 
-        button_atras.setBackground(new java.awt.Color(255, 255, 255));
-        button_atras.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        button_atras.setForeground(new java.awt.Color(51, 51, 51));
-        button_atras.setText("Atras");
-        button_atras.addActionListener(new java.awt.event.ActionListener() {
+        button_salir.setBackground(new java.awt.Color(255, 255, 255));
+        button_salir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        button_salir.setForeground(new java.awt.Color(51, 51, 51));
+        button_salir.setText("Salir");
+        button_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_atrasActionPerformed(evt);
+                button_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(button_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 60));
+        getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 60));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Ellipse 6.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 440, 340));
@@ -217,9 +217,9 @@ public class VistaAfiliado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_button_principalActionPerformed
 
-    private void button_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_atrasActionPerformed
+    private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_button_atrasActionPerformed
+    }//GEN-LAST:event_button_salirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,10 +257,10 @@ public class VistaAfiliado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton button_atras;
     private javax.swing.JButton button_guardar;
     private javax.swing.JButton button_limpiar;
     private javax.swing.JButton button_principal;
+    private javax.swing.JButton button_salir;
     private javax.swing.JButton button_verAfiliados;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
