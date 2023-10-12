@@ -22,6 +22,7 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         button_atras = new javax.swing.JButton();
         button_salir = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,6 +64,9 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
             }
         });
         getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 60));
+
+        jSeparator6.setForeground(new java.awt.Color(153, 204, 255));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 10));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -119,5 +123,6 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     // End of variables declaration//GEN-END:variables
 }
