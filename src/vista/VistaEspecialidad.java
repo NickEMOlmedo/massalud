@@ -140,11 +140,9 @@ public class VistaEspecialidad extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_principalActionPerformed
-
-        VistaPrincipal ppal = new VistaPrincipal();
-        ppal.setVisible(true);
+        VistaPrincipal principal = new VistaPrincipal();
+        principal.setVisible(true);
         dispose();
-
     }//GEN-LAST:event_button_principalActionPerformed
 
     private void button_verEspecialidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_verEspecialidadesActionPerformed
@@ -156,9 +154,7 @@ public class VistaEspecialidad extends javax.swing.JFrame {
     }//GEN-LAST:event_text_nombreEspecialidadActionPerformed
 
     private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
-
         dispose();
-
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_cargarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cargarEspecialidadActionPerformed

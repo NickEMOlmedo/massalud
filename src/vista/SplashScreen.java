@@ -130,11 +130,11 @@ public class SplashScreen extends javax.swing.JFrame {
 
         String Pass = new String(text_password.getPassword());
         if (text_usuario.getText().equals(Usuario) && Pass.equals(Contraseña)) {
-            VistaPrincipal ppal = new VistaPrincipal();
-            ppal.setVisible(true);
+            VistaPrincipal principal = new VistaPrincipal();
+            principal.setVisible(true);
             dispose();
         } else {
-            JOptionPane.showMessageDialog(this, " Usuario / Contraseña incorrecto ");
+            JOptionPane.showMessageDialog(this, " Usuario / Contraseña incorrectos");
         }
 
 
