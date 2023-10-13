@@ -30,7 +30,7 @@ public class MasSalud {
 //PRUEBA DE AFILIADODATA
         //Guardar un afiliado
         //Afiliado jose=new Afiliado("Carlos","Gauna",29456090,"Junín 1800",15349099,true);
-        AfiliadoData afil=new AfiliadoData();
+      AfiliadoData afil=new AfiliadoData();
         //afil.guardarAfiliado(jose);
         
         //Eliminar Afiliado
@@ -41,15 +41,26 @@ public class MasSalud {
 //      afil.modificarAfiliado(jose);
 
         //Listar Afiliados Activos
-        for(Afiliado afiliado:afil.listarActivos()){
-            //System.out.println(afiliado.getIdAfiliado());
-            System.out.println(afiliado.getNombre());
-            System.out.println(afiliado.getApellido());
-            System.out.println(afiliado.getDni());
-            System.out.println(afiliado.getDomicilio());
-            System.out.println(afiliado.getTelefono());
-                    
-        }
+//        for(Afiliado afiliado:afil.listarActivos()){
+//            System.out.println(afiliado.getIdAfiliado());
+//            System.out.println(afiliado.getNombre());
+//            System.out.println(afiliado.getApellido());
+//            System.out.println(afiliado.getDni());
+//            System.out.println(afiliado.getDomicilio());
+//            System.out.println(afiliado.getTelefono());                   
+//        }
+
+        //Listar afiliados por ID
+//        Afiliado afiliadoEncontrado= afil.buscarAfiliado_id(7);
+//        System.out.println("apellido :"+afiliadoEncontrado.getApellido());
+//        System.out.println("nombre :"+afiliadoEncontrado.getNombre());
+//        System.out.println("DNI :"+afiliadoEncontrado.getDni());
+
+        //Listar afiliados por DNI
+         Afiliado afiliadoEncontrado= afil.buscarAfiliado_dni(30748723);
+         System.out.println("apellido :"+afiliadoEncontrado.getApellido());
+         System.out.println("nombre :"+afiliadoEncontrado.getNombre());
+         System.out.println("DNI :"+afiliadoEncontrado.getDni());
 
 // PRUEBA DE PRESTADOR DATA
   // Guardar un prestador

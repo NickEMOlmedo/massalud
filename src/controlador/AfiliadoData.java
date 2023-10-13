@@ -123,7 +123,7 @@ public class AfiliadoData {
 
     public ArrayList<Afiliado> listarActivos() {
 
-        final String QUERY = "SELECT idAfiliado, nombre, apellido, dni, domicilio, telefono WHERE activo = 1 ";
+        final String QUERY = "SELECT idAfiliado, nombre, apellido, dni, domicilio, telefono FROM afiliado WHERE activo = 1 ";
 
         ArrayList<Afiliado> listaAfiliados = new ArrayList<>();
 
@@ -139,7 +139,7 @@ public class AfiliadoData {
                     afiliado.setDni(result.getInt("dni"));
                     afiliado.setDomicilio(result.getString("domicilio"));
                     afiliado.setTelefono(result.getInt("telefono"));
-                    afiliado.setActivo(result.getBoolean("activo"));
+                    afiliado.setActivo(true);
 
                     listaAfiliados.add(afiliado);
                 }
