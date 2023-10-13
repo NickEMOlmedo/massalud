@@ -17,6 +17,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
      */
     public VistaVerPrestadores() {
         initComponents();
+        setResizable(false);
     }
 
     /**
