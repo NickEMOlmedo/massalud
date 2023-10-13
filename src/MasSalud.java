@@ -30,7 +30,7 @@ public class MasSalud {
 //PRUEBA DE AFILIADODATA
         //Guardar un afiliado
         //Afiliado jose=new Afiliado("Carlos","Gauna",29456090,"Junín 1800",15349099,true);
-      AfiliadoData afil=new AfiliadoData();
+      //AfiliadoData afil=new AfiliadoData();
         //afil.guardarAfiliado(jose);
         
         //Eliminar Afiliado
@@ -57,15 +57,21 @@ public class MasSalud {
 //        System.out.println("DNI :"+afiliadoEncontrado.getDni());
 
         //Listar afiliados por DNI
-         Afiliado afiliadoEncontrado= afil.buscarAfiliado_dni(30748723);
-         System.out.println("apellido :"+afiliadoEncontrado.getApellido());
-         System.out.println("nombre :"+afiliadoEncontrado.getNombre());
-         System.out.println("DNI :"+afiliadoEncontrado.getDni());
+//         Afiliado afiliadoEncontrado= afil.buscarAfiliado_dni(30748723);
+//         System.out.println("apellido :"+afiliadoEncontrado.getApellido());
+//         System.out.println("nombre :"+afiliadoEncontrado.getNombre());
+//         System.out.println("DNI :"+afiliadoEncontrado.getDni());
+         
 
 // PRUEBA DE PRESTADOR DATA
-  // Guardar un prestador
-      //Prestador juan= new Prestador( "Juan", "Sosa",2587963,"Corrientes",8976, true);
-      
+        // Guardar un prestador
+        EspecialidadData espD=new EspecialidadData();
+        Especialidad especialidad=espD.buscarEspecialidad(5);
+        Prestador juan= new Prestador( "Juan", "Sosa",2587963,"Corrientes",8976,true,especialidad);
+        PrestadorData prestD= new PrestadorData();
+        prestD.guardarPrestador(juan);
+       
+              
     }
 
 }

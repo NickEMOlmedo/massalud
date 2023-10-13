@@ -6,6 +6,7 @@ import modelo.Prestador;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class PrestadorData {
@@ -30,18 +31,19 @@ public class PrestadorData {
         //Metodo que guarda un nuevo Prestador a la base de datos
      public void guardarPrestador(Prestador prestador) {
 
-        String QUERY = "INSERT INTO prestador(nombre,apellido,dni,domicilio,telefono,activo)"
+        String QUERY = "INSERT INTO prestador(nombre,apellido,dni,domicilio,telefono,activo,idEspecialidad)"
                 + " VALUES(?,?,?,?,?,?,?)";
 
         //Cargamos los datos en el statement y procedemos a enviarlos.
         try {
-            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY,Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, prestador.getNombre());
             statement.setString(2, prestador.getApellido());
             statement.setInt(3, prestador.getDni());
             statement.setString(4, prestador.getDomicilio());
             statement.setInt(5, prestador.getTelefono());
             statement.setBoolean(6, prestador.isActivo());
+            statement.setInt(7, prestador.getEspecialidad().getIdEspecialidad());
             statement.executeUpdate();
             ResultSet result = statement.getGeneratedKeys();
 
