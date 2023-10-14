@@ -26,7 +26,7 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table_prestadores = new javax.swing.JTable();
+        table_ordenes = new javax.swing.JTable();
         radio_mostrarPorPrestador = new javax.swing.JRadioButton();
         radio_mostrarPorAfiliado = new javax.swing.JRadioButton();
         jSeparator11 = new javax.swing.JSeparator();
@@ -89,7 +89,7 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
         jSeparator10.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 230, 10));
 
-        table_prestadores.setModel(new javax.swing.table.DefaultTableModel(
+        table_ordenes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -100,7 +100,7 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(table_prestadores);
+        jScrollPane1.setViewportView(table_ordenes);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 620, 380));
 
@@ -205,6 +205,6 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JRadioButton radio_mostrarPorAfiliado;
     private javax.swing.JRadioButton radio_mostrarPorPrestador;
-    private javax.swing.JTable table_prestadores;
+    private javax.swing.JTable table_ordenes;
     // End of variables declaration//GEN-END:variables
 }

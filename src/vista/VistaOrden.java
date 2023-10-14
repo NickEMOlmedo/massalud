@@ -34,14 +34,14 @@ public class VistaOrden extends javax.swing.JFrame {
         date_fechaOrden = new com.toedter.calendar.JDateChooser();
         txt_importeOrden = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        txt_afiliadoOrdenes = new javax.swing.JTextField();
+        txt_afiliadoOrden = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         button_buscarAfiliado_ordenes = new javax.swing.JButton();
-        txt_prestadorOrdenes = new javax.swing.JTextField();
+        txt_prestadorOrden = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         button_BuscarPrestador_ordenes = new javax.swing.JButton();
-        button_guardar = new javax.swing.JButton();
-        button_limpiar = new javax.swing.JButton();
+        button_guardarOrden = new javax.swing.JButton();
+        button_limpiarOrden = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -134,8 +134,8 @@ public class VistaOrden extends javax.swing.JFrame {
         jLabel14.setText("Importe:");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
-        txt_afiliadoOrdenes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(txt_afiliadoOrdenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 220, 30));
+        txt_afiliadoOrden.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(txt_afiliadoOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 220, 30));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
@@ -145,8 +145,8 @@ public class VistaOrden extends javax.swing.JFrame {
         button_buscarAfiliado_ordenes.setText("Buscar");
         getContentPane().add(button_buscarAfiliado_ordenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, 30));
 
-        txt_prestadorOrdenes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(txt_prestadorOrdenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 220, 30));
+        txt_prestadorOrden.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(txt_prestadorOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 220, 30));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(102, 102, 102));
@@ -156,27 +156,27 @@ public class VistaOrden extends javax.swing.JFrame {
         button_BuscarPrestador_ordenes.setText("Buscar");
         getContentPane().add(button_BuscarPrestador_ordenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, -1, 30));
 
-        button_guardar.setBackground(new java.awt.Color(255, 255, 255));
-        button_guardar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        button_guardar.setForeground(new java.awt.Color(51, 51, 51));
-        button_guardar.setText("Guardar");
-        button_guardar.addActionListener(new java.awt.event.ActionListener() {
+        button_guardarOrden.setBackground(new java.awt.Color(255, 255, 255));
+        button_guardarOrden.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button_guardarOrden.setForeground(new java.awt.Color(51, 51, 51));
+        button_guardarOrden.setText("Guardar");
+        button_guardarOrden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_guardarActionPerformed(evt);
+                button_guardarOrdenActionPerformed(evt);
             }
         });
-        getContentPane().add(button_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 110, 30));
+        getContentPane().add(button_guardarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 110, 30));
 
-        button_limpiar.setBackground(new java.awt.Color(255, 255, 255));
-        button_limpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        button_limpiar.setForeground(new java.awt.Color(51, 51, 51));
-        button_limpiar.setText("Limpiar");
-        button_limpiar.addActionListener(new java.awt.event.ActionListener() {
+        button_limpiarOrden.setBackground(new java.awt.Color(255, 255, 255));
+        button_limpiarOrden.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button_limpiarOrden.setForeground(new java.awt.Color(51, 51, 51));
+        button_limpiarOrden.setText("Limpiar");
+        button_limpiarOrden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_limpiarActionPerformed(evt);
+                button_limpiarOrdenActionPerformed(evt);
             }
         });
-        getContentPane().add(button_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 520, 110, 30));
+        getContentPane().add(button_limpiarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 520, 110, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -191,13 +191,13 @@ public class VistaOrden extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_button_salirActionPerformed
 
-    private void button_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarActionPerformed
+    private void button_guardarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarOrdenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_button_guardarActionPerformed
+    }//GEN-LAST:event_button_guardarOrdenActionPerformed
 
-    private void button_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarActionPerformed
+    private void button_limpiarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarOrdenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_button_limpiarActionPerformed
+    }//GEN-LAST:event_button_limpiarOrdenActionPerformed
 
     private void button_verPrestadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_verPrestadoresActionPerformed
         // TODO add your handling code here:
@@ -241,8 +241,8 @@ public class VistaOrden extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_BuscarPrestador_ordenes;
     private javax.swing.JButton button_buscarAfiliado_ordenes;
-    private javax.swing.JButton button_guardar;
-    private javax.swing.JButton button_limpiar;
+    private javax.swing.JButton button_guardarOrden;
+    private javax.swing.JButton button_limpiarOrden;
     private javax.swing.JButton button_principal;
     private javax.swing.JButton button_salir;
     private javax.swing.JButton button_verPrestadores;
@@ -262,8 +262,8 @@ public class VistaOrden extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JTextField txt_afiliadoOrdenes;
+    private javax.swing.JTextField txt_afiliadoOrden;
     private javax.swing.JTextField txt_importeOrden;
-    private javax.swing.JTextField txt_prestadorOrdenes;
+    private javax.swing.JTextField txt_prestadorOrden;
     // End of variables declaration//GEN-END:variables
 }

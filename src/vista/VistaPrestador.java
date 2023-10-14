@@ -25,21 +25,21 @@ public class VistaPrestador extends javax.swing.JFrame {
         jSeparator6 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        text_nombre = new javax.swing.JTextField();
-        text_apellido = new javax.swing.JTextField();
+        text_nombrePrestador = new javax.swing.JTextField();
+        text_apellidoPrestador = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        text_dni = new javax.swing.JTextField();
+        text_dniPrestador = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        text_domicilio = new javax.swing.JTextField();
+        text_domicilioPrestador = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        text_telefono = new javax.swing.JTextField();
+        text_telefonoPrestador = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         button_salir = new javax.swing.JButton();
         button_principal = new javax.swing.JButton();
-        button_limpiar = new javax.swing.JButton();
-        button_guardar = new javax.swing.JButton();
+        button_limpiarPrestador = new javax.swing.JButton();
+        button_guardarPrestador = new javax.swing.JButton();
         combobox_especialidadPrestador = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
 
@@ -87,40 +87,40 @@ public class VistaPrestador extends javax.swing.JFrame {
         jLabel7.setText("Nombre:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
-        text_nombre.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        text_nombre.addActionListener(new java.awt.event.ActionListener() {
+        text_nombrePrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        text_nombrePrestador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                text_nombreActionPerformed(evt);
+                text_nombrePrestadorActionPerformed(evt);
             }
         });
-        getContentPane().add(text_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 280, 30));
+        getContentPane().add(text_nombrePrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 280, 30));
 
-        text_apellido.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(text_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 280, 30));
+        text_apellidoPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(text_apellidoPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 280, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("DNI:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
-        text_dni.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(text_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 280, 30));
+        text_dniPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(text_dniPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 280, 30));
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setText("Domicilio de Atencion:");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, -1));
 
-        text_domicilio.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(text_domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 280, 30));
+        text_domicilioPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(text_domicilioPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 280, 30));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("Especialidad:");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, -1, -1));
 
-        text_telefono.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(text_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 280, 30));
+        text_telefonoPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(text_telefonoPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 280, 30));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
@@ -157,27 +157,27 @@ public class VistaPrestador extends javax.swing.JFrame {
         });
         getContentPane().add(button_principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 60));
 
-        button_limpiar.setBackground(new java.awt.Color(255, 255, 255));
-        button_limpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        button_limpiar.setForeground(new java.awt.Color(51, 51, 51));
-        button_limpiar.setText("Limpiar");
-        button_limpiar.addActionListener(new java.awt.event.ActionListener() {
+        button_limpiarPrestador.setBackground(new java.awt.Color(255, 255, 255));
+        button_limpiarPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button_limpiarPrestador.setForeground(new java.awt.Color(51, 51, 51));
+        button_limpiarPrestador.setText("Limpiar");
+        button_limpiarPrestador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_limpiarActionPerformed(evt);
+                button_limpiarPrestadorActionPerformed(evt);
             }
         });
-        getContentPane().add(button_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 590, 110, 30));
+        getContentPane().add(button_limpiarPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 590, 110, 30));
 
-        button_guardar.setBackground(new java.awt.Color(255, 255, 255));
-        button_guardar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        button_guardar.setForeground(new java.awt.Color(51, 51, 51));
-        button_guardar.setText("Guardar");
-        button_guardar.addActionListener(new java.awt.event.ActionListener() {
+        button_guardarPrestador.setBackground(new java.awt.Color(255, 255, 255));
+        button_guardarPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button_guardarPrestador.setForeground(new java.awt.Color(51, 51, 51));
+        button_guardarPrestador.setText("Guardar");
+        button_guardarPrestador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_guardarActionPerformed(evt);
+                button_guardarPrestadorActionPerformed(evt);
             }
         });
-        getContentPane().add(button_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 590, 110, 30));
+        getContentPane().add(button_guardarPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 590, 110, 30));
 
         combobox_especialidadPrestador.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(combobox_especialidadPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 280, 30));
@@ -194,9 +194,9 @@ public class VistaPrestador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_button_verPrestadoresActionPerformed
 
-    private void text_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_nombreActionPerformed
+    private void text_nombrePrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_nombrePrestadorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_text_nombreActionPerformed
+    }//GEN-LAST:event_text_nombrePrestadorActionPerformed
 
     private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
         dispose();
@@ -208,13 +208,13 @@ public class VistaPrestador extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_button_principalActionPerformed
 
-    private void button_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarActionPerformed
+    private void button_limpiarPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarPrestadorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_button_limpiarActionPerformed
+    }//GEN-LAST:event_button_limpiarPrestadorActionPerformed
 
-    private void button_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarActionPerformed
+    private void button_guardarPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarPrestadorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_button_guardarActionPerformed
+    }//GEN-LAST:event_button_guardarPrestadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,8 +252,8 @@ public class VistaPrestador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton button_guardar;
-    private javax.swing.JButton button_limpiar;
+    private javax.swing.JButton button_guardarPrestador;
+    private javax.swing.JButton button_limpiarPrestador;
     private javax.swing.JButton button_principal;
     private javax.swing.JButton button_salir;
     private javax.swing.JButton button_verPrestadores;
@@ -273,10 +273,10 @@ public class VistaPrestador extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JTextField text_apellido;
-    private javax.swing.JTextField text_dni;
-    private javax.swing.JTextField text_domicilio;
-    private javax.swing.JTextField text_nombre;
-    private javax.swing.JTextField text_telefono;
+    private javax.swing.JTextField text_apellidoPrestador;
+    private javax.swing.JTextField text_dniPrestador;
+    private javax.swing.JTextField text_domicilioPrestador;
+    private javax.swing.JTextField text_nombrePrestador;
+    private javax.swing.JTextField text_telefonoPrestador;
     // End of variables declaration//GEN-END:variables
 }
