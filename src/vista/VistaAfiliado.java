@@ -194,7 +194,14 @@ public class VistaAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_text_nombreAfiliadoActionPerformed
 
     private void button_guardarAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarAfiliadoActionPerformed
-        // TODO add your handling code here:
+
+        String nombre;
+        String apellido;
+        int dni;
+        String domicilio;
+        int telefono;
+
+
     }//GEN-LAST:event_button_guardarAfiliadoActionPerformed
 
     private void button_verAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_verAfiliadosActionPerformed
