@@ -40,7 +40,7 @@ public class VistaPrestador extends javax.swing.JFrame {
         button_principal = new javax.swing.JButton();
         button_limpiar = new javax.swing.JButton();
         button_guardar = new javax.swing.JButton();
-        combobox_especialidad = new javax.swing.JComboBox();
+        combobox_especialidadPrestador = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -179,8 +179,8 @@ public class VistaPrestador extends javax.swing.JFrame {
         });
         getContentPane().add(button_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 590, 110, 30));
 
-        combobox_especialidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(combobox_especialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 280, 30));
+        combobox_especialidadPrestador.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(combobox_especialidadPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 280, 30));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
@@ -257,7 +257,7 @@ public class VistaPrestador extends javax.swing.JFrame {
     private javax.swing.JButton button_principal;
     private javax.swing.JButton button_salir;
     private javax.swing.JButton button_verPrestadores;
-    private javax.swing.JComboBox combobox_especialidad;
+    private javax.swing.JComboBox combobox_especialidadPrestador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -34,12 +34,12 @@ public class VistaOrden extends javax.swing.JFrame {
         date_fechaOrden = new com.toedter.calendar.JDateChooser();
         txt_importeOrden = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        txt_importeOrden2 = new javax.swing.JTextField();
+        txt_afiliadoOrdenes = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        txt_importeOrden3 = new javax.swing.JTextField();
+        button_buscarAfiliado_ordenes = new javax.swing.JButton();
+        txt_prestadorOrdenes = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        button_BuscarPrestador_ordenes = new javax.swing.JButton();
         button_guardar = new javax.swing.JButton();
         button_limpiar = new javax.swing.JButton();
 
@@ -134,27 +134,27 @@ public class VistaOrden extends javax.swing.JFrame {
         jLabel14.setText("Importe:");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
-        txt_importeOrden2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(txt_importeOrden2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 220, 30));
+        txt_afiliadoOrdenes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(txt_afiliadoOrdenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 220, 30));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Afiliado:");
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, -1));
 
-        jButton1.setText("Buscar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, 30));
+        button_buscarAfiliado_ordenes.setText("Buscar");
+        getContentPane().add(button_buscarAfiliado_ordenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, 30));
 
-        txt_importeOrden3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(txt_importeOrden3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 220, 30));
+        txt_prestadorOrdenes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(txt_prestadorOrdenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 220, 30));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(102, 102, 102));
         jLabel17.setText("Prestador:");
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
 
-        jButton2.setText("Buscar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, -1, 30));
+        button_BuscarPrestador_ordenes.setText("Buscar");
+        getContentPane().add(button_BuscarPrestador_ordenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, -1, 30));
 
         button_guardar.setBackground(new java.awt.Color(255, 255, 255));
         button_guardar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -239,6 +239,8 @@ public class VistaOrden extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_BuscarPrestador_ordenes;
+    private javax.swing.JButton button_buscarAfiliado_ordenes;
     private javax.swing.JButton button_guardar;
     private javax.swing.JButton button_limpiar;
     private javax.swing.JButton button_principal;
@@ -246,8 +248,6 @@ public class VistaOrden extends javax.swing.JFrame {
     private javax.swing.JButton button_verPrestadores;
     private javax.swing.JComboBox combobox_formaPago;
     private com.toedter.calendar.JDateChooser date_fechaOrden;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -262,8 +262,8 @@ public class VistaOrden extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JTextField txt_afiliadoOrdenes;
     private javax.swing.JTextField txt_importeOrden;
-    private javax.swing.JTextField txt_importeOrden2;
-    private javax.swing.JTextField txt_importeOrden3;
+    private javax.swing.JTextField txt_prestadorOrdenes;
     // End of variables declaration//GEN-END:variables
 }

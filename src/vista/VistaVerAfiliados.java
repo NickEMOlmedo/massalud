@@ -25,14 +25,14 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         table_afiliados = new javax.swing.JTable();
         jSeparator8 = new javax.swing.JSeparator();
-        radio_MostrarInactivos = new javax.swing.JRadioButton();
+        radio_mostrarInactivos = new javax.swing.JRadioButton();
         radio_mostrarActivos = new javax.swing.JRadioButton();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
         button_altaAfiliado = new javax.swing.JButton();
-        button_guardar = new javax.swing.JButton();
+        button_guardarAfiliado = new javax.swing.JButton();
         jSeparator12 = new javax.swing.JSeparator();
         button_bajaAfiliado = new javax.swing.JButton();
         jSeparator13 = new javax.swing.JSeparator();
@@ -98,10 +98,10 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         jSeparator8.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 230, 10));
 
-        radio_MostrarInactivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        radio_MostrarInactivos.setForeground(new java.awt.Color(102, 102, 102));
-        radio_MostrarInactivos.setText("Mostrar Inactivos");
-        getContentPane().add(radio_MostrarInactivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, -1, -1));
+        radio_mostrarInactivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        radio_mostrarInactivos.setForeground(new java.awt.Color(102, 102, 102));
+        radio_mostrarInactivos.setText("Mostrar Inactivos");
+        getContentPane().add(radio_mostrarInactivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, -1, -1));
 
         radio_mostrarActivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_mostrarActivos.setForeground(new java.awt.Color(102, 102, 102));
@@ -125,10 +125,10 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         button_altaAfiliado.setText("Alta Afiliado");
         getContentPane().add(button_altaAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 300, 150, 60));
 
-        button_guardar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        button_guardar.setForeground(new java.awt.Color(102, 102, 102));
-        button_guardar.setText("Guardar");
-        getContentPane().add(button_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, 150, 60));
+        button_guardarAfiliado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        button_guardarAfiliado.setForeground(new java.awt.Color(102, 102, 102));
+        button_guardarAfiliado.setText("Guardar");
+        getContentPane().add(button_guardarAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, 150, 60));
 
         jSeparator12.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 150, 10));
@@ -193,7 +193,7 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
     private javax.swing.JButton button_altaAfiliado;
     private javax.swing.JButton button_atras;
     private javax.swing.JButton button_bajaAfiliado;
-    private javax.swing.JButton button_guardar;
+    private javax.swing.JButton button_guardarAfiliado;
     private javax.swing.JButton button_salir;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -207,8 +207,8 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JRadioButton radio_MostrarInactivos;
     private javax.swing.JRadioButton radio_mostrarActivos;
+    private javax.swing.JRadioButton radio_mostrarInactivos;
     private javax.swing.JTable table_afiliados;
     // End of variables declaration//GEN-END:variables
 }
