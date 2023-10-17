@@ -21,6 +21,7 @@ public class OrdenData {
 
     AfiliadoData afiData;
     PrestadorData presData;
+    
 
     public OrdenData() {
 
@@ -81,8 +82,10 @@ public class OrdenData {
             orden.setFecha(result.getDate("fecha").toLocalDate());
             orden.setFormaPago(result.getString("formaPago"));
             orden.setImporte(result.getDouble("importe"));
-            Afiliado afiliado = afiData.buscarAfiliado_id(result.getInt("idAfiliado"));
-            Prestador prestador=presData.buscarPrestador_id(result.getInt("idPrestador"));
+            int afiliadoId = result.getInt("idAfiliado");
+            Afiliado afiliado = afiData.buscarAfiliado_dni(afiliadoId);
+            int prestadorId = result.getInt("idPrestador");
+            Prestador prestador = presData.buscarPrestador_id(result.getInt(prestadorId));
             orden.setAfiliado(afiliado);
             orden.setPrestador(prestador);  
             ordenesF.add(orden);
@@ -96,7 +99,7 @@ public class OrdenData {
         
     }
     
-    public ArrayList<Orden> Orden_SacadasPorAfilido(int idAfiliado){
+    public ArrayList<Orden> Orden_SacadasPorAfiliado(int idAfiliado){
     
         ArrayList<Orden> ordenesA=new ArrayList();
         final String QUERY="SELECT * FROM orden WHERE idAfiliado = ? ";

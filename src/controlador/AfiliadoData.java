@@ -47,7 +47,7 @@ public class AfiliadoData {
             statement.setString(2, afiliado.getApellido());
             statement.setInt(3, afiliado.getDni());
             statement.setString(4, afiliado.getDomicilio());
-            statement.setInt(5, afiliado.getTelefono());
+            statement.setLong(5, afiliado.getTelefono());
             statement.setBoolean(6, afiliado.isActivo());
             statement.executeUpdate();
             ResultSet result = statement.getGeneratedKeys();
@@ -101,7 +101,7 @@ public class AfiliadoData {
             statement.setString(2, afiliado.getApellido());
             statement.setInt(3, afiliado.getDni());
             statement.setString(4, afiliado.getDomicilio());
-            statement.setInt(5, afiliado.getTelefono());
+            statement.setLong(5, afiliado.getTelefono());
             statement.setBoolean(6, afiliado.isActivo());
             statement.setInt(7, afiliado.getIdAfiliado());
             int updateExitoso = statement.executeUpdate();
@@ -138,7 +138,7 @@ public class AfiliadoData {
                     afiliado.setApellido(result.getString("apellido"));
                     afiliado.setDni(result.getInt("dni"));
                     afiliado.setDomicilio(result.getString("domicilio"));
-                    afiliado.setTelefono(result.getInt("telefono"));
+                    afiliado.setTelefono(result.getLong("telefono"));
                     afiliado.setActivo(true);
 
                     listaAfiliados.add(afiliado);
@@ -174,7 +174,7 @@ public class AfiliadoData {
                 afiliado.setApellido(result.getString("apellido"));
                 afiliado.setDni(result.getInt("dni"));
                 afiliado.setDomicilio(result.getString("domicilio"));
-                afiliado.setTelefono(result.getInt("telefono"));
+                afiliado.setTelefono(result.getLong("telefono"));
                 afiliado.setActivo(result.getBoolean("activo"));
 
             } else {
@@ -210,7 +210,7 @@ public class AfiliadoData {
                 afiliado.setApellido(result.getString("Apellido"));
                 afiliado.setDni(dni);
                 afiliado.setDomicilio(result.getString("domicilio"));
-                afiliado.setTelefono(result.getInt("telefono"));
+                afiliado.setTelefono(result.getLong("telefono"));
                 afiliado.setActivo(result.getBoolean("activo"));
 
             } else {
