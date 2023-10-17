@@ -41,7 +41,7 @@ public class PrestadorData {
             statement.setString(2, prestador.getApellido());
             statement.setInt(3, prestador.getDni());
             statement.setString(4, prestador.getDomicilio());
-            statement.setInt(5, prestador.getTelefono());
+            statement.setLong(5, prestador.getTelefono());
             statement.setBoolean(6, prestador.isActivo());
             statement.setInt(7, prestador.getEspecialidad().getIdEspecialidad());
             statement.executeUpdate();
@@ -94,7 +94,7 @@ public class PrestadorData {
             statement.setString(2, prestador.getApellido());
             statement.setInt(3, prestador.getDni());
             statement.setString(4, prestador.getDomicilio());
-            statement.setInt(5, prestador.getTelefono());
+            statement.setLong(5, prestador.getTelefono());
             statement.setBoolean(6, prestador.isActivo());
             statement.setInt(7, prestador.getIdPrestador());
              int updateExitoso = statement.executeUpdate();
@@ -131,8 +131,8 @@ public class PrestadorData {
             prestador.setApellido(rs.getString("apellido"));
             prestador.setDni(rs.getInt("dni"));
             prestador.setDomicilio(rs.getString("domicilio"));
-            prestador.setTelefono(rs.getInt("telefono"));
-            prestador.setActivo(rs.getBoolean("activo"));
+            prestador.setTelefono(rs.getLong("telefono"));
+            prestador.setActivo(true);
             }
              else{
                     JOptionPane.showMessageDialog(null, "No existe ese prestador");
@@ -170,7 +170,7 @@ public class PrestadorData {
                prestador.setApellido(result.getString("apellido"));
                prestador.setDni(result.getInt("dni"));
                prestador.setDomicilio(result.getString("domicilio"));
-               prestador.setTelefono(result.getInt("telefono"));
+               prestador.setTelefono(result.getLong("telefono"));
                prestador.setActivo(result.getBoolean("activo"));
 
             } else {

@@ -1,11 +1,17 @@
 package vista;
 
-public class VistaAfiliado extends javax.swing.JFrame {
+import controlador.AfiliadoData;
+import modelo.Afiliado;
 
+
+public class VistaAfiliado extends javax.swing.JFrame {
+    
     public VistaAfiliado() {
         initComponents();
         setResizable(false);
     }
+    
+    AfiliadoData afiliado_data = new AfiliadoData();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,6 +47,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
         jSeparator6 = new javax.swing.JSeparator();
         button_salir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        checkbox_afiliadoActivo = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -65,13 +72,13 @@ public class VistaAfiliado extends javax.swing.JFrame {
                 button_verAfiliadosActionPerformed(evt);
             }
         });
-        getContentPane().add(button_verAfiliados, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 120, 70));
+        getContentPane().add(button_verAfiliados, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 120, 70));
 
         jSeparator2.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 230, 10));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/female doctor_fococlipping_removed 1.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 470, 440));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 470, 440));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
@@ -141,7 +148,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
                 button_limpiarAfiliadoActionPerformed(evt);
             }
         });
-        getContentPane().add(button_limpiarAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 530, 110, 30));
+        getContentPane().add(button_limpiarAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 560, 110, 30));
 
         button_principal.setBackground(new java.awt.Color(255, 255, 255));
         button_principal.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -163,7 +170,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
                 button_guardarAfiliadoActionPerformed(evt);
             }
         });
-        getContentPane().add(button_guardarAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, 110, 30));
+        getContentPane().add(button_guardarAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, 110, 30));
 
         jSeparator6.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 10));
@@ -180,7 +187,12 @@ public class VistaAfiliado extends javax.swing.JFrame {
         getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 60));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Ellipse 6.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 440, 340));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 440, 340));
+
+        checkbox_afiliadoActivo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        checkbox_afiliadoActivo.setForeground(new java.awt.Color(102, 102, 102));
+        checkbox_afiliadoActivo.setText("  Activo");
+        getContentPane().add(checkbox_afiliadoActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 90, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -194,13 +206,37 @@ public class VistaAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_text_nombreAfiliadoActionPerformed
 
     private void button_guardarAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarAfiliadoActionPerformed
-
-        String nombre;
-        String apellido;
-        int dni;
-        String domicilio;
-        int telefono;
-
+        
+        String nombre = null;
+        String apellido = null;
+        int dni = 0;
+        String domicilio = text_domicilioAfiliado.getText();
+        long telefono = 0;
+        
+        if (VerificarInputs.soloLetras(text_nombreAfiliado.getText())) {
+            
+            nombre = text_nombreAfiliado.getText();
+        }
+        
+        if (VerificarInputs.soloLetras(text_apellidoAfiliado.getText())) {
+            
+            apellido = apellido = text_apellidoAfiliado.getText();
+        }
+        
+        if (VerificarInputs.soloNumeros(text_dniAfiliado.getText())) {
+            
+            dni = Integer.valueOf(text_dniAfiliado.getText());
+        }
+        
+        
+        if (VerificarInputs.soloNumeros(text_telefonoAfiliado.getText())) {
+            
+            telefono = Long.valueOf(text_telefonoAfiliado.getText());
+        }
+        
+        Afiliado afiliado = new Afiliado(nombre, apellido, dni, domicilio, telefono, checkbox_afiliadoActivo.isSelected());
+        
+        afiliado_data.guardarAfiliado(afiliado);
 
     }//GEN-LAST:event_button_guardarAfiliadoActionPerformed
 
@@ -261,6 +297,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
     private javax.swing.JButton button_principal;
     private javax.swing.JButton button_salir;
     private javax.swing.JButton button_verAfiliados;
+    private javax.swing.JCheckBox checkbox_afiliadoActivo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
