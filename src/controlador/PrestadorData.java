@@ -114,7 +114,7 @@ public class PrestadorData {
     }
        public Prestador buscarPrestadorApellido(String apellido) {
 
-        String QUERY = "SELECT idPrestador, nombre,apellido, dni, domicilio, telefono FROM prestador WHERE apellido = ? AND estado = 1";
+        String QUERY = "SELECT idPrestador, nombre,apellido,dni, domicilio, telefono,activo FROM prestador WHERE apellido = ? AND activo = 1";
         Prestador prestador = null;
         
         try {
@@ -128,6 +128,7 @@ public class PrestadorData {
             
             prestador.setIdPrestador(rs.getInt("idPrestador"));
             prestador.setNombre(rs.getString("nombre"));
+            prestador.setApellido(rs.getString("apellido"));
             prestador.setDni(rs.getInt("dni"));
             prestador.setDomicilio(rs.getString("domicilio"));
             prestador.setTelefono(rs.getLong("telefono"));
@@ -152,7 +153,7 @@ public class PrestadorData {
 
         Prestador prestador = null;
 
-        final String QUERY = "SELECT idPrestador, nombre, apellido, dni, domicilio, telefono, activo FROM prestador WHERE idPrestador = ? AND estado = 1";
+        final String QUERY = "SELECT idPrestador, nombre, apellido, dni, domicilio, telefono, activo FROM prestador WHERE idPrestador = ? AND activo = 1";
 
         try {
 
