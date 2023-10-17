@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import modelo.Afiliado;
 import modelo.Orden;
@@ -67,13 +68,13 @@ public class OrdenData {
         }
     }
     
-    public ArrayList<Orden> Orden_EmitidaPrFecha(LocalDate fecha){
+    public List<Orden> Orden_EmitidaPorFecha(LocalDate fecha){
      ArrayList<Orden> ordenesF=new ArrayList();
         final String QUERY="SELECT * FROM orden WHERE fecha = ? ";
         Orden orden= null;
         try {
             PreparedStatement statement=nuevaConexion.prepareStatement(QUERY);
-            statement.setDate(1, Date.valueOf("fecha"));
+            statement.setDate(1,Date.valueOf(fecha));
             ResultSet result=statement.executeQuery();
             while(result.next()){
             orden=new Orden();
@@ -96,7 +97,7 @@ public class OrdenData {
         
     }
     
-    public ArrayList<Orden> Orden_SacadasPorAfilido(int idAfiliado){
+    public List<Orden> Orden_SacadasPorAfilido(int idAfiliado){
     
         ArrayList<Orden> ordenesA=new ArrayList();
         final String QUERY="SELECT * FROM orden WHERE idAfiliado = ? ";

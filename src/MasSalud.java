@@ -3,7 +3,10 @@ import controlador.AfiliadoData;
 import controlador.EspecialidadData;
 import controlador.OrdenData;
 import controlador.PrestadorData;
+import java.sql.Date;
 import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Afiliado;
 import modelo.Especialidad;
@@ -107,18 +110,30 @@ public class MasSalud {
 //PRUEBA DE ORDEN DATA
 
         //Cargar una Orden
-        AfiliadoData afilD=new AfiliadoData();
-        PrestadorData prestD=new PrestadorData();
-        Afiliado afiliado=afilD.buscarAfiliado_id(8);
-        Prestador prestador=prestD.buscarPrestador_id(7);
-        OrdenData ordenD=new OrdenData();
-        try{
-        Orden orden=new Orden(LocalDate.of(2000, 05, 12),"Debito",3500,afiliado,prestador);
-        ordenD.cargarOrden(orden);
-        }catch(NullPointerException ex){
+//        AfiliadoData afilD=new AfiliadoData();
+//        PrestadorData prestD=new PrestadorData();
+//        Afiliado afiliado=afilD.buscarAfiliado_id(6);
+//        Prestador prestador=prestD.buscarPrestador_id(5);
+//        OrdenData ordenD=new OrdenData();
+//        try{
+//        Orden orden=new Orden(LocalDate.of(2000, 05, 12),"Debito",3500,afiliado,prestador);
+//        ordenD.cargarOrden(orden);
+//        }catch(NullPointerException ex){
+//        
+//            JOptionPane.showMessageDialog(null,"Afiliado o Prestador Incorrecto");
+//        }
         
-            JOptionPane.showMessageDialog(null,"Afiliado o Prestador Incorrecto");
-        }
+        //Listar Orden Emitida por Fecha
+//        OrdenData ordenD=new OrdenData();
+//       for(Orden orden:ordenD.Orden_EmitidaPorFecha(LocalDate.of(2000, 05, 12))){
+//       
+//           System.out.println("ID: "+orden.getIdOrden());
+//           System.out.println("Forma de Pago: "+orden.getFormaPago());
+//           System.out.println("Importe: $"+orden.getImporte());
+//           System.out.println("IdAfiliado: ");
+//       }
+        
+       
     }
 
 }
