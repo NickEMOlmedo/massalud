@@ -90,21 +90,26 @@ public class MasSalud {
         
         
         //Buscar Prestador por Apellido
-//        Prestador medico=prestD.buscarPrestadorApellido("Monte");
+//         PrestadorData prestD= new PrestadorData();
+//        Prestador medico=prestD.buscarPrestadorApellido("Montenegro");
 //        if(medico !=null){
 //        System.out.println("ID: "+medico.getIdPrestador());
 //        System.out.println("Nombre: "+medico.getNombre());
 //        System.out.println("Apellido: "+medico.getApellido());
 //        System.out.println("Telefono: "+medico.getTelefono());
+//        System.out.println("IdEspecialidad: "+medico.getEspecialidad());
 //        }
         
         //Buscar Prestador por ID
-//        Prestador medico=prestD.buscarPrestador_id(1);
+//         PrestadorData prestD= new PrestadorData();
+//        Prestador medico=prestD.buscarPrestador_id(5);
 //        if(medico!=null){
 //        System.out.println("ID: "+medico.getIdPrestador());
 //        System.out.println("Nombre: "+medico.getNombre());
 //        System.out.println("Apellido: "+medico.getApellido());
 //        System.out.println("Telefono: "+medico.getTelefono());
+//        System.out.println("Activo: "+medico.isActivo());
+//        System.out.println("IdEspecialidad: "+medico.getEspecialidad());
 //        }
 
 //PRUEBA DE ORDEN DATA
