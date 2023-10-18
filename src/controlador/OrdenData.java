@@ -20,8 +20,8 @@ public class OrdenData {
 
     static boolean conexionExitosa;
 
-    AfiliadoData afiData;
-    PrestadorData presData;
+   private AfiliadoData afiData=new AfiliadoData();
+    private PrestadorData presData=new PrestadorData();
     
 
     public OrdenData() {
@@ -69,7 +69,7 @@ public class OrdenData {
         }
     }
     
-    public List<Orden> Orden_EmitidaPorFecha(LocalDate fecha){
+    public ArrayList<Orden> Orden_EmitidaPorFecha(LocalDate fecha){
      ArrayList<Orden> ordenesF=new ArrayList();
         final String QUERY="SELECT * FROM orden WHERE fecha = ? ";
         Orden orden= null;
@@ -82,11 +82,9 @@ public class OrdenData {
             orden.setIdOrden(result.getInt("idOrden"));
             orden.setFecha(result.getDate("fecha").toLocalDate());
             orden.setFormaPago(result.getString("formaPago"));
-            orden.setImporte(result.getDouble("importe"));
-            int afiliadoId = result.getInt("idAfiliado");
-            Afiliado afiliado = afiData.buscarAfiliado_dni(afiliadoId);
-            int prestadorId = result.getInt("idPrestador");
-            Prestador prestador = presData.buscarPrestador_id(result.getInt(prestadorId));
+            orden.setImporte(result.getDouble("importe"));           
+            Afiliado afiliado = afiData.buscarAfiliado_id(result.getInt("idAfiliado"));            
+            Prestador prestador = presData.buscarPrestador_id(result.getInt("idPrestador"));
             orden.setAfiliado(afiliado);
             orden.setPrestador(prestador);  
             ordenesF.add(orden);
@@ -161,7 +159,7 @@ public class OrdenData {
     
      public void eliminarOrden(int idAfiliado, int idPrestador) {
 
-        final String QUERY = "DELETE FROM orden WHERE idAliliado=? AND idPrestador=?";
+        final String QUERY = "DELETE FROM orden WHERE idAfiliado=? AND idPrestador=?";
         PreparedStatement statement;
         try {
             statement = nuevaConexion.prepareStatement(QUERY);

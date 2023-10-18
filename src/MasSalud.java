@@ -129,10 +129,47 @@ public class MasSalud {
 //       
 //           System.out.println("ID: "+orden.getIdOrden());
 //           System.out.println("Forma de Pago: "+orden.getFormaPago());
+//           System.out.println("Fecha: "+orden.getFecha());
 //           System.out.println("Importe: $"+orden.getImporte());
-//           System.out.println("IdAfiliado: ");
+//           System.out.println("IdAfiliado: "+orden.getAfiliado().getIdAfiliado());
+//           System.out.println("IdPrestador: "+orden.getPrestador().getIdPrestador());
+//           System.out.println("*************************");
 //       }
         
+        //Ordenes sacadas por afiliado
+//         OrdenData ordenD=new OrdenData();
+//       for(Orden orden:ordenD.Orden_SacadasPorAfiliado(6)){
+//       
+//           System.out.println("ID: "+orden.getIdOrden());
+//           System.out.println("Forma de Pago: "+orden.getFormaPago());
+//           System.out.println("Fecha: "+orden.getFecha());
+//           System.out.println("Importe: $"+orden.getImporte());
+//           System.out.println("IdAfiliado: "+orden.getAfiliado().getIdAfiliado());
+//           System.out.println("IdPrestador: "+orden.getPrestador().getIdPrestador());
+//           System.out.println("*************************");
+//       }
+       
+       //Orden omitidas segun Prestador
+//        OrdenData ordenD=new OrdenData();
+//       for(Orden orden:ordenD.Orden_SacadasSegunPrestador(2)){
+//       
+//           System.out.println("ID: "+orden.getIdOrden());
+//           System.out.println("Forma de Pago: "+orden.getFormaPago());
+//           System.out.println("Fecha: "+orden.getFecha());
+//           System.out.println("Importe: $"+orden.getImporte());
+//           System.out.println("IdAfiliado: "+orden.getAfiliado().getIdAfiliado());
+//           System.out.println("IdPrestador: "+orden.getPrestador().getIdPrestador());
+//           System.out.println("*************************");
+//       }
+       
+       //Eliminar Orden
+       AfiliadoData afilD=new AfiliadoData();
+       PrestadorData prestD= new PrestadorData();
+       OrdenData ordenD=new OrdenData();
+       
+       Afiliado afiliado=afilD.buscarAfiliado_id(8);
+       Prestador prestador=prestD.buscarPrestador_id(2);
+       ordenD.eliminarOrden(8, 2);
        
     }
 
