@@ -156,6 +156,40 @@ public class AfiliadoData {
 
     }
 
+    public ArrayList<Afiliado> listarInActivos() {
+
+        final String QUERY = "SELECT idAfiliado, nombre, apellido, dni, domicilio, telefono FROM afiliado WHERE activo = 0 ";
+
+        ArrayList<Afiliado> listaAfiliados = new ArrayList<>();
+
+        try {
+
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            try (ResultSet result = statement.executeQuery()) {
+                while (result.next()) {
+                    Afiliado afiliado = new Afiliado();
+                    afiliado.setIdAfiliado(result.getInt("idAfiliado"));
+                    afiliado.setNombre(result.getString("nombre"));
+                    afiliado.setApellido(result.getString("apellido"));
+                    afiliado.setDni(result.getInt("dni"));
+                    afiliado.setDomicilio(result.getString("domicilio"));
+                    afiliado.setTelefono(result.getLong("telefono"));
+                    afiliado.setActivo(true);
+
+                    listaAfiliados.add(afiliado);
+                }
+            }
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "!Error al Modificar los Datos del Afiliado, intente Nuevamente! " + ex);
+
+        }
+
+        return listaAfiliados;
+
+    }
+
     public Afiliado buscarAfiliado_id(int id) {
 
         Afiliado afiliado = null;
@@ -244,7 +278,7 @@ public class AfiliadoData {
                 yaExiste = (count > 0);
             }
             statement.close();
-            
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
         }

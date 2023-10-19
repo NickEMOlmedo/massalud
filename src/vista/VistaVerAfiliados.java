@@ -1,14 +1,55 @@
 package vista;
 
-import javax.swing.table.TableModel;
+import controlador.AfiliadoData;
+import java.util.ArrayList;
+import javax.swing.ButtonGroup;
+import javax.swing.table.DefaultTableModel;
+import modelo.Afiliado;
 
 public class VistaVerAfiliados extends javax.swing.JFrame {
+
+    AfiliadoData afiliado_data = new AfiliadoData();
+    private final DefaultTableModel modelo;
 
     public VistaVerAfiliados() {
         initComponents();
         setResizable(false);
-        
-        TableModel modelo;
+        ButtonGroup grupoDeBotones = new ButtonGroup();
+        grupoDeBotones.add(radio_mostrarActivos);
+        grupoDeBotones.add(radio_mostrarInactivos);
+        modelo = new DefaultTableModel();
+        armarCabecera();
+    }
+
+    private void armarCabecera() {
+
+        ArrayList<Object> cabecera = new ArrayList<>();
+
+        cabecera.add("Nombre");
+        cabecera.add("Apellido");
+        cabecera.add("DNI");
+        cabecera.add("Domicilio");
+        cabecera.add("Telefono");
+        cabecera.add("Activo");
+
+        for (Object lector : cabecera) {
+
+            modelo.addColumn(lector);
+
+        }
+
+        table_afiliados.setModel(modelo);
+    }
+
+    private void borrarFilas() {
+
+        int rowCount = modelo.getRowCount();
+
+        for (int i = rowCount - 1; i >= 0; i--) {
+
+            modelo.removeRow(i);
+        }
+
     }
 
     /**
@@ -20,6 +61,7 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
@@ -40,6 +82,8 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         jSeparator12 = new javax.swing.JSeparator();
         button_bajaAfiliado = new javax.swing.JButton();
         jSeparator13 = new javax.swing.JSeparator();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -86,16 +130,36 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
 
         table_afiliados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Apellido", "DNI", "Domicilio", "Telefono"
             }
         ));
+        table_afiliados.setCellSelectionEnabled(true);
         jScrollPane1.setViewportView(table_afiliados);
+        table_afiliados.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 620, 380));
 
@@ -105,11 +169,21 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         radio_mostrarInactivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_mostrarInactivos.setForeground(new java.awt.Color(102, 102, 102));
         radio_mostrarInactivos.setText("Mostrar Inactivos");
+        radio_mostrarInactivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radio_mostrarInactivosActionPerformed(evt);
+            }
+        });
         getContentPane().add(radio_mostrarInactivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, -1, -1));
 
         radio_mostrarActivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_mostrarActivos.setForeground(new java.awt.Color(102, 102, 102));
         radio_mostrarActivos.setText("Mostrar Activos");
+        radio_mostrarActivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radio_mostrarActivosActionPerformed(evt);
+            }
+        });
         getContentPane().add(radio_mostrarActivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, -1, -1));
 
         jSeparator6.setForeground(new java.awt.Color(153, 204, 255));
@@ -167,6 +241,41 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_button_guardarAfiliadoActionPerformed
 
+    private void radio_mostrarActivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarActivosActionPerformed
+
+        borrarFilas();
+
+        ArrayList<Afiliado> listadoAfiliados_activos = afiliado_data.listarActivos();
+
+        for (Afiliado afiliados : listadoAfiliados_activos) {
+
+            modelo.addRow(new Object[]{afiliados.getNombre(), afiliados.getApellido(), afiliados.getDni(), afiliados.getTelefono()});
+
+        }
+
+        button_altaAfiliado.setEnabled(false);
+        button_bajaAfiliado.setEnabled(true);
+
+    }//GEN-LAST:event_radio_mostrarActivosActionPerformed
+
+    private void radio_mostrarInactivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarInactivosActionPerformed
+
+         borrarFilas();
+
+        ArrayList<Afiliado> listadoAfiliados_inActivos = afiliado_data.listarInActivos();
+
+        for (Afiliado afiliados : listadoAfiliados_inActivos) {
+
+            modelo.addRow(new Object[]{afiliados.getNombre(), afiliados.getApellido(), afiliados.getDni(), afiliados.getTelefono()});
+
+        }
+
+        button_altaAfiliado.setEnabled(true);
+        button_bajaAfiliado.setEnabled(false);
+
+
+    }//GEN-LAST:event_radio_mostrarInactivosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -208,6 +317,7 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
     private javax.swing.JButton button_bajaAfiliado;
     private javax.swing.JButton button_guardarAfiliado;
     private javax.swing.JButton button_salir;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
