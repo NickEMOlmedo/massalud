@@ -1,6 +1,7 @@
 package vista;
 
 import controlador.AfiliadoData;
+import javax.swing.JOptionPane;
 import modelo.Afiliado;
 
 public class VistaAfiliado extends javax.swing.JFrame {
@@ -136,6 +137,11 @@ public class VistaAfiliado extends javax.swing.JFrame {
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
 
         text_telefonoAfiliado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        text_telefonoAfiliado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_telefonoAfiliadoActionPerformed(evt);
+            }
+        });
         getContentPane().add(text_telefonoAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 280, 30));
 
         button_limpiarAfiliado.setBackground(new java.awt.Color(255, 255, 255));
@@ -197,11 +203,18 @@ public class VistaAfiliado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_limpiarAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarAfiliadoActionPerformed
-        // TODO add your handling code here:
+        text_nombreAfiliado.setText("");
+        text_apellidoAfiliado.setText("");
+        text_dniAfiliado.setText("");
+        text_domicilioAfiliado.setText("");
+        text_telefonoAfiliado.setText("");
+        checkbox_afiliadoActivo.setSelected(false);
+
+
     }//GEN-LAST:event_button_limpiarAfiliadoActionPerformed
 
     private void text_nombreAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_nombreAfiliadoActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_text_nombreAfiliadoActionPerformed
 
     private void button_guardarAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarAfiliadoActionPerformed
@@ -212,29 +225,38 @@ public class VistaAfiliado extends javax.swing.JFrame {
         String domicilio = text_domicilioAfiliado.getText();
         long telefono = 0;
 
-        if (VerificarInputs.soloLetras(text_nombreAfiliado.getText())) {
+        if (!afiliado_data.afiliadoExiste(Integer.parseInt(text_dniAfiliado.getText()))) {
 
-            nombre = text_nombreAfiliado.getText();
+            if (VerificarInputs.soloLetras(text_nombreAfiliado.getText())) {
+
+                nombre = text_nombreAfiliado.getText();
+            }
+
+            if (VerificarInputs.soloLetras(text_apellidoAfiliado.getText())) {
+
+                apellido = apellido = text_apellidoAfiliado.getText();
+            }
+
+            if (VerificarInputs.soloNumeros(text_dniAfiliado.getText())) {
+
+                dni = Integer.valueOf(text_dniAfiliado.getText());
+            }
+
+            if (VerificarInputs.soloNumeros(text_telefonoAfiliado.getText())) {
+
+                telefono = Long.parseLong(text_telefonoAfiliado.getText());
+            }
+
+            Afiliado afiliado = new Afiliado(nombre, apellido, dni, domicilio, telefono, checkbox_afiliadoActivo.isSelected());
+
+            afiliado_data.guardarAfiliado(afiliado);
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "¡El afiliado ya existe!" + ex);
+
         }
 
-        if (VerificarInputs.soloLetras(text_apellidoAfiliado.getText())) {
-
-            apellido = apellido = text_apellidoAfiliado.getText();
-        }
-
-        if (VerificarInputs.soloNumeros(text_dniAfiliado.getText())) {
-
-            dni = Integer.valueOf(text_dniAfiliado.getText());
-        }
-
-        if (VerificarInputs.soloNumeros(text_telefonoAfiliado.getText())) {
-
-            telefono = Long.valueOf(text_telefonoAfiliado.getText());
-        }
-
-        Afiliado afiliado = new Afiliado(nombre, apellido, dni, domicilio, telefono, checkbox_afiliadoActivo.isSelected());
-
-        afiliado_data.guardarAfiliado(afiliado);
 
     }//GEN-LAST:event_button_guardarAfiliadoActionPerformed
 
@@ -253,6 +275,10 @@ public class VistaAfiliado extends javax.swing.JFrame {
     private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
         dispose();
     }//GEN-LAST:event_button_salirActionPerformed
+
+    private void text_telefonoAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_telefonoAfiliadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_telefonoAfiliadoActionPerformed
 
     /**
      * @param args the command line arguments

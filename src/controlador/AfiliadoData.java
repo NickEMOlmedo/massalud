@@ -6,9 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Afiliado;
-
 
 public class AfiliadoData {
 
@@ -225,6 +226,29 @@ public class AfiliadoData {
         }
 
         return afiliado;
+
+    }
+
+    public boolean afiliadoExiste(int dni) {
+        boolean yaExiste = false;
+
+        final String QUERY = "SELECT COUNT(*) FROM afiliado WHERE dni = ? AND activo = 1 ";
+
+        try {
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            statement.setInt(1, dni);
+            ResultSet result = statement.executeQuery();
+            if (result.next()) {
+
+                int count = result.getInt(1);
+                yaExiste = (count > 0);
+            }
+            statement.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+        }
+        return yaExiste;
 
     }
 

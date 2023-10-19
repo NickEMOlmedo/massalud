@@ -1,10 +1,14 @@
 package vista;
 
+import javax.swing.table.TableModel;
+
 public class VistaVerAfiliados extends javax.swing.JFrame {
 
     public VistaVerAfiliados() {
         initComponents();
         setResizable(false);
+        
+        TableModel modelo;
     }
 
     /**
@@ -128,6 +132,11 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         button_guardarAfiliado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_guardarAfiliado.setForeground(new java.awt.Color(102, 102, 102));
         button_guardarAfiliado.setText("Guardar");
+        button_guardarAfiliado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_guardarAfiliadoActionPerformed(evt);
+            }
+        });
         getContentPane().add(button_guardarAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, 150, 60));
 
         jSeparator12.setForeground(new java.awt.Color(153, 204, 255));
@@ -153,6 +162,10 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
     private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
         dispose();
     }//GEN-LAST:event_button_salirActionPerformed
+
+    private void button_guardarAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarAfiliadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_guardarAfiliadoActionPerformed
 
     /**
      * @param args the command line arguments
