@@ -16,7 +16,7 @@ public class VistaOrden extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        button_verPrestadores = new javax.swing.JButton();
+        button_verOrdenes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -46,16 +46,16 @@ public class VistaOrden extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        button_verPrestadores.setBackground(new java.awt.Color(255, 255, 255));
-        button_verPrestadores.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        button_verPrestadores.setForeground(new java.awt.Color(51, 51, 51));
-        button_verPrestadores.setText("Ver Ordenes");
-        button_verPrestadores.addActionListener(new java.awt.event.ActionListener() {
+        button_verOrdenes.setBackground(new java.awt.Color(255, 255, 255));
+        button_verOrdenes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        button_verOrdenes.setForeground(new java.awt.Color(51, 51, 51));
+        button_verOrdenes.setText("Ver Ordenes");
+        button_verOrdenes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_verPrestadoresActionPerformed(evt);
+                button_verOrdenesActionPerformed(evt);
             }
         });
-        getContentPane().add(button_verPrestadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 130, 70));
+        getContentPane().add(button_verOrdenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 130, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/female doctor_fococlipping_removed 1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 470, 440));
@@ -199,9 +199,13 @@ public class VistaOrden extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_button_limpiarOrdenActionPerformed
 
-    private void button_verPrestadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_verPrestadoresActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_button_verPrestadoresActionPerformed
+    private void button_verOrdenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_verOrdenesActionPerformed
+        VistaVerOrdenes verordenes = new VistaVerOrdenes();
+        verordenes.setVisible(true);
+        dispose();
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_button_verOrdenesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,7 +249,7 @@ public class VistaOrden extends javax.swing.JFrame {
     private javax.swing.JButton button_limpiarOrden;
     private javax.swing.JButton button_principal;
     private javax.swing.JButton button_salir;
-    private javax.swing.JButton button_verPrestadores;
+    private javax.swing.JButton button_verOrdenes;
     private javax.swing.JComboBox combobox_formaPago;
     private com.toedter.calendar.JDateChooser date_fechaOrden;
     private javax.swing.JLabel jLabel1;

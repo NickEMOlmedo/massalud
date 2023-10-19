@@ -3,14 +3,13 @@ package vista;
 import controlador.AfiliadoData;
 import modelo.Afiliado;
 
-
 public class VistaAfiliado extends javax.swing.JFrame {
-    
+
     public VistaAfiliado() {
         initComponents();
         setResizable(false);
     }
-    
+
     AfiliadoData afiliado_data = new AfiliadoData();
 
     /**
@@ -206,36 +205,35 @@ public class VistaAfiliado extends javax.swing.JFrame {
     }//GEN-LAST:event_text_nombreAfiliadoActionPerformed
 
     private void button_guardarAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarAfiliadoActionPerformed
-        
+
         String nombre = null;
         String apellido = null;
         int dni = 0;
         String domicilio = text_domicilioAfiliado.getText();
         long telefono = 0;
-        
+
         if (VerificarInputs.soloLetras(text_nombreAfiliado.getText())) {
-            
+
             nombre = text_nombreAfiliado.getText();
         }
-        
+
         if (VerificarInputs.soloLetras(text_apellidoAfiliado.getText())) {
-            
+
             apellido = apellido = text_apellidoAfiliado.getText();
         }
-        
+
         if (VerificarInputs.soloNumeros(text_dniAfiliado.getText())) {
-            
+
             dni = Integer.valueOf(text_dniAfiliado.getText());
         }
-        
-        
+
         if (VerificarInputs.soloNumeros(text_telefonoAfiliado.getText())) {
-            
+
             telefono = Long.valueOf(text_telefonoAfiliado.getText());
         }
-        
+
         Afiliado afiliado = new Afiliado(nombre, apellido, dni, domicilio, telefono, checkbox_afiliadoActivo.isSelected());
-        
+
         afiliado_data.guardarAfiliado(afiliado);
 
     }//GEN-LAST:event_button_guardarAfiliadoActionPerformed
