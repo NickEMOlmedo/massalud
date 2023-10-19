@@ -253,7 +253,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
         } else {
 
-            JOptionPane.showMessageDialog(null, "¡El afiliado ya existe!" + ex);
+            JOptionPane.showMessageDialog(null, "¡El afiliado ya existe!");
 
         }
 
