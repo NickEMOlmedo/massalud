@@ -32,6 +32,7 @@ public class VistaEspecialidad extends javax.swing.JFrame {
         button_salir = new javax.swing.JButton();
         button_cargarEspecialidad = new javax.swing.JButton();
         button_limpiarEspecialidad1 = new javax.swing.JButton();
+        checkbox_aespecialidadActivo = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -72,7 +73,7 @@ public class VistaEspecialidad extends javax.swing.JFrame {
                 button_verEspecialidadesActionPerformed(evt);
             }
         });
-        getContentPane().add(button_verEspecialidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 170, 60));
+        getContentPane().add(button_verEspecialidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 170, 60));
 
         jSeparator6.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 10));
@@ -124,7 +125,7 @@ public class VistaEspecialidad extends javax.swing.JFrame {
                 button_cargarEspecialidadActionPerformed(evt);
             }
         });
-        getContentPane().add(button_cargarEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 120, 60));
+        getContentPane().add(button_cargarEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 120, 60));
 
         button_limpiarEspecialidad1.setBackground(new java.awt.Color(255, 255, 255));
         button_limpiarEspecialidad1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -135,7 +136,12 @@ public class VistaEspecialidad extends javax.swing.JFrame {
                 button_limpiarEspecialidad1ActionPerformed(evt);
             }
         });
-        getContentPane().add(button_limpiarEspecialidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 120, 60));
+        getContentPane().add(button_limpiarEspecialidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 120, 60));
+
+        checkbox_aespecialidadActivo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        checkbox_aespecialidadActivo.setForeground(new java.awt.Color(102, 102, 102));
+        checkbox_aespecialidadActivo.setText("  Activo");
+        getContentPane().add(checkbox_aespecialidadActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 90, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -207,6 +213,7 @@ public class VistaEspecialidad extends javax.swing.JFrame {
     private javax.swing.JButton button_principal;
     private javax.swing.JButton button_salir;
     private javax.swing.JButton button_verEspecialidades;
+    private javax.swing.JCheckBox checkbox_aespecialidadActivo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
