@@ -263,7 +263,7 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         String nombre = null;
         String apellido = null;
         int dni = 0;
-        String domicilio = modelo.getValueAt(filaSeleccionada, 5).toString();
+        String domicilio = modelo.getValueAt(filaSeleccionada, 4).toString();
         long telefono = 0;
         
         if (filaSeleccionada != -1) {
