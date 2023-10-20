@@ -1,10 +1,14 @@
 package vista;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+
 public class VistaOrden extends javax.swing.JFrame {
 
     public VistaOrden() {
         initComponents();
         setResizable(false);
+        cargarComboBox();
     }
 
     /**
@@ -28,7 +32,7 @@ public class VistaOrden extends javax.swing.JFrame {
         jSeparator6 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        combobox_formaPago = new javax.swing.JComboBox();
+        combobox_formaPago = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         date_fechaOrden = new com.toedter.calendar.JDateChooser();
@@ -112,7 +116,6 @@ public class VistaOrden extends javax.swing.JFrame {
         jSeparator4.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 200, 10));
 
-        combobox_formaPago.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(combobox_formaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 280, 30));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -124,6 +127,12 @@ public class VistaOrden extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
         jLabel12.setText("Forma de Pago:");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
+
+        date_fechaOrden.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                date_fechaOrdenPropertyChange(evt);
+            }
+        });
         getContentPane().add(date_fechaOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 280, 30));
 
         txt_importeOrden.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -193,6 +202,7 @@ public class VistaOrden extends javax.swing.JFrame {
 
     private void button_guardarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarOrdenActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_button_guardarOrdenActionPerformed
 
     private void button_limpiarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarOrdenActionPerformed
@@ -206,6 +216,14 @@ public class VistaOrden extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_button_verOrdenesActionPerformed
+
+    private void date_fechaOrdenPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_date_fechaOrdenPropertyChange
+        // TODO add your handling code here:
+        if(date_fechaOrden.getDate()!=null){
+        
+            LocalDate fechaN=date_fechaOrden.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        }
+    }//GEN-LAST:event_date_fechaOrdenPropertyChange
 
     /**
      * @param args the command line arguments
@@ -250,7 +268,7 @@ public class VistaOrden extends javax.swing.JFrame {
     private javax.swing.JButton button_principal;
     private javax.swing.JButton button_salir;
     private javax.swing.JButton button_verOrdenes;
-    private javax.swing.JComboBox combobox_formaPago;
+    private javax.swing.JComboBox<String> combobox_formaPago;
     private com.toedter.calendar.JDateChooser date_fechaOrden;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -270,4 +288,11 @@ public class VistaOrden extends javax.swing.JFrame {
     private javax.swing.JTextField txt_importeOrden;
     private javax.swing.JTextField txt_prestadorOrden;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarComboBox(){
+    
+        combobox_formaPago.addItem("Efectivo");
+        combobox_formaPago.addItem("Débito");
+        combobox_formaPago.addItem("Tarjeta De Crédito");
+    }
 }
