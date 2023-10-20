@@ -4,52 +4,61 @@ import controlador.AfiliadoData;
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import modelo.Afiliado;
 
 public class VistaVerAfiliados extends javax.swing.JFrame {
-
+    
     AfiliadoData afiliado_data = new AfiliadoData();
     private final DefaultTableModel modelo;
-
+    
     public VistaVerAfiliados() {
         initComponents();
         setResizable(false);
         ButtonGroup grupoDeBotones = new ButtonGroup();
         grupoDeBotones.add(radio_mostrarActivos);
         grupoDeBotones.add(radio_mostrarInactivos);
-        modelo = new DefaultTableModel();
+        modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                
+                return column != 0;
+                
+            }
+            
+        };
+        
         armarCabecera();
     }
-
+    
     private void armarCabecera() {
-
+        
         ArrayList<Object> cabecera = new ArrayList<>();
-
+        cabecera.add("ID");
         cabecera.add("Nombre");
         cabecera.add("Apellido");
         cabecera.add("DNI");
         cabecera.add("Domicilio");
         cabecera.add("Telefono");
-        cabecera.add("Activo");
-
+        
         for (Object lector : cabecera) {
-
+            
             modelo.addColumn(lector);
-
+            
         }
-
+        
         table_afiliados.setModel(modelo);
     }
-
+    
     private void borrarFilas() {
-
+        
         int rowCount = modelo.getRowCount();
-
+        
         for (int i = rowCount - 1; i >= 0; i--) {
-
+            
             modelo.removeRow(i);
         }
-
+        
     }
 
     /**
@@ -99,7 +108,7 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Listado de Afiliados ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, -1, -1));
 
         button_atras.setBackground(new java.awt.Color(255, 255, 255));
         button_atras.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -121,7 +130,7 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
                 button_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 60));
+        getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, 90, 60));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
@@ -130,38 +139,38 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
 
         table_afiliados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido", "DNI", "Domicilio", "Telefono"
+                "ID", "Nombre", "Apellido", "DNI", "Domicilio", "Telefono"
             }
         ));
         table_afiliados.setCellSelectionEnabled(true);
         jScrollPane1.setViewportView(table_afiliados);
         table_afiliados.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 620, 380));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 670, 380));
 
         jSeparator8.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 230, 10));
@@ -174,7 +183,7 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
                 radio_mostrarInactivosActionPerformed(evt);
             }
         });
-        getContentPane().add(radio_mostrarInactivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, -1, -1));
+        getContentPane().add(radio_mostrarInactivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, -1, -1));
 
         radio_mostrarActivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_mostrarActivos.setForeground(new java.awt.Color(102, 102, 102));
@@ -184,24 +193,29 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
                 radio_mostrarActivosActionPerformed(evt);
             }
         });
-        getContentPane().add(radio_mostrarActivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, -1, -1));
+        getContentPane().add(radio_mostrarActivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, -1, -1));
 
         jSeparator6.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 10));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 870, 10));
 
         jSeparator9.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 550, 150, 10));
+        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 550, 150, 10));
 
         jSeparator10.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 230, 10));
+        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 230, 10));
 
         jSeparator11.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 150, -1));
+        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 220, 150, -1));
 
         button_altaAfiliado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_altaAfiliado.setForeground(new java.awt.Color(102, 102, 102));
         button_altaAfiliado.setText("Alta Afiliado");
-        getContentPane().add(button_altaAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 300, 150, 60));
+        button_altaAfiliado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_altaAfiliadoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_altaAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, 150, 60));
 
         button_guardarAfiliado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_guardarAfiliado.setForeground(new java.awt.Color(102, 102, 102));
@@ -211,18 +225,23 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
                 button_guardarAfiliadoActionPerformed(evt);
             }
         });
-        getContentPane().add(button_guardarAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, 150, 60));
+        getContentPane().add(button_guardarAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 470, 150, 60));
 
         jSeparator12.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 150, 10));
+        getContentPane().add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, 150, 10));
 
         button_bajaAfiliado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_bajaAfiliado.setForeground(new java.awt.Color(102, 102, 102));
         button_bajaAfiliado.setText("Baja Afiliado");
-        getContentPane().add(button_bajaAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 150, 60));
+        button_bajaAfiliado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_bajaAfiliadoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_bajaAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 370, 150, 60));
 
         jSeparator13.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, 150, 10));
+        getContentPane().add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 450, 150, 10));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -238,43 +257,150 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_guardarAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarAfiliadoActionPerformed
-        // TODO add your handling code here:
+        
+        int filaSeleccionada = table_afiliados.getSelectedRow();
+        
+        String nombre = null;
+        String apellido = null;
+        int dni = 0;
+        String domicilio = modelo.getValueAt(filaSeleccionada, 4).toString();
+        long telefono = 0;
+        
+        if (filaSeleccionada != -1) {
+            
+            if (VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 1).toString())) {
+                
+                nombre = modelo.getValueAt(filaSeleccionada, 1).toString();
+            }
+            
+            if (VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 2).toString())) {
+                
+                apellido = modelo.getValueAt(filaSeleccionada, 2).toString();
+            }
+            
+            if (VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 3).toString())) {
+                
+                dni = Integer.valueOf(modelo.getValueAt(filaSeleccionada, 3).toString());
+            }
+            
+            if (VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 5).toString())) {
+                
+                telefono = Long.parseLong(modelo.getValueAt(filaSeleccionada, 5).toString());
+            }
+            
+            Afiliado modificarAfiliado = afiliado_data.buscarAfiliado_dni(dni);
+            
+            modificarAfiliado.setNombre(nombre);
+            modificarAfiliado.setApellido(apellido);
+            modificarAfiliado.setDni(dni);
+            modificarAfiliado.setDomicilio(domicilio);
+            modificarAfiliado.setTelefono(telefono);
+            
+            afiliado_data.modificarAfiliado(modificarAfiliado);
+            
+        }
+
     }//GEN-LAST:event_button_guardarAfiliadoActionPerformed
 
     private void radio_mostrarActivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarActivosActionPerformed
-
+        
         borrarFilas();
-
+        
         ArrayList<Afiliado> listadoAfiliados_activos = afiliado_data.listarActivos();
-
+        
         for (Afiliado afiliados : listadoAfiliados_activos) {
-
-            modelo.addRow(new Object[]{afiliados.getNombre(), afiliados.getApellido(), afiliados.getDni(), afiliados.getTelefono()});
-
+            
+            modelo.addRow(new Object[]{afiliados.getIdAfiliado(), afiliados.getNombre(), afiliados.getApellido(), afiliados.getDni(), afiliados.getDomicilio(), afiliados.getTelefono()});
+            
         }
-
+        
         button_altaAfiliado.setEnabled(false);
         button_bajaAfiliado.setEnabled(true);
 
     }//GEN-LAST:event_radio_mostrarActivosActionPerformed
 
     private void radio_mostrarInactivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarInactivosActionPerformed
-
-         borrarFilas();
-
+        
+        borrarFilas();
+        
         ArrayList<Afiliado> listadoAfiliados_inActivos = afiliado_data.listarInActivos();
-
+        
         for (Afiliado afiliados : listadoAfiliados_inActivos) {
-
-            modelo.addRow(new Object[]{afiliados.getNombre(), afiliados.getApellido(), afiliados.getDni(), afiliados.getTelefono()});
-
+            
+            modelo.addRow(new Object[]{afiliados.getIdAfiliado(), afiliados.getNombre(), afiliados.getApellido(), afiliados.getDni(), afiliados.getDomicilio(), afiliados.getTelefono()});
+            
         }
-
+        
         button_altaAfiliado.setEnabled(true);
         button_bajaAfiliado.setEnabled(false);
-
+        
 
     }//GEN-LAST:event_radio_mostrarInactivosActionPerformed
+
+    private void button_bajaAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_bajaAfiliadoActionPerformed
+        
+        int filaSeleccionada = table_afiliados.getSelectedRow();
+        
+        if (filaSeleccionada != -1) {
+            
+            Afiliado afiliado_dni;
+            
+            TableModel model = table_afiliados.getModel();
+            
+            int idFila = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
+            
+            Object valorDni = model.getValueAt(filaSeleccionada, 3);
+            
+            int dni = Integer.parseInt(valorDni.toString());
+            
+            afiliado_dni = afiliado_data.buscarAfiliado_dni(dni);
+            
+            System.out.println(afiliado_dni.toString());
+            
+            int id = afiliado_dni.getIdAfiliado();
+            
+            afiliado_data.eliminarAfiliado(id);
+            
+            modelo.removeRow(filaSeleccionada);
+            
+        }
+        
+        modelo.fireTableDataChanged();
+
+    }//GEN-LAST:event_button_bajaAfiliadoActionPerformed
+
+    private void button_altaAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_altaAfiliadoActionPerformed
+        
+        int filaSeleccionada = table_afiliados.getSelectedRow();
+        
+        if (filaSeleccionada != -1) {
+            
+            Afiliado afiliado_dni;
+            
+            TableModel model = table_afiliados.getModel();
+            
+            int idFila = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
+            
+            Object valorDni = model.getValueAt(filaSeleccionada, 3);
+            
+            int dni = Integer.parseInt(valorDni.toString());
+            
+            afiliado_dni = afiliado_data.buscarAfiliado_dni(dni);
+            
+            System.out.println(afiliado_dni.toString());
+            
+            int id = afiliado_dni.getIdAfiliado();
+            
+            afiliado_data.recuperarAfiliado(id);
+            
+            modelo.removeRow(filaSeleccionada);
+            
+        }
+        
+        modelo.fireTableDataChanged();
+        
+
+    }//GEN-LAST:event_button_altaAfiliadoActionPerformed
 
     /**
      * @param args the command line arguments

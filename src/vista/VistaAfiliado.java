@@ -234,7 +234,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
             if (VerificarInputs.soloLetras(text_apellidoAfiliado.getText())) {
 
-                apellido = apellido = text_apellidoAfiliado.getText();
+                apellido = text_apellidoAfiliado.getText();
             }
 
             if (VerificarInputs.soloNumeros(text_dniAfiliado.getText())) {
