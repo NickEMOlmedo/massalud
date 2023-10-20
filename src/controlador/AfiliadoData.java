@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Afiliado;
 
@@ -79,7 +77,28 @@ public class AfiliadoData {
             int envioExitoso = statement.executeUpdate();
             if (envioExitoso == 1) {
 
-                JOptionPane.showMessageDialog(null, "¡El afiliado se elimino satisfactoriamente!");
+                JOptionPane.showMessageDialog(null, "¡El afiliado se dio de baja satisfactoriamente!");
+            }
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+
+        }
+
+    }
+
+    public void recuperarAfiliado(int id) {
+
+        final String QUERY = "UPDATE afiliado SET activo = 1 WHERE idAfiliado = ?";
+
+        try {
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            statement.setInt(1, id);
+            int envioExitoso = statement.executeUpdate();
+            if (envioExitoso == 1) {
+
+                JOptionPane.showMessageDialog(null, "¡El afiliado se dio de alta satisfactoriamente!");
             }
 
         } catch (SQLException ex) {
@@ -232,7 +251,7 @@ public class AfiliadoData {
 
         Afiliado afiliado = null;
 
-        final String QUERY = "SELECT idAfiliado, nombre, apellido, dni, domicilio, telefono, activo FROM afiliado WHERE dni = ? && activo = 1";
+        final String QUERY = "SELECT idAfiliado, nombre, apellido, dni, domicilio, telefono, activo FROM afiliado WHERE dni = ? ";
 
         try {
             PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
@@ -240,9 +259,9 @@ public class AfiliadoData {
             ResultSet result = statement.executeQuery();
             if (result.next()) {
                 afiliado = new Afiliado();
-                afiliado.setIdAfiliado(result.getInt(result.getInt("idAfiliado")));
+                afiliado.setIdAfiliado(result.getInt("idAfiliado"));
                 afiliado.setNombre(result.getString("nombre"));
-                afiliado.setApellido(result.getString("Apellido"));
+                afiliado.setApellido(result.getString("apellido"));
                 afiliado.setDni(dni);
                 afiliado.setDomicilio(result.getString("domicilio"));
                 afiliado.setTelefono(result.getLong("telefono"));
@@ -256,6 +275,8 @@ public class AfiliadoData {
         } catch (SQLException ex) {
 
             JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+
+            System.out.println(ex);
 
         }
 
