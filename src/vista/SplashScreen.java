@@ -124,16 +124,16 @@ public class SplashScreen extends javax.swing.JFrame {
 
     private void button_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_ingresarActionPerformed
 
-        String Usuario = "Administrador";
+        String Usuario = "administrador";
         String Contraseña = "massalud";
 
         String Pass = new String(text_password.getPassword());
-        if (text_usuario.getText().equals(Usuario) && Pass.equals(Contraseña)) {
+        if (text_usuario.getText().toLowerCase().equals(Usuario) && Pass.equals(Contraseña)) {
             VistaPrincipal principal = new VistaPrincipal();
             principal.setVisible(true);
             dispose();
         } else {
-            JOptionPane.showMessageDialog(this, " Usuario / Contraseña incorrectos");
+            JOptionPane.showMessageDialog(this, " Usuario / Contraseña incorrectos, intente de nuevo.");
         }
 
 

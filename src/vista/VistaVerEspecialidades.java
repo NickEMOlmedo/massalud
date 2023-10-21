@@ -1,12 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package vista;
 
+import controlador.EspecialidadData;
+import java.util.ArrayList;
 import javax.swing.ButtonGroup;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import modelo.Especialidad;
 
 /**
  *
@@ -14,15 +13,52 @@ import javax.swing.ButtonGroup;
  */
 public class VistaVerEspecialidades extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VistaVerEspecialidades
-     */
+    EspecialidadData especialidad_data = new EspecialidadData();
+    private final DefaultTableModel modelo;
+
     public VistaVerEspecialidades() {
         initComponents();
         setResizable(false);
         ButtonGroup grupoDeBotones = new ButtonGroup();
         grupoDeBotones.add(radio_mostrarActivos);
         grupoDeBotones.add(radio_mostrarInactivos);
+        modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+
+                return column != 0;
+
+            }
+
+        };
+
+        armarCabecera();
+    }
+
+    private void armarCabecera() {
+
+        ArrayList<Object> cabecera = new ArrayList<>();
+        cabecera.add("ID");
+        cabecera.add("Especialidad");
+
+        for (Object lector : cabecera) {
+
+            modelo.addColumn(lector);
+
+        }
+
+        table_especialidades.setModel(modelo);
+    }
+
+    private void borrarFilas() {
+
+        int rowCount = modelo.getRowCount();
+
+        for (int i = rowCount - 1; i >= 0; i--) {
+
+            modelo.removeRow(i);
+        }
+
     }
 
     /**
@@ -44,7 +80,7 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
         button_salir = new javax.swing.JButton();
         button_principal = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table_afiliados = new javax.swing.JTable();
+        table_especialidades = new javax.swing.JTable();
         radio_mostrarInactivos = new javax.swing.JRadioButton();
         radio_mostrarActivos = new javax.swing.JRadioButton();
         jSeparator10 = new javax.swing.JSeparator();
@@ -77,7 +113,7 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSeparator6.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 640, 60));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 640, 20));
 
         jSeparator5.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 230, 10));
@@ -117,7 +153,7 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
         });
         getContentPane().add(button_principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 90, 60));
 
-        table_afiliados.setModel(new javax.swing.table.DefaultTableModel(
+        table_especialidades.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -157,12 +193,12 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        table_afiliados.setCellSelectionEnabled(true);
-        jScrollPane1.setViewportView(table_afiliados);
-        table_afiliados.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-        if (table_afiliados.getColumnModel().getColumnCount() > 0) {
-            table_afiliados.getColumnModel().getColumn(0).setPreferredWidth(120);
-            table_afiliados.getColumnModel().getColumn(0).setMaxWidth(120);
+        table_especialidades.setCellSelectionEnabled(true);
+        jScrollPane1.setViewportView(table_especialidades);
+        table_especialidades.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (table_especialidades.getColumnModel().getColumnCount() > 0) {
+            table_especialidades.getColumnModel().getColumn(0).setPreferredWidth(120);
+            table_especialidades.getColumnModel().getColumn(0).setMaxWidth(120);
         }
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 440, 420));
@@ -195,13 +231,13 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
 
         button_altaEspecialidad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_altaEspecialidad.setForeground(new java.awt.Color(102, 102, 102));
-        button_altaEspecialidad.setText("Alta Afiliado");
+        button_altaEspecialidad.setText("Alta Especialidad");
         button_altaEspecialidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_altaEspecialidadActionPerformed(evt);
             }
         });
-        getContentPane().add(button_altaEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 150, 60));
+        getContentPane().add(button_altaEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 160, 60));
 
         button_guardarEspecialidad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_guardarEspecialidad.setForeground(new java.awt.Color(102, 102, 102));
@@ -218,13 +254,13 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
 
         button_bajaEspecialidad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_bajaEspecialidad.setForeground(new java.awt.Color(102, 102, 102));
-        button_bajaEspecialidad.setText("Baja Afiliado");
+        button_bajaEspecialidad.setText("Baja Especialidad");
         button_bajaEspecialidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_bajaEspecialidadActionPerformed(evt);
             }
         });
-        getContentPane().add(button_bajaEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 150, 60));
+        getContentPane().add(button_bajaEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 160, 60));
 
         jSeparator16.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 410, 150, 10));
@@ -244,29 +280,30 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
 
     private void button_altaAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_altaAfiliadoActionPerformed
 
-        
 
     }//GEN-LAST:event_button_altaAfiliadoActionPerformed
 
     private void button_bajaAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_bajaAfiliadoActionPerformed
 
-        
+
     }//GEN-LAST:event_button_bajaAfiliadoActionPerformed
 
     private void radio_mostrarInactivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarInactivosActionPerformed
 
         borrarFilas();
 
-        ArrayList<Afiliado> listadoAfiliados_inActivos = afiliado_data.listarInActivos();
+        ArrayList<Especialidad> listaEspecialidades_activas = especialidad_data.listarInActivos();
 
-        for (Afiliado afiliados : listadoAfiliados_inActivos) {
+        for (Especialidad especialidades : listaEspecialidades_activas) {
 
-            modelo.addRow(new Object[]{afiliados.getIdAfiliado(), afiliados.getNombre(), afiliados.getApellido(), afiliados.getDni(), afiliados.getDomicilio(), afiliados.getTelefono()});
+            modelo.addRow(new Object[]{especialidades.getIdEspecialidad(), especialidades.getEspecialidad()});
 
         }
 
-        button_altaAfiliado.setEnabled(true);
-        button_bajaAfiliado.setEnabled(false);
+        button_altaEspecialidad.setEnabled(false);
+        button_bajaEspecialidad.setEnabled(true);
+        button_altaEspecialidad.setEnabled(true);
+        button_bajaEspecialidad.setEnabled(false);
 
     }//GEN-LAST:event_radio_mostrarInactivosActionPerformed
 
@@ -274,41 +311,35 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
 
         borrarFilas();
 
-        ArrayList<Afiliado> listadoAfiliados_activos = afiliado_data.listarActivos();
+        ArrayList<Especialidad> listaEspecialidades_activas = especialidad_data.listarActivos();
 
-        for (Afiliado afiliados : listadoAfiliados_activos) {
+        for (Especialidad especialidades : listaEspecialidades_activas) {
 
-            modelo.addRow(new Object[]{afiliados.getIdAfiliado(), afiliados.getNombre(), afiliados.getApellido(), afiliados.getDni(), afiliados.getDomicilio(), afiliados.getTelefono()});
+            modelo.addRow(new Object[]{especialidades.getIdEspecialidad(), especialidades.getEspecialidad()});
 
         }
 
-        button_altaAfiliado.setEnabled(false);
-        button_bajaAfiliado.setEnabled(true);
+        button_altaEspecialidad.setEnabled(false);
+        button_bajaEspecialidad.setEnabled(true);
     }//GEN-LAST:event_radio_mostrarActivosActionPerformed
 
     private void button_altaEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_altaEspecialidadActionPerformed
 
-        int filaSeleccionada = table_afiliados.getSelectedRow();
+        int filaSeleccionada = table_especialidades.getSelectedRow();
 
         if (filaSeleccionada != -1) {
 
-            Afiliado afiliado_dni;
+            Especialidad especialidad_id;
 
-            TableModel model = table_afiliados.getModel();
+            TableModel model = table_especialidades.getModel();
 
             int idFila = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
 
-            Object valorDni = model.getValueAt(filaSeleccionada, 3);
+            Object valorId = model.getValueAt(filaSeleccionada, 0);
 
-            int dni = Integer.parseInt(valorDni.toString());
+            int id = Integer.parseInt(valorId.toString());
 
-            afiliado_dni = afiliado_data.buscarAfiliado_dni(dni);
-
-            System.out.println(afiliado_dni.toString());
-
-            int id = afiliado_dni.getIdAfiliado();
-
-            afiliado_data.recuperarAfiliado(id);
+            especialidad_data.recuperarEspecialidad(id);
 
             modelo.removeRow(filaSeleccionada);
 
@@ -320,78 +351,52 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
 
     private void button_guardarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarEspecialidadActionPerformed
 
-        int filaSeleccionada = table_afiliados.getSelectedRow();
+        String especialidad = null;
 
-        String nombre = null;
-        String apellido = null;
-        int dni = 0;
-        String domicilio = modelo.getValueAt(filaSeleccionada, 4).toString();
-        long telefono = 0;
+        int filaSeleccionada = table_especialidades.getSelectedRow();
+
+        int id = Integer.parseInt((modelo.getValueAt(filaSeleccionada, 0).toString()));
 
         if (filaSeleccionada != -1) {
 
             if (VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 1).toString())) {
 
-                nombre = modelo.getValueAt(filaSeleccionada, 1).toString();
+                especialidad = modelo.getValueAt(filaSeleccionada, 1).toString();
             }
-
-            if (VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 2).toString())) {
-
-                apellido = modelo.getValueAt(filaSeleccionada, 2).toString();
-            }
-
-            if (VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 3).toString())) {
-
-                dni = Integer.valueOf(modelo.getValueAt(filaSeleccionada, 3).toString());
-            }
-
-            if (VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 5).toString())) {
-
-                telefono = Long.parseLong(modelo.getValueAt(filaSeleccionada, 5).toString());
-            }
-
-            Afiliado modificarAfiliado = afiliado_data.buscarAfiliado_dni(dni);
-
-            modificarAfiliado.setNombre(nombre);
-            modificarAfiliado.setApellido(apellido);
-            modificarAfiliado.setDni(dni);
-            modificarAfiliado.setDomicilio(domicilio);
-            modificarAfiliado.setTelefono(telefono);
-
-            afiliado_data.modificarAfiliado(modificarAfiliado);
-
         }
+
+        Especialidad modificarEspecialidad = especialidad_data.buscarEspecialidad(id);
+
+        modificarEspecialidad.setEspecialidad(especialidad);
+
+        especialidad_data.modificarEspecialidad(modificarEspecialidad);
     }//GEN-LAST:event_button_guardarEspecialidadActionPerformed
 
     private void button_bajaEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_bajaEspecialidadActionPerformed
 
-        int filaSeleccionada = table_afiliados.getSelectedRow();
+        int filaSeleccionada = table_especialidades.getSelectedRow();
 
         if (filaSeleccionada != -1) {
 
-            Afiliado afiliado_dni;
+            Especialidad especialidad_id;
 
-            TableModel model = table_afiliados.getModel();
+            TableModel model = table_especialidades.getModel();
 
             int idFila = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
 
-            Object valorDni = model.getValueAt(filaSeleccionada, 3);
+            Object valorId = model.getValueAt(filaSeleccionada, 0);
 
-            int dni = Integer.parseInt(valorDni.toString());
+            int id = Integer.parseInt(valorId.toString());
 
-            afiliado_dni = afiliado_data.buscarAfiliado_dni(dni);
-
-            System.out.println(afiliado_dni.toString());
-
-            int id = afiliado_dni.getIdAfiliado();
-
-            afiliado_data.eliminarAfiliado(id);
+            especialidad_data.eliminarEspecialidad(id);
 
             modelo.removeRow(filaSeleccionada);
 
         }
 
         modelo.fireTableDataChanged();
+
+
     }//GEN-LAST:event_button_bajaEspecialidadActionPerformed
 
     /**
@@ -401,7 +406,7 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -449,6 +454,6 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JRadioButton radio_mostrarActivos;
     private javax.swing.JRadioButton radio_mostrarInactivos;
-    private javax.swing.JTable table_afiliados;
+    private javax.swing.JTable table_especialidades;
     // End of variables declaration//GEN-END:variables
 }

@@ -153,7 +153,9 @@ public class VistaEspecialidad extends javax.swing.JFrame {
     }//GEN-LAST:event_button_principalActionPerformed
 
     private void button_verEspecialidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_verEspecialidadesActionPerformed
-        // TODO add your handling code here:
+        VistaVerEspecialidades verEspecialidades = new VistaVerEspecialidades();
+        verEspecialidades.setVisible(true);
+        dispose();
     }//GEN-LAST:event_button_verEspecialidadesActionPerformed
 
     private void text_nombreEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_nombreEspecialidadActionPerformed
