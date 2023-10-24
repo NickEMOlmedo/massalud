@@ -57,10 +57,10 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("MasSalud");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
 
         jSeparator2.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 230, 10));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 230, 10));
 
         button_atras.setBackground(new java.awt.Color(255, 255, 255));
         button_atras.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -82,33 +82,33 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 button_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 60));
+        getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, 90, 60));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("Informacion de Prestadores");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, -1));
 
         jSeparator8.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 230, 10));
+        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 230, 10));
 
         jSeparator6.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 10));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 870, 10));
 
         table_prestadores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nombre", "Apellido", "DNI", "Domicilio", "Telefono", "Especialidad"
             }
         ));
         jScrollPane1.setViewportView(table_prestadores);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 620, 380));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 690, 380));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
@@ -118,39 +118,39 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
         radio_mostrarInactivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_mostrarInactivos.setForeground(new java.awt.Color(102, 102, 102));
         radio_mostrarInactivos.setText("Mostrar Inactivos");
-        getContentPane().add(radio_mostrarInactivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, -1, -1));
+        getContentPane().add(radio_mostrarInactivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 280, -1, -1));
 
         radio_mostrarActivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_mostrarActivos.setForeground(new java.awt.Color(102, 102, 102));
         radio_mostrarActivos.setText("Mostrar Activos");
-        getContentPane().add(radio_mostrarActivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, -1, -1));
+        getContentPane().add(radio_mostrarActivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 260, -1, -1));
 
         jSeparator9.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 580, 150, 10));
+        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 580, 150, 10));
 
         jSeparator11.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 150, -1));
+        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 250, 150, -1));
 
         button_prestadorEspecialidad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_prestadorEspecialidad.setForeground(new java.awt.Color(102, 102, 102));
         button_prestadorEspecialidad.setText("Por Especialidad");
-        getContentPane().add(button_prestadorEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, 150, 30));
+        getContentPane().add(button_prestadorEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 210, 150, 30));
 
         button_guardarPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_guardarPrestador.setForeground(new java.awt.Color(102, 102, 102));
         button_guardarPrestador.setText("Guardar");
-        getContentPane().add(button_guardarPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 500, 150, 60));
+        getContentPane().add(button_guardarPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 150, 60));
 
         jSeparator12.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 150, 10));
+        getContentPane().add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 310, 150, 10));
 
         button_bajaPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_bajaPrestador.setForeground(new java.awt.Color(102, 102, 102));
         button_bajaPrestador.setText("Baja Prestador");
-        getContentPane().add(button_bajaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 150, 60));
+        getContentPane().add(button_bajaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, 150, 60));
 
         jSeparator13.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 480, 150, 10));
+        getContentPane().add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 480, 150, 10));
 
         jSeparator10.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 260, 10));
@@ -158,14 +158,14 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
         button_altaPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_altaPrestador.setForeground(new java.awt.Color(102, 102, 102));
         button_altaPrestador.setText("Alta Prestador");
-        getContentPane().add(button_altaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 330, 150, 60));
+        getContentPane().add(button_altaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 330, 150, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_atrasActionPerformed
-        VistaAfiliado afiliado = new VistaAfiliado();
-        afiliado.setVisible(true);
+        VistaPrestador prestador = new VistaPrestador();
+        prestador.setVisible(true);
         dispose();
     }//GEN-LAST:event_button_atrasActionPerformed
 
