@@ -5,9 +5,9 @@ import javax.swing.JOptionPane;
 import modelo.Especialidad;
 
 public class VistaEspecialidad extends javax.swing.JFrame {
-
+    
     EspecialidadData especialidad_data = new EspecialidadData();
-
+    
     public VistaEspecialidad() {
         initComponents();
         setResizable(false);
@@ -173,30 +173,30 @@ public class VistaEspecialidad extends javax.swing.JFrame {
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_cargarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cargarEspecialidadActionPerformed
-
+        
         String nombre = null;
-
+        
         if (!especialidad_data.especialidadExiste(text_nombreEspecialidad.getText())) {
-
-            if (VerificarInputs.soloLetras(text_nombreEspecialidad.getText())) {
-
-                nombre = text_nombreEspecialidad.getText();
-
-            }
-
-            Especialidad especialidad = new Especialidad(nombre, checkbox_aespecialidadActivo.isSelected());
-
-        }else{
             
+            if (VerificarInputs.soloLetras(text_nombreEspecialidad.getText())) {
+                
+                nombre = text_nombreEspecialidad.getText();
+                
+            }
+            
+            Especialidad especialidad = new Especialidad(nombre, checkbox_aespecialidadActivo.isSelected());
+            especialidad_data.guardarEspecialidad(especialidad);
+            
+        } else {
             
             JOptionPane.showMessageDialog(null, "¡La especialidad ya existe!");
         }
-
+        
 
     }//GEN-LAST:event_button_cargarEspecialidadActionPerformed
 
     private void button_limpiarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarEspecialidadActionPerformed
-
+        
         button_cargarEspecialidad.setText("");
         checkbox_aespecialidadActivo.setSelected(false);
 

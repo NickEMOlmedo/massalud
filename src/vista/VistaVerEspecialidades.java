@@ -145,7 +145,7 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
         button_principal.setBackground(new java.awt.Color(255, 255, 255));
         button_principal.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         button_principal.setForeground(new java.awt.Color(51, 51, 51));
-        button_principal.setText("Principal");
+        button_principal.setText("Atras");
         button_principal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_principalActionPerformed(evt);
@@ -273,8 +273,8 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_principalActionPerformed
-        VistaPrincipal principal = new VistaPrincipal();
-        principal.setVisible(true);
+        VistaEspecialidad especialidad = new VistaEspecialidad();
+        especialidad.setVisible(true);
         dispose();
     }//GEN-LAST:event_button_principalActionPerformed
 
