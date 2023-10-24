@@ -66,7 +66,40 @@ public class PrestadorData {
     }
      public ArrayList<Prestador> listarActivos() {
 
-        final String QUERY = "SELECT idPrestador, nombre, apellido, dni, domicilio, telefono FROM afiliado WHERE activo = 1 ";
+        final String QUERY = "SELECT idPrestador, nombre, apellido, dni, domicilio, telefono FROM prestador WHERE activo = 1 ";
+
+        ArrayList<Prestador> listaPrestadores = new ArrayList<>();
+
+        try {
+
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            try (ResultSet result = statement.executeQuery()) {
+                while (result.next()) {
+                    Prestador prestador = new Prestador();
+                    prestador.setIdPrestador(result.getInt("idPrestador"));
+                    prestador.setNombre(result.getString("nombre"));
+                    prestador.setApellido(result.getString("apellido"));
+                    prestador.setDni(result.getInt("dni"));
+                    prestador.setDomicilio(result.getString("domicilio"));
+                    prestador.setTelefono(result.getLong("telefono"));
+                    prestador.setActivo(true);
+
+                    listaPrestadores.add(prestador);
+                }
+            }
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "!Error al Modificar los Datos del Prestador, intente Nuevamente! " + ex);
+
+        }
+
+        return listaPrestadores;
+
+    }
+      public ArrayList<Prestador> listarInActivos() {
+
+        final String QUERY = "SELECT idPrestador, nombre, apellido, dni, domicilio, telefono FROM prestador WHERE activo = 0 ";
 
         ArrayList<Prestador> listaPrestadores = new ArrayList<>();
 

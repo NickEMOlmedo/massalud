@@ -3,6 +3,8 @@ package vista;
 import controlador.AfiliadoData;
 import controlador.OrdenData;
 import controlador.PrestadorData;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ButtonGroup;
@@ -94,7 +96,7 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
         jSeparator12 = new javax.swing.JSeparator();
         button_eliminarOrden = new javax.swing.JButton();
         jSeparator13 = new javax.swing.JSeparator();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser_fecha = new com.toedter.calendar.JDateChooser();
         button_ordenesPorFecha = new javax.swing.JButton();
         jSeparator14 = new javax.swing.JSeparator();
         txt_Afiliado_Prestador = new javax.swing.JTextField();
@@ -200,11 +202,16 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
 
         jSeparator13.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 150, 10));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 30));
+        getContentPane().add(jDateChooser_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 30));
 
         button_ordenesPorFecha.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_ordenesPorFecha.setForeground(new java.awt.Color(102, 102, 102));
         button_ordenesPorFecha.setText("Ir a Fecha");
+        button_ordenesPorFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_ordenesPorFechaActionPerformed(evt);
+            }
+        });
         getContentPane().add(button_ordenesPorFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 150, 40));
 
         jSeparator14.setForeground(new java.awt.Color(153, 204, 255));
@@ -276,6 +283,21 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_radio_mostrarPorPrestadorActionPerformed
 
+    private void button_ordenesPorFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_ordenesPorFechaActionPerformed
+        // TODO add your handling code here:
+        try{
+         LocalDate fecha = jDateChooser_fecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+         borrarFilas();
+         ArrayList<Orden>listadoDeOrdenes_porFecha=orden_data.Orden_EmitidaPorFecha(fecha);
+         for(Orden ordenes:listadoDeOrdenes_porFecha){
+         
+             modelo.addRow(new Object[]{ordenes.getIdOrden(),ordenes.getFecha(),ordenes.getFormaPago(),ordenes.getImporte(),ordenes.getAfiliado(),ordenes.getPrestador()});
+         }
+        } catch (NullPointerException np) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar una Fecha");
+        }
+    }//GEN-LAST:event_button_ordenesPorFechaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -316,7 +338,7 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
     private javax.swing.JButton button_eliminarOrden;
     private javax.swing.JButton button_ordenesPorFecha;
     private javax.swing.JButton button_salir;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser_fecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
