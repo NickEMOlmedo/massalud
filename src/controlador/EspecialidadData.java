@@ -33,44 +33,45 @@ public class EspecialidadData {
 
     public void guardarEspecialidad(Especialidad especialidad) {
         //Conectamos a la base de datos...
-        String QUERY = "INSERT INTO especialidad(especialidad)VALUES(?)";
+        final String QUERY = "INSERT INTO especialidad (especialidad,activo) VALUES(?,?)";
 
         //Cargamos los datos en el statement y procedemos a enviarlos..
         try {
-            PreparedStatement ps = nuevaConexion.prepareStatement(QUERY, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, especialidad.getEspecialidad());
-            ps.executeUpdate();
-            ResultSet rs = ps.getGeneratedKeys();
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY, Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, especialidad.getEspecialidad());
+            statement.setBoolean(2, especialidad.isActivo());
+            statement.executeUpdate();
+            ResultSet result = statement.getGeneratedKeys();
 
             //Verificamos si existen resultados en el resultset y agregamos el id...
-            if (rs.next()) {
+            if (result.next()) {
 
-                especialidad.setIdEspecialidad(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Especialidad Cargada");
+                especialidad.setIdEspecialidad(result.getInt(1));
+                JOptionPane.showMessageDialog(null, "¡La Especialidad se cargo satisfactoriamente!");
             }
             //Cerramos Statement...
-            ps.close();
+            result.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente!" + ex);
         }
     }
 
     public void eliminarEspecialidad(int idEspecialidad, String especialidad) {
 
-        String QUERY = "DELETE FROM especialidad WHERE idEspecialidad=? AND especialidad=?";
+        final String QUERY = "DELETE FROM especialidad WHERE idEspecialidad=? AND especialidad=?";
 
         try {
-            PreparedStatement ps = nuevaConexion.prepareStatement(QUERY);
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
 
-            ps.setInt(1, idEspecialidad);
-            ps.setString(2, especialidad);
+            statement.setInt(1, idEspecialidad);
+            statement.setString(2, especialidad);
 
-            int filas = ps.executeUpdate();
+            int filas = statement.executeUpdate();
             if (filas > 0) {
-                JOptionPane.showMessageDialog(null, "Especialidad Eliminada");
+                JOptionPane.showMessageDialog(null, "¡Especialidad eliminada satisfactoriamente!");
             }
-            ps.close();
+            statement.close();
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
@@ -79,22 +80,22 @@ public class EspecialidadData {
 
     public Especialidad buscarEspecialidad(int id) {
 
-        String QUERY = "SELECT especialidad FROM especialidad WHERE idEspecialidad=?";
+        final String QUERY = "SELECT especialidad FROM especialidad WHERE idEspecialidad=?";
         Especialidad especialista = null;
         try {
-            PreparedStatement ps = nuevaConexion.prepareStatement(QUERY);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            statement.setInt(1, id);
+            ResultSet result = statement.executeQuery();
 
-            if (rs.next()) {
+            if (result.next()) {
 
                 especialista = new Especialidad();
                 especialista.setIdEspecialidad(id);
-                especialista.setEspecialidad(rs.getString("especialidad"));
+                especialista.setEspecialidad(result.getString("especialidad"));
             } else {
-                JOptionPane.showMessageDialog(null, " No esxiste esa Especialidaad");
+                JOptionPane.showMessageDialog(null, "¡La especialidad No Existe!");
             }
-            ps.close();
+            result.close();
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
@@ -106,18 +107,18 @@ public class EspecialidadData {
 
         String QUERY = "UPDATE especialidad SET especialidad = ? WHERE idEspecialidad = ?";
 
-        PreparedStatement ps = null;
+        PreparedStatement statement = null;
 
         try {
-            ps = nuevaConexion.prepareStatement(QUERY);
-            ps.setString(1, especialidad.getEspecialidad());
-            ps.setInt(2, especialidad.getIdEspecialidad());
+            statement = nuevaConexion.prepareStatement(QUERY);
+            statement.setString(1, especialidad.getEspecialidad());
+            statement.setInt(2, especialidad.getIdEspecialidad());
 
-            int exito = ps.executeUpdate();
+            int exito = statement.executeUpdate();
             if (exito == 1) {
-                JOptionPane.showMessageDialog(null, " Especialidad Modificada ");
+                JOptionPane.showMessageDialog(null, "¡Especialidad Modificada!");
             } else {
-                JOptionPane.showMessageDialog(null, " La Especialidad  No Existe ");
+                JOptionPane.showMessageDialog(null, "¡La especialidad No Existe");
             }
 
         } catch (SQLException ex) {
@@ -192,7 +193,7 @@ public class EspecialidadData {
         return yaExiste;
 
     }
-    
+
     public void eliminarEspecialidad(int id) {
 
         final String QUERY = "UPDATE especialidad SET activo = 0 WHERE idEspecialidad = ?";

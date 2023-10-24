@@ -147,6 +147,11 @@ public class VistaEspecialidad extends javax.swing.JFrame {
         checkbox_aespecialidadActivo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         checkbox_aespecialidadActivo.setForeground(new java.awt.Color(102, 102, 102));
         checkbox_aespecialidadActivo.setText("  Activo");
+        checkbox_aespecialidadActivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkbox_aespecialidadActivoActionPerformed(evt);
+            }
+        });
         getContentPane().add(checkbox_aespecialidadActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 90, 30));
 
         pack();
@@ -197,10 +202,14 @@ public class VistaEspecialidad extends javax.swing.JFrame {
 
     private void button_limpiarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarEspecialidadActionPerformed
         
-        button_cargarEspecialidad.setText("");
+        text_nombreEspecialidad.setText("");
         checkbox_aespecialidadActivo.setSelected(false);
 
     }//GEN-LAST:event_button_limpiarEspecialidadActionPerformed
+
+    private void checkbox_aespecialidadActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbox_aespecialidadActivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkbox_aespecialidadActivoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -292,9 +292,9 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
 
         borrarFilas();
 
-        ArrayList<Especialidad> listaEspecialidades_activas = especialidad_data.listarInActivos();
+        ArrayList<Especialidad> listaEspecialidades_inActivas = especialidad_data.listarInActivos();
 
-        for (Especialidad especialidades : listaEspecialidades_activas) {
+        for (Especialidad especialidades : listaEspecialidades_inActivas) {
 
             modelo.addRow(new Object[]{especialidades.getIdEspecialidad(), especialidades.getEspecialidad()});
 
