@@ -1,7 +1,13 @@
 package vista;
 
-public class VistaEspecialidad extends javax.swing.JFrame {
+import controlador.EspecialidadData;
+import javax.swing.JOptionPane;
+import modelo.Especialidad;
 
+public class VistaEspecialidad extends javax.swing.JFrame {
+    
+    EspecialidadData especialidad_data = new EspecialidadData();
+    
     public VistaEspecialidad() {
         initComponents();
         setResizable(false);
@@ -31,7 +37,7 @@ public class VistaEspecialidad extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         button_salir = new javax.swing.JButton();
         button_cargarEspecialidad = new javax.swing.JButton();
-        button_limpiarEspecialidad1 = new javax.swing.JButton();
+        button_limpiarEspecialidad = new javax.swing.JButton();
         checkbox_aespecialidadActivo = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -127,16 +133,16 @@ public class VistaEspecialidad extends javax.swing.JFrame {
         });
         getContentPane().add(button_cargarEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 120, 60));
 
-        button_limpiarEspecialidad1.setBackground(new java.awt.Color(255, 255, 255));
-        button_limpiarEspecialidad1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        button_limpiarEspecialidad1.setForeground(new java.awt.Color(51, 51, 51));
-        button_limpiarEspecialidad1.setText("Limpiar");
-        button_limpiarEspecialidad1.addActionListener(new java.awt.event.ActionListener() {
+        button_limpiarEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
+        button_limpiarEspecialidad.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        button_limpiarEspecialidad.setForeground(new java.awt.Color(51, 51, 51));
+        button_limpiarEspecialidad.setText("Limpiar");
+        button_limpiarEspecialidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_limpiarEspecialidad1ActionPerformed(evt);
+                button_limpiarEspecialidadActionPerformed(evt);
             }
         });
-        getContentPane().add(button_limpiarEspecialidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 120, 60));
+        getContentPane().add(button_limpiarEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 120, 60));
 
         checkbox_aespecialidadActivo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         checkbox_aespecialidadActivo.setForeground(new java.awt.Color(102, 102, 102));
@@ -167,12 +173,34 @@ public class VistaEspecialidad extends javax.swing.JFrame {
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_cargarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cargarEspecialidadActionPerformed
-        // TODO add your handling code here:
+        
+        String nombre = null;
+        
+        if (!especialidad_data.especialidadExiste(text_nombreEspecialidad.getText())) {
+            
+            if (VerificarInputs.soloLetras(text_nombreEspecialidad.getText())) {
+                
+                nombre = text_nombreEspecialidad.getText();
+                
+            }
+            
+            Especialidad especialidad = new Especialidad(nombre, checkbox_aespecialidadActivo.isSelected());
+            especialidad_data.guardarEspecialidad(especialidad);
+            
+        } else {
+            
+            JOptionPane.showMessageDialog(null, "¡La especialidad ya existe!");
+        }
+        
+
     }//GEN-LAST:event_button_cargarEspecialidadActionPerformed
 
-    private void button_limpiarEspecialidad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarEspecialidad1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_button_limpiarEspecialidad1ActionPerformed
+    private void button_limpiarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarEspecialidadActionPerformed
+        
+        button_cargarEspecialidad.setText("");
+        checkbox_aespecialidadActivo.setSelected(false);
+
+    }//GEN-LAST:event_button_limpiarEspecialidadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,7 +239,7 @@ public class VistaEspecialidad extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_cargarEspecialidad;
-    private javax.swing.JButton button_limpiarEspecialidad1;
+    private javax.swing.JButton button_limpiarEspecialidad;
     private javax.swing.JButton button_principal;
     private javax.swing.JButton button_salir;
     private javax.swing.JButton button_verEspecialidades;

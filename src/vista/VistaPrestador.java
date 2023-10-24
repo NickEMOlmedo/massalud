@@ -1,5 +1,8 @@
 package vista;
 
+import controlador.PrestadorData;
+import javax.swing.JOptionPane;
+import modelo.Prestador;
 public class VistaPrestador extends javax.swing.JFrame {
 
     public VistaPrestador() {
@@ -7,6 +10,9 @@ public class VistaPrestador extends javax.swing.JFrame {
         setResizable(false);
     }
 
+    
+    
+    PrestadorData prestador_data = new PrestadorData();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -181,6 +187,11 @@ public class VistaPrestador extends javax.swing.JFrame {
         getContentPane().add(button_guardarPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, 110, 30));
 
         combobox_especialidadPrestador.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combobox_especialidadPrestador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combobox_especialidadPrestadorActionPerformed(evt);
+            }
+        });
         getContentPane().add(combobox_especialidadPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, 280, 30));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -202,7 +213,9 @@ public class VistaPrestador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_verPrestadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_verPrestadoresActionPerformed
-        // TODO add your handling code here:
+         VistaVerPrestadores verprestadores = new VistaVerPrestadores();
+        verprestadores.setVisible(true);
+        dispose();
     }//GEN-LAST:event_button_verPrestadoresActionPerformed
 
     private void text_nombrePrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_nombrePrestadorActionPerformed
@@ -220,16 +233,66 @@ public class VistaPrestador extends javax.swing.JFrame {
     }//GEN-LAST:event_button_principalActionPerformed
 
     private void button_limpiarPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarPrestadorActionPerformed
-        // TODO add your handling code here:
+        text_nombrePrestador.setText("");
+        text_apellidoPrestador.setText("");
+        text_dniPrestador.setText("");
+        text_domicilioPrestador.setText("");
+        text_telefonoPrestador.setText("");
+        //combobox_especialidadPrestador.
+        checkbox_prestadorActivo.setSelected(false);
+        
     }//GEN-LAST:event_button_limpiarPrestadorActionPerformed
 
     private void button_guardarPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarPrestadorActionPerformed
-        // TODO add your handling code here:
+         String nombre = null;
+        String apellido = null;
+        int dni = 0;
+        String domicilio = text_domicilioPrestador.getText();
+        long telefono = 0;
+
+        if (!prestador_data.prestadorExiste(Integer.parseInt(text_dniPrestador.getText()))) {
+
+            if (VerificarInputs.soloLetras(text_nombrePrestador.getText())) {
+
+                nombre = text_nombrePrestador.getText();
+            }
+
+            if (VerificarInputs.soloLetras(text_apellidoPrestador.getText())) {
+
+                apellido = text_apellidoPrestador.getText();
+            }
+
+            if (VerificarInputs.soloNumeros(text_dniPrestador.getText())) {
+
+                dni = Integer.valueOf(text_dniPrestador.getText());
+            }
+
+            if (VerificarInputs.soloNumeros(text_telefonoPrestador.getText())) {
+
+                telefono = Long.parseLong(text_telefonoPrestador.getText());
+            }
+
+            Prestador prestador = new Prestador(nombre, apellido, dni, domicilio, telefono,idEspecialidad, checkbox_prestadorActivo.isSelected());
+
+            prestador_data.guardarPrestador(prestador);
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "¡El prestador ya existe!");
+
+        }
+
+
+                                                          
     }//GEN-LAST:event_button_guardarPrestadorActionPerformed
 
     private void checkbox_prestadorActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbox_prestadorActivoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_checkbox_prestadorActivoActionPerformed
+
+    private void combobox_especialidadPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combobox_especialidadPrestadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combobox_especialidadPrestadorActionPerformed
 
     /**
      * @param args the command line arguments
