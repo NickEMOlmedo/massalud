@@ -7,24 +7,21 @@ import javax.swing.DefaultComboBoxModel;
 import java.util.ArrayList;
 
 public class VistaPrestador extends javax.swing.JFrame {
- 
- private final DefaultComboBoxModel modeloComboPrestador;
 
-   
- public VistaPrestador() {
+    private final DefaultComboBoxModel modeloComboPrestador;
+
+    public VistaPrestador() {
         initComponents();
         setResizable(false);
-         modeloComboPrestador = new DefaultComboBoxModel<>(); // Crea el modelo de ComboBox
-        
+        modeloComboPrestador = new DefaultComboBoxModel<>(); // Crea el modelo de ComboBox
+
         combobox_especialidadPrestador.setModel(modeloComboPrestador); // Asigna el modelo al JComboBox
         cargarCombo(); // Llena el modelo con datos
     }
 
-    
-    
     PrestadorData prestador_data = new PrestadorData();
-    
-     public void cargarCombo() {
+
+    public void cargarCombo() {
 
         ArrayList<Prestador> listadoPrestadores = prestador_data.listarActivos();
 
@@ -35,7 +32,9 @@ public class VistaPrestador extends javax.swing.JFrame {
         for (Prestador prestador : listadoPrestadores) {
 
             modeloComboPrestador.addElement(prestador);
-        }}
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -230,7 +229,7 @@ public class VistaPrestador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_verPrestadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_verPrestadoresActionPerformed
-         VistaVerPrestadores verprestadores = new VistaVerPrestadores();
+        VistaVerPrestadores verprestadores = new VistaVerPrestadores();
         verprestadores.setVisible(true);
         dispose();
     }//GEN-LAST:event_button_verPrestadoresActionPerformed
@@ -255,17 +254,19 @@ public class VistaPrestador extends javax.swing.JFrame {
         text_dniPrestador.setText("");
         text_domicilioPrestador.setText("");
         text_telefonoPrestador.setText("");
-        //combobox_especialidadPrestador.
+
         checkbox_prestadorActivo.setSelected(false);
-        
+
     }//GEN-LAST:event_button_limpiarPrestadorActionPerformed
 
     private void button_guardarPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarPrestadorActionPerformed
-         String nombre = null;
+        String nombre = null;
         String apellido = null;
         int dni = 0;
         String domicilio = text_domicilioPrestador.getText();
         long telefono = 0;
+
+        Prestador seleccionado = (Prestador) combobox_especialidadPrestador.getSelectedItem();
 
         if (!prestador_data.prestadorExiste(Integer.parseInt(text_dniPrestador.getText()))) {
 
@@ -289,7 +290,7 @@ public class VistaPrestador extends javax.swing.JFrame {
                 telefono = Long.parseLong(text_telefonoPrestador.getText());
             }
 
-            Prestador prestador = new Prestador(nombre, apellido, dni, domicilio, telefono,idEspecialidad, checkbox_prestadorActivo.isSelected());
+            Prestador prestador = new Prestador(nombre, apellido, dni, domicilio, telefono, checkbox_prestadorActivo.isSelected(),seleccionado.getEspecialidad());
 
             prestador_data.guardarPrestador(prestador);
 
@@ -300,7 +301,6 @@ public class VistaPrestador extends javax.swing.JFrame {
         }
 
 
-                                                          
     }//GEN-LAST:event_button_guardarPrestadorActionPerformed
 
     private void checkbox_prestadorActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbox_prestadorActivoActionPerformed
