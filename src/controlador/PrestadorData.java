@@ -60,7 +60,7 @@ public class PrestadorData {
             }
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "¡No se pudo agregar el Prestador, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
 
     }
@@ -90,7 +90,7 @@ public class PrestadorData {
 
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "!Error al Modificar los Datos del Prestador, intente Nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
 
         }
 
@@ -114,7 +114,7 @@ public class PrestadorData {
 
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "¡No se pudo eliminar el prestador, intente nuevamente!");
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
 
         }
 
@@ -146,7 +146,7 @@ public class PrestadorData {
             }
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
     }
 
@@ -181,7 +181,7 @@ public class PrestadorData {
 
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
         return prestador;
     }
@@ -220,7 +220,7 @@ public class PrestadorData {
 
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
 
         }
 
@@ -243,7 +243,7 @@ public class PrestadorData {
             statement.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
         return yaExiste;
 

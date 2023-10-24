@@ -58,12 +58,12 @@ public class OrdenData {
             if (result.next()) {
 
                 orden.setIdOrden(result.getInt(1));
-                JOptionPane.showMessageDialog(null, "Orden cargada satisfactoriamente!");
+                JOptionPane.showMessageDialog(null, "¡Orden cargada satisfactoriamente!");
             }
             statement.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "¡Error al ingresar a la tabla orden!");
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
     }
 
@@ -90,7 +90,7 @@ public class OrdenData {
             statement.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "¡Error al ingresar a la tabla orden!");
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
         return ordenesF;
 
@@ -120,7 +120,7 @@ public class OrdenData {
             statement.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "¡Error al ingresar a la tabla orden!");
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
         return ordenesA;
     }
@@ -149,7 +149,7 @@ public class OrdenData {
             statement.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "¡Error al ingresar a la tabla orden!");
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
         return ordenesP;
 
@@ -171,7 +171,7 @@ public class OrdenData {
             statement.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla Orden");
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
 
     }

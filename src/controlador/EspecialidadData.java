@@ -53,7 +53,7 @@ public class EspecialidadData {
             result.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente!" + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
     }
 
@@ -74,7 +74,7 @@ public class EspecialidadData {
             statement.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
     }
 
@@ -98,7 +98,7 @@ public class EspecialidadData {
             result.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
         return especialista;
     }
@@ -122,7 +122,7 @@ public class EspecialidadData {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
     }
 
@@ -144,7 +144,7 @@ public class EspecialidadData {
                 }
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
         return listaEspecialidad;
     }
@@ -167,7 +167,7 @@ public class EspecialidadData {
                 }
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
         return listaEspecialidad;
     }
@@ -188,7 +188,7 @@ public class EspecialidadData {
             statement.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
         return yaExiste;
 
@@ -209,7 +209,7 @@ public class EspecialidadData {
 
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
 
         }
 
@@ -230,7 +230,7 @@ public class EspecialidadData {
 
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
 
         }
 

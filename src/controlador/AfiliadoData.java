@@ -60,7 +60,7 @@ public class AfiliadoData {
             }
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
 
         }
 
@@ -82,7 +82,7 @@ public class AfiliadoData {
 
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
 
         }
 
@@ -103,7 +103,7 @@ public class AfiliadoData {
 
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
 
         }
 
@@ -136,7 +136,7 @@ public class AfiliadoData {
 
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
 
     }
@@ -167,7 +167,7 @@ public class AfiliadoData {
 
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "!Error al Modificar los Datos del Afiliado, intente Nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
 
         }
 
@@ -201,7 +201,7 @@ public class AfiliadoData {
 
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "!Error al Modificar los Datos del Afiliado, intente Nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
 
         }
 
@@ -239,7 +239,7 @@ public class AfiliadoData {
 
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
 
         }
 
@@ -274,7 +274,7 @@ public class AfiliadoData {
             }
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
 
             System.out.println(ex);
 
@@ -301,7 +301,7 @@ public class AfiliadoData {
             statement.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! " + ex);
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
         }
         return yaExiste;
 
