@@ -9,6 +9,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import modelo.Especialidad;
 import java.util.ArrayList;
+
 public class PrestadorData {
 
     private Connection nuevaConexion = null;
@@ -64,7 +65,8 @@ public class PrestadorData {
         }
 
     }
-     public ArrayList<Prestador> listarActivos() {
+
+    public ArrayList<Prestador> listarActivos() {
 
         final String QUERY = "SELECT idPrestador, nombre, apellido, dni, domicilio, telefono FROM prestador WHERE activo = 1 ";
 
@@ -97,7 +99,8 @@ public class PrestadorData {
         return listaPrestadores;
 
     }
-      public ArrayList<Prestador> listarInActivos() {
+
+    public ArrayList<Prestador> listarInActivos() {
 
         final String QUERY = "SELECT idPrestador, nombre, apellido, dni, domicilio, telefono FROM prestador WHERE activo = 0 ";
 
@@ -259,7 +262,8 @@ public class PrestadorData {
 
         return prestador;
     }
-     public boolean prestadorExiste(int dni) {
+
+    public boolean prestadorExiste(int dni) {
         boolean yaExiste = false;
 
         final String QUERY = "SELECT COUNT(*) FROM afiliado WHERE dni = ? AND activo = 1 ";
@@ -280,5 +284,5 @@ public class PrestadorData {
         }
         return yaExiste;
 
+    }
 }
-}        

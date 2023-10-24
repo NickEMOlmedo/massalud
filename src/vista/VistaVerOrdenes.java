@@ -156,13 +156,31 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
 
         table_ordenes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Fecha", "F . De Pago", "Importe", "Afiliado", "Prestador"
             }
         ));
         jScrollPane1.setViewportView(table_ordenes);
@@ -177,7 +195,7 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
                 radio_mostrarPorPrestadorActionPerformed(evt);
             }
         });
-        getContentPane().add(radio_mostrarPorPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 350, -1, -1));
+        getContentPane().add(radio_mostrarPorPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, -1, -1));
 
         radio_mostrarPorAfiliado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_mostrarPorAfiliado.setForeground(new java.awt.Color(102, 102, 102));
@@ -187,22 +205,22 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
                 radio_mostrarPorAfiliadoActionPerformed(evt);
             }
         });
-        getContentPane().add(radio_mostrarPorAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 310, -1, -1));
+        getContentPane().add(radio_mostrarPorAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 300, -1, -1));
 
         jSeparator11.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 150, -1));
+        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, 150, 10));
 
         jSeparator12.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 510, 150, 10));
+        getContentPane().add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 490, 150, 10));
 
         button_eliminarOrden.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_eliminarOrden.setForeground(new java.awt.Color(102, 102, 102));
         button_eliminarOrden.setText("Eliminar Orden");
-        getContentPane().add(button_eliminarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, 150, 60));
+        getContentPane().add(button_eliminarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 510, 150, 60));
 
         jSeparator13.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 150, 10));
-        getContentPane().add(jDateChooser_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 30));
+        getContentPane().add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, 150, 20));
+        getContentPane().add(jDateChooser_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 380, 150, 30));
 
         button_ordenesPorFecha.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_ordenesPorFecha.setForeground(new java.awt.Color(102, 102, 102));
@@ -212,10 +230,10 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
                 button_ordenesPorFechaActionPerformed(evt);
             }
         });
-        getContentPane().add(button_ordenesPorFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 150, 40));
+        getContentPane().add(button_ordenesPorFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 430, 150, 40));
 
         jSeparator14.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 150, 10));
+        getContentPane().add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, 150, 10));
 
         txt_Afiliado_Prestador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,9 +242,10 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
         });
         getContentPane().add(txt_Afiliado_Prestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 150, 30));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Afiliado/Prestador");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 220, 100, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, 140, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
