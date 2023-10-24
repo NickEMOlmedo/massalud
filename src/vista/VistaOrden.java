@@ -1,16 +1,30 @@
 package vista;
 
+import controlador.AfiliadoData;
+import controlador.OrdenData;
+import controlador.PrestadorData;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import javax.swing.JOptionPane;
+import modelo.Afiliado;
+import modelo.Orden;
+import modelo.Prestador;
 
 public class VistaOrden extends javax.swing.JFrame {
 
+    private AfiliadoData afiliado_data;
+    private PrestadorData prestador_data;
+    
     public VistaOrden() {
         initComponents();
         setResizable(false);
         cargarComboBox();
+        
+        afiliado_data=new AfiliadoData();
+        prestador_data=new PrestadorData();
     }
-
+    OrdenData orden_data=new OrdenData();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -152,6 +166,11 @@ public class VistaOrden extends javax.swing.JFrame {
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, -1));
 
         button_buscarAfiliado_ordenes.setText("Buscar");
+        button_buscarAfiliado_ordenes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_buscarAfiliado_ordenesActionPerformed(evt);
+            }
+        });
         getContentPane().add(button_buscarAfiliado_ordenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, 30));
 
         txt_prestadorOrden.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -163,6 +182,11 @@ public class VistaOrden extends javax.swing.JFrame {
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
 
         button_BuscarPrestador_ordenes.setText("Buscar");
+        button_BuscarPrestador_ordenes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_BuscarPrestador_ordenesActionPerformed(evt);
+            }
+        });
         getContentPane().add(button_BuscarPrestador_ordenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, -1, 30));
 
         button_guardarOrden.setBackground(new java.awt.Color(255, 255, 255));
@@ -202,11 +226,28 @@ public class VistaOrden extends javax.swing.JFrame {
 
     private void button_guardarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarOrdenActionPerformed
         // TODO add your handling code here:
-        
+         
+        try {
+            LocalDate fecha = date_fechaOrden.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            String formaPago = (String) combobox_formaPago.getSelectedItem();
+            Double importe = Double.valueOf(txt_importeOrden.getText());
+            Afiliado idAfiliado = afiliado_data.buscarAfiliado_id(Integer.valueOf(txt_afiliadoOrden.getText()));
+            Prestador idPrestador = prestador_data.buscarPrestador_id(Integer.valueOf(txt_prestadorOrden.getText()));
+
+            Orden nuevaOrden = new Orden(fecha, formaPago, importe, idAfiliado, idPrestador);
+            orden_data.cargarOrden(nuevaOrden);
+        } catch (NumberFormatException nf) { 
+            JOptionPane.showMessageDialog(null, "Vrifique los campos");
+        } catch (NullPointerException np) {
+            JOptionPane.showMessageDialog(null, "Verifique el número ingresado");
+        }
     }//GEN-LAST:event_button_guardarOrdenActionPerformed
 
     private void button_limpiarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarOrdenActionPerformed
         // TODO add your handling code here:
+        txt_importeOrden.setText("");
+        txt_afiliadoOrden.setText("");
+        txt_prestadorOrden.setText("");
     }//GEN-LAST:event_button_limpiarOrdenActionPerformed
 
     private void button_verOrdenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_verOrdenesActionPerformed
@@ -224,6 +265,30 @@ public class VistaOrden extends javax.swing.JFrame {
             LocalDate fechaN=date_fechaOrden.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         }
     }//GEN-LAST:event_date_fechaOrdenPropertyChange
+
+    private void button_buscarAfiliado_ordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_buscarAfiliado_ordenesActionPerformed
+        // TODO add your handling code here:
+        try{
+        Afiliado afiliado_Encontrado=afiliado_data.buscarAfiliado_dni(Integer.valueOf(txt_afiliadoOrden.getText()));
+         txt_afiliadoOrden.setText(String.valueOf(afiliado_Encontrado.getIdAfiliado()));
+          } catch (NumberFormatException nf) { 
+            JOptionPane.showMessageDialog(null, "Vrifique los campos");
+        } catch (NullPointerException np) {
+            JOptionPane.showMessageDialog(null, "Verifique el número ingresado");
+        }
+    }//GEN-LAST:event_button_buscarAfiliado_ordenesActionPerformed
+
+    private void button_BuscarPrestador_ordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_BuscarPrestador_ordenesActionPerformed
+        // TODO add your handling code here:
+        try{
+        Prestador prestador_Encontrado=prestador_data.buscarPrestadorApellido(txt_prestadorOrden.getText());
+        txt_prestadorOrden.setText(String.valueOf(prestador_Encontrado.getIdPrestador()));
+        } catch (NumberFormatException nf) { 
+            JOptionPane.showMessageDialog(null, "Vrifique los campos");
+        } catch (NullPointerException np) {
+            JOptionPane.showMessageDialog(null, "Verifique el número ingresado");
+        }
+    }//GEN-LAST:event_button_BuscarPrestador_ordenesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,7 +355,6 @@ public class VistaOrden extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void cargarComboBox(){
-    
         combobox_formaPago.addItem("Efectivo");
         combobox_formaPago.addItem("Débito");
         combobox_formaPago.addItem("Tarjeta De Crédito");
