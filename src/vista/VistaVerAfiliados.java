@@ -8,10 +8,10 @@ import javax.swing.table.TableModel;
 import modelo.Afiliado;
 
 public class VistaVerAfiliados extends javax.swing.JFrame {
-    
+
     AfiliadoData afiliado_data = new AfiliadoData();
     private final DefaultTableModel modelo;
-    
+
     public VistaVerAfiliados() {
         initComponents();
         setResizable(false);
@@ -21,18 +21,18 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         modelo = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
-                
+
                 return column != 0;
-                
+
             }
-            
+
         };
-        
+
         armarCabecera();
     }
-    
+
     private void armarCabecera() {
-        
+
         ArrayList<Object> cabecera = new ArrayList<>();
         cabecera.add("ID");
         cabecera.add("Nombre");
@@ -40,25 +40,25 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
         cabecera.add("DNI");
         cabecera.add("Domicilio");
         cabecera.add("Telefono");
-        
+
         for (Object lector : cabecera) {
-            
+
             modelo.addColumn(lector);
-            
+
         }
-        
+
         table_afiliados.setModel(modelo);
     }
-    
+
     private void borrarFilas() {
-        
+
         int rowCount = modelo.getRowCount();
-        
+
         for (int i = rowCount - 1; i >= 0; i--) {
-            
+
             modelo.removeRow(i);
         }
-        
+
     }
 
     /**
@@ -257,148 +257,144 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_guardarAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarAfiliadoActionPerformed
-        
+
         int filaSeleccionada = table_afiliados.getSelectedRow();
-        
+
         String nombre = null;
         String apellido = null;
         int dni = 0;
         String domicilio = modelo.getValueAt(filaSeleccionada, 4).toString();
         long telefono = 0;
-        
+
         if (filaSeleccionada != -1) {
-            
+
             if (VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 1).toString())) {
-                
+
                 nombre = modelo.getValueAt(filaSeleccionada, 1).toString();
             }
-            
+
             if (VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 2).toString())) {
-                
+
                 apellido = modelo.getValueAt(filaSeleccionada, 2).toString();
             }
-            
+
             if (VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 3).toString())) {
-                
+
                 dni = Integer.valueOf(modelo.getValueAt(filaSeleccionada, 3).toString());
             }
-            
+
             if (VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 5).toString())) {
-                
+
                 telefono = Long.parseLong(modelo.getValueAt(filaSeleccionada, 5).toString());
             }
-            
+
             Afiliado modificarAfiliado = afiliado_data.buscarAfiliado_dni(dni);
-            
+
             modificarAfiliado.setNombre(nombre);
             modificarAfiliado.setApellido(apellido);
             modificarAfiliado.setDni(dni);
             modificarAfiliado.setDomicilio(domicilio);
             modificarAfiliado.setTelefono(telefono);
-            
+
             afiliado_data.modificarAfiliado(modificarAfiliado);
-            
+
         }
 
     }//GEN-LAST:event_button_guardarAfiliadoActionPerformed
 
     private void radio_mostrarActivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarActivosActionPerformed
-        
+
         borrarFilas();
-        
+
         ArrayList<Afiliado> listadoAfiliados_activos = afiliado_data.listarActivos();
-        
+
         for (Afiliado afiliados : listadoAfiliados_activos) {
-            
+
             modelo.addRow(new Object[]{afiliados.getIdAfiliado(), afiliados.getNombre(), afiliados.getApellido(), afiliados.getDni(), afiliados.getDomicilio(), afiliados.getTelefono()});
-            
+
         }
-        
+
         button_altaAfiliado.setEnabled(false);
         button_bajaAfiliado.setEnabled(true);
 
     }//GEN-LAST:event_radio_mostrarActivosActionPerformed
 
     private void radio_mostrarInactivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarInactivosActionPerformed
-        
+
         borrarFilas();
-        
+
         ArrayList<Afiliado> listadoAfiliados_inActivos = afiliado_data.listarInActivos();
-        
+
         for (Afiliado afiliados : listadoAfiliados_inActivos) {
-            
+
             modelo.addRow(new Object[]{afiliados.getIdAfiliado(), afiliados.getNombre(), afiliados.getApellido(), afiliados.getDni(), afiliados.getDomicilio(), afiliados.getTelefono()});
-            
+
         }
-        
+
         button_altaAfiliado.setEnabled(true);
         button_bajaAfiliado.setEnabled(false);
-        
+
 
     }//GEN-LAST:event_radio_mostrarInactivosActionPerformed
 
     private void button_bajaAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_bajaAfiliadoActionPerformed
-        
+
         int filaSeleccionada = table_afiliados.getSelectedRow();
-        
+
         if (filaSeleccionada != -1) {
-            
+
             Afiliado afiliado_dni;
-            
+
             TableModel model = table_afiliados.getModel();
-            
+
             int idFila = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
-            
+
             Object valorDni = model.getValueAt(filaSeleccionada, 3);
-            
+
             int dni = Integer.parseInt(valorDni.toString());
-            
+
             afiliado_dni = afiliado_data.buscarAfiliado_dni(dni);
-            
-            System.out.println(afiliado_dni.toString());
-            
+
             int id = afiliado_dni.getIdAfiliado();
-            
+
             afiliado_data.eliminarAfiliado(id);
-            
+
             modelo.removeRow(filaSeleccionada);
-            
+
         }
-        
+
         modelo.fireTableDataChanged();
 
     }//GEN-LAST:event_button_bajaAfiliadoActionPerformed
 
     private void button_altaAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_altaAfiliadoActionPerformed
-        
+
         int filaSeleccionada = table_afiliados.getSelectedRow();
-        
+
         if (filaSeleccionada != -1) {
-            
+
             Afiliado afiliado_dni;
-            
+
             TableModel model = table_afiliados.getModel();
-            
+
             int idFila = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
-            
+
             Object valorDni = model.getValueAt(filaSeleccionada, 3);
-            
+
             int dni = Integer.parseInt(valorDni.toString());
-            
+
             afiliado_dni = afiliado_data.buscarAfiliado_dni(dni);
-            
-            System.out.println(afiliado_dni.toString());
-            
+
             int id = afiliado_dni.getIdAfiliado();
-            
+
             afiliado_data.recuperarAfiliado(id);
-            
+
             modelo.removeRow(filaSeleccionada);
-            
+
         }
-        
+
         modelo.fireTableDataChanged();
-        
+
 
     }//GEN-LAST:event_button_altaAfiliadoActionPerformed
 
