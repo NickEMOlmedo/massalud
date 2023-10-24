@@ -141,8 +141,8 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_atrasActionPerformed
-        VistaAfiliado afiliado = new VistaAfiliado();
-        afiliado.setVisible(true);
+        VistaOrden orden = new VistaOrden();
+        orden.setVisible(true);
         dispose();
     }//GEN-LAST:event_button_atrasActionPerformed
 
