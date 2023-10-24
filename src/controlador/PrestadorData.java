@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import modelo.Especialidad;
-
+import java.util.ArrayList;
 public class PrestadorData {
 
     private Connection nuevaConexion = null;
@@ -62,6 +62,39 @@ public class PrestadorData {
 
             JOptionPane.showMessageDialog(null, "¡No se pudo agregar el Prestador, intente nuevamente! " + ex);
         }
+
+    }
+     public ArrayList<Prestador> listarActivos() {
+
+        final String QUERY = "SELECT idPrestador, nombre, apellido, dni, domicilio, telefono FROM afiliado WHERE activo = 1 ";
+
+        ArrayList<Prestador> listaPrestadores = new ArrayList<>();
+
+        try {
+
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            try (ResultSet result = statement.executeQuery()) {
+                while (result.next()) {
+                    Prestador prestador = new Prestador();
+                    prestador.setIdPrestador(result.getInt("idPrestador"));
+                    prestador.setNombre(result.getString("nombre"));
+                    prestador.setApellido(result.getString("apellido"));
+                    prestador.setDni(result.getInt("dni"));
+                    prestador.setDomicilio(result.getString("domicilio"));
+                    prestador.setTelefono(result.getLong("telefono"));
+                    prestador.setActivo(true);
+
+                    listaPrestadores.add(prestador);
+                }
+            }
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "!Error al Modificar los Datos del Prestador, intente Nuevamente! " + ex);
+
+        }
+
+        return listaPrestadores;
 
     }
     //Metodo que modifia el campo "activo" de la tabla "prestador" en 0, esta accion genera que el prestador figure como eliminado.
