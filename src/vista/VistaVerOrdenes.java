@@ -1,10 +1,71 @@
 package vista;
 
+import controlador.AfiliadoData;
+import controlador.OrdenData;
+import controlador.PrestadorData;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import modelo.Afiliado;
+import modelo.Orden;
+import modelo.Prestador;
+
 public class VistaVerOrdenes extends javax.swing.JFrame {
 
+    OrdenData orden_data = new OrdenData();
+    AfiliadoData afiliado_data = new AfiliadoData();
+    PrestadorData prestador_data = new PrestadorData();
+    private final DefaultTableModel modelo;
+    
     public VistaVerOrdenes() {
         initComponents();
         setResizable(false);
+         ButtonGroup grupoDeBotones = new ButtonGroup();
+        grupoDeBotones.add(radio_mostrarPorAfiliado);
+        grupoDeBotones.add(radio_mostrarPorPrestador);
+        modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+
+                return column != 0;
+
+            }
+
+        };
+
+        armarCabecera();
+    }
+    
+     private void armarCabecera() {
+
+        ArrayList<Object> cabecera = new ArrayList<>();
+        cabecera.add("ID");
+        cabecera.add("Fecha");
+        cabecera.add("Forma de Pago");
+        cabecera.add("Importe");
+        cabecera.add("Afiliado");
+        cabecera.add("Prestador");
+
+        for (Object lector : cabecera) {
+
+            modelo.addColumn(lector);
+
+        }
+
+        table_ordenes.setModel(modelo);
+    }
+     
+      private void borrarFilas() {
+
+        int rowCount = modelo.getRowCount();
+
+        for (int i = rowCount - 1; i >= 0; i--) {
+
+            modelo.removeRow(i);
+        }
+
     }
 
     /**
@@ -36,6 +97,8 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         button_ordenesPorFecha = new javax.swing.JButton();
         jSeparator14 = new javax.swing.JSeparator();
+        txt_Afiliado_Prestador = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -107,12 +170,22 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
         radio_mostrarPorPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_mostrarPorPrestador.setForeground(new java.awt.Color(102, 102, 102));
         radio_mostrarPorPrestador.setText("Por Prestador");
-        getContentPane().add(radio_mostrarPorPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, -1, -1));
+        radio_mostrarPorPrestador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radio_mostrarPorPrestadorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(radio_mostrarPorPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 350, -1, -1));
 
         radio_mostrarPorAfiliado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_mostrarPorAfiliado.setForeground(new java.awt.Color(102, 102, 102));
         radio_mostrarPorAfiliado.setText("Por Afiliado");
-        getContentPane().add(radio_mostrarPorAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, -1, -1));
+        radio_mostrarPorAfiliado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radio_mostrarPorAfiliadoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(radio_mostrarPorAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 310, -1, -1));
 
         jSeparator11.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 150, -1));
@@ -123,19 +196,30 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
         button_eliminarOrden.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_eliminarOrden.setForeground(new java.awt.Color(102, 102, 102));
         button_eliminarOrden.setText("Eliminar Orden");
-        getContentPane().add(button_eliminarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 430, 150, 60));
+        getContentPane().add(button_eliminarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, 150, 60));
 
         jSeparator13.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 150, 10));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 300, 150, 30));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 30));
 
         button_ordenesPorFecha.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_ordenesPorFecha.setForeground(new java.awt.Color(102, 102, 102));
         button_ordenesPorFecha.setText("Ir a Fecha");
-        getContentPane().add(button_ordenesPorFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 150, 50));
+        getContentPane().add(button_ordenesPorFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 150, 40));
 
         jSeparator14.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 150, 10));
+
+        txt_Afiliado_Prestador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Afiliado_PrestadorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_Afiliado_Prestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 150, 30));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setText("Afiliado/Prestador");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 220, 100, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -149,6 +233,48 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
     private void button_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salirActionPerformed
         dispose();
     }//GEN-LAST:event_button_salirActionPerformed
+
+    private void txt_Afiliado_PrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Afiliado_PrestadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_Afiliado_PrestadorActionPerformed
+
+    private void radio_mostrarPorAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarPorAfiliadoActionPerformed
+        // TODO add your handling code here:
+        try{
+        Afiliado afiliado_Encontrado=afiliado_data.buscarAfiliado_dni(Integer.valueOf(txt_Afiliado_Prestador.getText()));
+        
+         borrarFilas();
+
+        ArrayList<Orden> listadoDeOrdenes_porAfiliado = orden_data.Orden_SacadasPorAfiliado(afiliado_Encontrado.getIdAfiliado());
+        for(Orden ordenes:listadoDeOrdenes_porAfiliado){
+        
+            modelo.addRow(new Object[]{ordenes.getIdOrden(),ordenes.getFecha(),ordenes.getFormaPago(),ordenes.getImporte(),ordenes.getAfiliado(),ordenes.getPrestador()});
+        }    
+        }catch (NumberFormatException nf) { 
+            JOptionPane.showMessageDialog(null, "Debe ingresar DNI del afiliado activo");
+        } catch (NullPointerException np) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar DNI del afiliado");
+        }
+    }//GEN-LAST:event_radio_mostrarPorAfiliadoActionPerformed
+
+    private void radio_mostrarPorPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarPorPrestadorActionPerformed
+        // TODO add your handling code here:
+        try{
+         Prestador prestador_Encontrado=prestador_data.buscarPrestadorApellido(String.valueOf(txt_Afiliado_Prestador.getText()));
+        
+         borrarFilas();
+
+        ArrayList<Orden> listadoDeOrdenes_porPrestador = orden_data.Orden_SacadasSegunPrestador(prestador_Encontrado.getIdPrestador());
+        for(Orden ordenes:listadoDeOrdenes_porPrestador){
+        
+            modelo.addRow(new Object[]{ordenes.getIdOrden(),ordenes.getFecha(),ordenes.getFormaPago(),ordenes.getImporte(),ordenes.getAfiliado(),ordenes.getPrestador()});
+        }   
+        }catch (NumberFormatException nf) { 
+            JOptionPane.showMessageDialog(null, "Vrifique los campos");
+        } catch (NullPointerException np) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar el apellido del prestador activo");
+        }
+    }//GEN-LAST:event_radio_mostrarPorPrestadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,6 +317,7 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
     private javax.swing.JButton button_ordenesPorFecha;
     private javax.swing.JButton button_salir;
     private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -206,5 +333,6 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
     private javax.swing.JRadioButton radio_mostrarPorAfiliado;
     private javax.swing.JRadioButton radio_mostrarPorPrestador;
     private javax.swing.JTable table_ordenes;
+    private javax.swing.JTextField txt_Afiliado_Prestador;
     // End of variables declaration//GEN-END:variables
 }
