@@ -216,6 +216,11 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
         button_eliminarOrden.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_eliminarOrden.setForeground(new java.awt.Color(102, 102, 102));
         button_eliminarOrden.setText("Eliminar Orden");
+        button_eliminarOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_eliminarOrdenActionPerformed(evt);
+            }
+        });
         getContentPane().add(button_eliminarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 510, 150, 60));
 
         jSeparator13.setForeground(new java.awt.Color(153, 204, 255));
@@ -274,7 +279,7 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
         ArrayList<Orden> listadoDeOrdenes_porAfiliado = orden_data.Orden_SacadasPorAfiliado(afiliado_Encontrado.getIdAfiliado());
         for(Orden ordenes:listadoDeOrdenes_porAfiliado){
         
-            modelo.addRow(new Object[]{ordenes.getIdOrden(),ordenes.getFecha(),ordenes.getFormaPago(),ordenes.getImporte(),ordenes.getAfiliado(),ordenes.getPrestador()});
+            modelo.addRow(new Object[]{ordenes.getIdOrden(),ordenes.getFecha(),ordenes.getFormaPago(),ordenes.getImporte(),ordenes.getAfiliado().getIdAfiliado(),ordenes.getPrestador().getIdPrestador()});
         }    
         }catch (NumberFormatException nf) { 
             JOptionPane.showMessageDialog(null, "Debe ingresar DNI del afiliado activo");
@@ -293,7 +298,7 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
         ArrayList<Orden> listadoDeOrdenes_porPrestador = orden_data.Orden_SacadasSegunPrestador(prestador_Encontrado.getIdPrestador());
         for(Orden ordenes:listadoDeOrdenes_porPrestador){
         
-            modelo.addRow(new Object[]{ordenes.getIdOrden(),ordenes.getFecha(),ordenes.getFormaPago(),ordenes.getImporte(),ordenes.getAfiliado(),ordenes.getPrestador()});
+            modelo.addRow(new Object[]{ordenes.getIdOrden(),ordenes.getFecha(),ordenes.getFormaPago(),ordenes.getImporte(),ordenes.getAfiliado().getIdAfiliado(),ordenes.getPrestador().getIdPrestador()});
         }   
         }catch (NumberFormatException nf) { 
             JOptionPane.showMessageDialog(null, "Vrifique los campos");
@@ -310,12 +315,31 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
          ArrayList<Orden>listadoDeOrdenes_porFecha=orden_data.Orden_EmitidaPorFecha(fecha);
          for(Orden ordenes:listadoDeOrdenes_porFecha){
          
-             modelo.addRow(new Object[]{ordenes.getIdOrden(),ordenes.getFecha(),ordenes.getFormaPago(),ordenes.getImporte(),ordenes.getAfiliado(),ordenes.getPrestador()});
+             modelo.addRow(new Object[]{ordenes.getIdOrden(),ordenes.getFecha(),ordenes.getFormaPago(),ordenes.getImporte(),ordenes.getAfiliado().getIdAfiliado(),ordenes.getPrestador().getIdPrestador()});
          }
         } catch (NullPointerException np) {
             JOptionPane.showMessageDialog(null, "Debe ingresar una Fecha");
         }
     }//GEN-LAST:event_button_ordenesPorFechaActionPerformed
+
+    private void button_eliminarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_eliminarOrdenActionPerformed
+        // TODO add your handling code here:
+        int filaSeleccionada = table_ordenes.getSelectedRow();
+        if (filaSeleccionada != -1) {
+
+            int idAfiliado = (Integer) modelo.getValueAt(filaSeleccionada, 4);
+
+            int idPrestador = (Integer) modelo.getValueAt(filaSeleccionada, 5);
+
+            orden_data.eliminarOrden(idAfiliado, idPrestador);
+
+            modelo.removeRow(filaSeleccionada);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila");
+        }
+        modelo.fireTableDataChanged();
+        
+    }//GEN-LAST:event_button_eliminarOrdenActionPerformed
 
     /**
      * @param args the command line arguments
