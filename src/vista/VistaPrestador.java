@@ -5,10 +5,12 @@ import javax.swing.JOptionPane;
 import modelo.Prestador;
 import javax.swing.DefaultComboBoxModel;
 import java.util.ArrayList;
-
+import controlador.EspecialidadData;
+import modelo.Especialidad;
 public class VistaPrestador extends javax.swing.JFrame {
 
     private final DefaultComboBoxModel modeloComboPrestador;
+    EspecialidadData especialidad_data = new EspecialidadData();
 
     public VistaPrestador() {
         initComponents();
@@ -23,15 +25,15 @@ public class VistaPrestador extends javax.swing.JFrame {
 
     public void cargarCombo() {
 
-        ArrayList<Prestador> listadoPrestadores = prestador_data.listarActivos();
+        ArrayList<Especialidad> listarActivos = especialidad_data.listarActivos();
 
         // Limpia el modelo actual si es necesario
         modeloComboPrestador.removeAllElements();
 
         // Agrega los objetos Alumno al modelo del ComboBox
-        for (Prestador prestador : listadoPrestadores) {
+        for (Especialidad especialidad : listarActivos) {
 
-            modeloComboPrestador.addElement(prestador);
+            modeloComboPrestador.addElement(especialidad);
         }
     }
 
@@ -290,7 +292,7 @@ public class VistaPrestador extends javax.swing.JFrame {
                 telefono = Long.parseLong(text_telefonoPrestador.getText());
             }
 
-            Prestador prestador = new Prestador(nombre, apellido, dni, domicilio, telefono, checkbox_prestadorActivo.isSelected(),seleccionado.getEspecialidad());
+            Prestador prestador = new Prestador(nombre, apellido, dni, domicilio, telefono, checkbox_prestadorActivo.isSelected(), seleccionado.getEspecialidad());
 
             prestador_data.guardarPrestador(prestador);
 
