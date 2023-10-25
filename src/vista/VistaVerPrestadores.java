@@ -77,13 +77,15 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
         radio_mostrarActivos = new javax.swing.JRadioButton();
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
-        button_prestadorEspecialidad = new javax.swing.JButton();
         button_guardarPrestador = new javax.swing.JButton();
         jSeparator12 = new javax.swing.JSeparator();
         button_bajaPrestador = new javax.swing.JButton();
         jSeparator13 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
         button_altaPrestador = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel7 = new javax.swing.JLabel();
+        jSeparator14 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -150,8 +152,6 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null}
             },
             new String [] {
@@ -175,7 +175,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 radio_mostrarInactivosActionPerformed(evt);
             }
         });
-        getContentPane().add(radio_mostrarInactivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 280, -1, -1));
+        getContentPane().add(radio_mostrarInactivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 330, -1, -1));
 
         radio_mostrarActivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_mostrarActivos.setForeground(new java.awt.Color(102, 102, 102));
@@ -185,18 +185,13 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 radio_mostrarActivosActionPerformed(evt);
             }
         });
-        getContentPane().add(radio_mostrarActivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 260, -1, -1));
+        getContentPane().add(radio_mostrarActivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, -1, -1));
 
         jSeparator9.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 580, 150, 10));
+        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 590, 150, 10));
 
         jSeparator11.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 250, 150, -1));
-
-        button_prestadorEspecialidad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        button_prestadorEspecialidad.setForeground(new java.awt.Color(102, 102, 102));
-        button_prestadorEspecialidad.setText("Por Especialidad");
-        getContentPane().add(button_prestadorEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 210, 150, 30));
+        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 230, 150, 10));
 
         button_guardarPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_guardarPrestador.setForeground(new java.awt.Color(102, 102, 102));
@@ -206,10 +201,10 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 button_guardarPrestadorActionPerformed(evt);
             }
         });
-        getContentPane().add(button_guardarPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 150, 60));
+        getContentPane().add(button_guardarPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 520, 150, 60));
 
         jSeparator12.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 310, 150, 10));
+        getContentPane().add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 360, 150, 10));
 
         button_bajaPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_bajaPrestador.setForeground(new java.awt.Color(102, 102, 102));
@@ -219,10 +214,10 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 button_bajaPrestadorActionPerformed(evt);
             }
         });
-        getContentPane().add(button_bajaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, 150, 60));
+        getContentPane().add(button_bajaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 440, 150, 60));
 
         jSeparator13.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 480, 150, 10));
+        getContentPane().add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 510, 150, 20));
 
         jSeparator10.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 260, 10));
@@ -235,7 +230,18 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 button_altaPrestadorActionPerformed(evt);
             }
         });
-        getContentPane().add(button_altaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 330, 150, 60));
+        getContentPane().add(button_altaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 370, 150, 60));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 240, 150, 30));
+
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setText("Ver Por Especialidad");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, 160, 40));
+
+        jSeparator14.setForeground(new java.awt.Color(153, 204, 255));
+        getContentPane().add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 150, 10));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -427,16 +433,18 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     private javax.swing.JButton button_atras;
     private javax.swing.JButton button_bajaPrestador;
     private javax.swing.JButton button_guardarPrestador;
-    private javax.swing.JButton button_prestadorEspecialidad;
     private javax.swing.JButton button_salir;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator8;
