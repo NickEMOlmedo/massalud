@@ -212,28 +212,27 @@ public class PrestadorData {
         Prestador prestador = null;
 
         try {
-            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
-
-            statement.setString(1, apellido);
-            ResultSet result = statement.executeQuery();
-
-            if (result.next()) {
-                prestador = new Prestador();
-
-                prestador.setIdPrestador(result.getInt("idPrestador"));
-                prestador.setNombre(result.getString("nombre"));
-                prestador.setApellido(result.getString("apellido"));
-                prestador.setDni(result.getInt("dni"));
-                prestador.setDomicilio(result.getString("domicilio"));
-                prestador.setTelefono(result.getLong("telefono"));
-                prestador.setActivo(true);
-                Especialidad especialidad = especialidadD.buscarEspecialidad(result.getInt("idEspecialidad"));
-                prestador.setEspecialidad(especialidad);
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe ese prestador");
-
+            try (PreparedStatement statement = nuevaConexion.prepareStatement(QUERY)) {
+                statement.setString(1, apellido);
+                ResultSet result = statement.executeQuery();
+                
+                if (result.next()) {
+                    prestador = new Prestador();
+                    
+                    prestador.setIdPrestador(result.getInt("idPrestador"));
+                    prestador.setNombre(result.getString("nombre"));
+                    prestador.setApellido(result.getString("apellido"));
+                    prestador.setDni(result.getInt("dni"));
+                    prestador.setDomicilio(result.getString("domicilio"));
+                    prestador.setTelefono(result.getLong("telefono"));
+                    prestador.setActivo(true);
+                    Especialidad especialidad = especialidadD.buscarEspecialidad(result.getInt("idEspecialidad"));
+                    prestador.setEspecialidad(especialidad);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No existe ese prestador");
+                    
+                }
             }
-            statement.close();
 
         } catch (SQLException ex) {
 
@@ -306,75 +305,72 @@ public class PrestadorData {
 
     }
     
-    public Prestador buscarPrestadorActivo_especialidad(int idEspecialidad) {
+     public ArrayList<Prestador> listarActivosPorEspecialidad(int idEspecialidad) {
 
-        String QUERY = "SELECT idPrestador, nombre,apellido,dni, domicilio, telefono,activo,idEspecialidad FROM prestador WHERE idEspecialidad = ? AND activo = 1";
-        Prestador prestador = null;
+        final String QUERY = "SELECT idPrestador, nombre, apellido, dni, domicilio, telefono, idEspecialidad FROM prestador WHERE idEspecialidad = ? AND activo = 1 ";
 
-        try {
+        ArrayList<Prestador> listaPrestadoresxEspecialidad = new ArrayList<>();
+
+       try {
+
             PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
-
             statement.setInt(1, idEspecialidad);
-            ResultSet result = statement.executeQuery();
+            try (ResultSet result = statement.executeQuery()) {
+                while (result.next()) {
+                    Prestador prestador = new Prestador();
+                    prestador.setIdPrestador(result.getInt("idPrestador"));
+                    prestador.setNombre(result.getString("nombre"));
+                    prestador.setApellido(result.getString("apellido"));
+                    prestador.setDni(result.getInt("dni"));
+                    prestador.setDomicilio(result.getString("domicilio"));
+                    prestador.setTelefono(result.getLong("telefono"));
+                    prestador.setActivo(true);
 
-            if (result.next()) {
-                prestador = new Prestador();
-
-                prestador.setIdPrestador(result.getInt("idPrestador"));
-                prestador.setNombre(result.getString("nombre"));
-                prestador.setApellido(result.getString("apellido"));
-                prestador.setDni(result.getInt("dni"));
-                prestador.setDomicilio(result.getString("domicilio"));
-                prestador.setTelefono(result.getLong("telefono"));
-                prestador.setActivo(true);
-                Especialidad especialidad = especialidadD.buscarEspecialidad(result.getInt("idEspecialidad"));
-                prestador.setEspecialidad(especialidad);
-            } else {
-                JOptionPane.showMessageDialog(null, "¡No existen prestadores para esa especialidad!");
-
+                    listaPrestadoresxEspecialidad.add(prestador);
+                }
             }
-            statement.close();
 
         } catch (SQLException ex) {
 
             JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
+
         }
-        return prestador;
+       
+       return listaPrestadoresxEspecialidad;
+    }
+     
+    public ArrayList<Prestador> listarInActivosPorEspecialidad(int idEspecialidad) {
+
+        final String QUERY = "SELECT idPrestador, nombre, apellido, dni, domicilio, telefono, idEspecialidad FROM prestador WHERE idEspecialidad = ? AND activo = 0 ";
+
+        ArrayList<Prestador> listaPrestadoresxEspecialidad = new ArrayList<>();
+
+       try {
+
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            statement.setInt(1, idEspecialidad);
+            try (ResultSet result = statement.executeQuery()) {
+                while (result.next()) {
+                    Prestador prestador = new Prestador();
+                    prestador.setIdPrestador(result.getInt("idPrestador"));
+                    prestador.setNombre(result.getString("nombre"));
+                    prestador.setApellido(result.getString("apellido"));
+                    prestador.setDni(result.getInt("dni"));
+                    prestador.setDomicilio(result.getString("domicilio"));
+                    prestador.setTelefono(result.getLong("telefono"));
+                    prestador.setActivo(true);
+
+                    listaPrestadoresxEspecialidad.add(prestador);
+                }
+            }
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
+
+        }
+       
+       return listaPrestadoresxEspecialidad;
     }
     
-      public Prestador buscarPrestadorInactivo_especialidad(int idEspecialidad) {
-
-        String QUERY = "SELECT idPrestador, nombre,apellido,dni, domicilio, telefono,activo,idEspecialidad FROM prestador WHERE idEspecialidad = ? AND activo = 0";
-        Prestador prestador = null;
-
-        try {
-            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
-
-            statement.setInt(1, idEspecialidad);
-            ResultSet result = statement.executeQuery();
-
-            if (result.next()) {
-                prestador = new Prestador();
-
-                prestador.setIdPrestador(result.getInt("idPrestador"));
-                prestador.setNombre(result.getString("nombre"));
-                prestador.setApellido(result.getString("apellido"));
-                prestador.setDni(result.getInt("dni"));
-                prestador.setDomicilio(result.getString("domicilio"));
-                prestador.setTelefono(result.getLong("telefono"));
-                prestador.setActivo(true);
-                Especialidad especialidad = especialidadD.buscarEspecialidad(result.getInt("idEspecialidad"));
-                prestador.setEspecialidad(especialidad);
-            } else {
-                JOptionPane.showMessageDialog(null, "¡No existen prestadores para esa especialidad!");
-
-            }
-            statement.close();
-
-        } catch (SQLException ex) {
-
-            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
-        }
-        return prestador;
-    }
 }
