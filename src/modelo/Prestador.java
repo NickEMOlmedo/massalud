@@ -1,10 +1,6 @@
  package modelo;
 
 
-/**
- *
- * @author @Fabiana76
- */
 public class Prestador {
     
     private int idPrestador;
@@ -105,9 +101,7 @@ public class Prestador {
         this.especialidad = especialidad;
     }
 
-    
    
-
     @Override
     public String toString() {
         return "PRESTADOR: " + "ID: " + idPrestador + " NOMBRE: " + nombre + " APELLIDO: " + apellido + " DNI: " + dni + "DOMICILIO:  " +domicilio +"TELEFONO: "+ telefono + "ACTIVO: " + activo + " ESPECIALIDAD: " + especialidad;

@@ -61,6 +61,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
         cabecera.add("Domicilio");
         cabecera.add("Telefono");
         cabecera.add("Especialidad");
+        
         for (Object lector : cabecera) {
 
             modelo.addColumn(lector);
@@ -107,6 +108,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
         jSeparator16 = new javax.swing.JSeparator();
         jSeparator18 = new javax.swing.JSeparator();
         jSeparator17 = new javax.swing.JSeparator();
+        jSeparator19 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,7 +141,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 button_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 90, 60));
+        getContentPane().add(button_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, 90, 60));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
@@ -184,7 +186,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(table_prestadores);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 690, 410));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 700, 410));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
@@ -199,7 +201,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 radio_mostrarInactivosActionPerformed(evt);
             }
         });
-        getContentPane().add(radio_mostrarInactivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, -1, -1));
+        getContentPane().add(radio_mostrarInactivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 340, -1, -1));
 
         radio_mostrarActivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_mostrarActivos.setForeground(new java.awt.Color(102, 102, 102));
@@ -209,7 +211,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 radio_mostrarActivosActionPerformed(evt);
             }
         });
-        getContentPane().add(radio_mostrarActivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 310, -1, -1));
+        getContentPane().add(radio_mostrarActivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, -1, -1));
 
         button_guardarPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_guardarPrestador.setForeground(new java.awt.Color(102, 102, 102));
@@ -219,7 +221,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 button_guardarPrestadorActionPerformed(evt);
             }
         });
-        getContentPane().add(button_guardarPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 540, 150, 60));
+        getContentPane().add(button_guardarPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 540, 150, 60));
 
         button_bajaPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_bajaPrestador.setForeground(new java.awt.Color(102, 102, 102));
@@ -229,7 +231,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 button_bajaPrestadorActionPerformed(evt);
             }
         });
-        getContentPane().add(button_bajaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 460, 150, 60));
+        getContentPane().add(button_bajaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 460, 150, 60));
 
         jSeparator10.setForeground(new java.awt.Color(153, 204, 255));
         getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 260, 10));
@@ -242,7 +244,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 button_altaPrestadorActionPerformed(evt);
             }
         });
-        getContentPane().add(button_altaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 390, 150, 60));
+        getContentPane().add(button_altaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 390, 150, 60));
 
         combobox_EspecialidadesPrestador.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combobox_EspecialidadesPrestador.setForeground(new java.awt.Color(102, 102, 102));
@@ -251,24 +253,27 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 combobox_EspecialidadesPrestadorActionPerformed(evt);
             }
         });
-        getContentPane().add(combobox_EspecialidadesPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 253, 170, 30));
+        getContentPane().add(combobox_EspecialidadesPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 250, 180, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Ver Por Especialidad:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 200, 160, 40));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 200, 160, 40));
 
         jSeparator14.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 240, 180, 10));
+        getContentPane().add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 240, 180, 10));
 
         jSeparator16.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 530, 180, 20));
+        getContentPane().add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 610, 180, 20));
 
         jSeparator18.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 180, 10));
+        getContentPane().add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, 180, 10));
 
         jSeparator17.setForeground(new java.awt.Color(153, 204, 255));
-        getContentPane().add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 370, 180, 20));
+        getContentPane().add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, 180, 20));
+
+        jSeparator19.setForeground(new java.awt.Color(153, 204, 255));
+        getContentPane().add(jSeparator19, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 530, 180, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -284,6 +289,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_guardarPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarPrestadorActionPerformed
+        
         int filaSeleccionada = table_prestadores.getSelectedRow();
 
         String nombre = null;
@@ -330,13 +336,14 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     }//GEN-LAST:event_button_guardarPrestadorActionPerformed
 
     private void radio_mostrarActivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarActivosActionPerformed
+       
         borrarFilas();
 
         ArrayList<Prestador> listadoPrestadores_activos = prestador_data.listarActivos();
 
         for (Prestador prestadores : listadoPrestadores_activos) {
 
-            modelo.addRow(new Object[]{prestadores.getIdPrestador(), prestadores.getNombre(), prestadores.getApellido(), prestadores.getDni(), prestadores.getDomicilio(), prestadores.getTelefono()});
+            modelo.addRow(new Object[]{prestadores.getIdPrestador(), prestadores.getNombre(), prestadores.getApellido(), prestadores.getDni(), prestadores.getDomicilio(), prestadores.getTelefono(), prestadores.getEspecialidad()});
 
         }
 
@@ -345,13 +352,14 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     }//GEN-LAST:event_radio_mostrarActivosActionPerformed
 
     private void radio_mostrarInactivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarInactivosActionPerformed
+
         borrarFilas();
 
         ArrayList<Prestador> listadoPrestadores_inActivos = prestador_data.listarInActivos();
 
         for (Prestador prestadores : listadoPrestadores_inActivos) {
 
-            modelo.addRow(new Object[]{prestadores.getIdPrestador(), prestadores.getNombre(), prestadores.getApellido(), prestadores.getDni(), prestadores.getDomicilio(), prestadores.getTelefono()});
+            modelo.addRow(new Object[]{prestadores.getIdPrestador(), prestadores.getNombre(), prestadores.getApellido(), prestadores.getDni(), prestadores.getDomicilio(), prestadores.getTelefono(), prestadores.getEspecialidad()});
 
         }
 
@@ -362,6 +370,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     }//GEN-LAST:event_radio_mostrarInactivosActionPerformed
 
     private void button_bajaPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_bajaPrestadorActionPerformed
+        
         int filaSeleccionada = table_prestadores.getSelectedRow();
 
         if (filaSeleccionada != -1) {
@@ -372,13 +381,12 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
             int idFila = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
 
-            Object valorApellido = model.getValueAt(filaSeleccionada, 2);
-
-            // int dni = Integer.parseInt(valorDni.toString());
-            prestador_apellido = prestador_data.buscarPrestadorApellido("apellido");
-
+            String valor_apellido = (String) model.getValueAt(filaSeleccionada, 2);
+            
+            prestador_apellido = prestador_data.buscarPrestadorApellido(valor_apellido);
+            
             int id = prestador_apellido.getIdPrestador();
-
+            
             prestador_data.eliminarPrestador(id);
 
             modelo.removeRow(filaSeleccionada);
@@ -390,6 +398,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     }//GEN-LAST:event_button_bajaPrestadorActionPerformed
 
     private void button_altaPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_altaPrestadorActionPerformed
+        
         int filaSeleccionada = table_prestadores.getSelectedRow();
 
         if (filaSeleccionada != -1) {
@@ -400,12 +409,12 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
             int idFila = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
 
-            Object valorApellido = model.getValueAt(filaSeleccionada, 2);
-
-            prestador_apellido = prestador_data.buscarPrestadorApellido("apellido");
-
+            String valor_apellido = (String) model.getValueAt(filaSeleccionada, 2);
+            
+            prestador_apellido = prestador_data.buscarPrestadorApellido_inactivo(valor_apellido);
+            
             int id = prestador_apellido.getIdPrestador();
-
+                        
             prestador_data.recuperarPrestador(id);
 
             modelo.removeRow(filaSeleccionada);
@@ -420,6 +429,8 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     private void combobox_EspecialidadesPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combobox_EspecialidadesPrestadorActionPerformed
 
         Especialidad seleccionado = (Especialidad) combobox_EspecialidadesPrestador.getSelectedItem();
+        
+        System.out.println(seleccionado);
 
         if (radio_mostrarActivos.isSelected()) {
 
@@ -429,7 +440,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
             for (Prestador prestador : listadoPrestadores_activosEspecialidad) {
 
-                modelo.addRow(new Object[]{prestador.getIdPrestador(), prestador.getNombre(), prestador.getApellido(), prestador.getDni(), prestador.getDomicilio(), prestador.getTelefono(), prestador.getEspecialidad().getEspecialidad()});
+                modelo.addRow(new Object[]{prestador.getIdPrestador(), prestador.getNombre(), prestador.getApellido(), prestador.getDni(), prestador.getDomicilio(), prestador.getTelefono(), prestador.getEspecialidad()});
 
             }
 
@@ -441,7 +452,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
             for (Prestador prestador : listadoPrestadores_inActivosEspecialidad) {
 
-                modelo.addRow(new Object[]{prestador.getIdPrestador(), prestador.getNombre(), prestador.getApellido(), prestador.getDni(), prestador.getDomicilio(), prestador.getTelefono(), prestador.getEspecialidad().getEspecialidad()});
+                modelo.addRow(new Object[]{prestador.getIdPrestador(), prestador.getNombre(), prestador.getApellido(), prestador.getDni(), prestador.getDomicilio(), prestador.getTelefono(), prestador.getEspecialidad()});
 
             }
 
@@ -502,6 +513,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator18;
+    private javax.swing.JSeparator jSeparator19;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator8;

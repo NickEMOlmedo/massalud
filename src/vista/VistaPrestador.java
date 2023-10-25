@@ -262,13 +262,14 @@ public class VistaPrestador extends javax.swing.JFrame {
     }//GEN-LAST:event_button_limpiarPrestadorActionPerformed
 
     private void button_guardarPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarPrestadorActionPerformed
+        
         String nombre = null;
         String apellido = null;
         int dni = 0;
         String domicilio = text_domicilioPrestador.getText();
         long telefono = 0;
 
-        Prestador seleccionado = (Prestador) combobox_especialidadPrestador.getSelectedItem();
+        Especialidad seleccionado = (Especialidad) combobox_especialidadPrestador.getSelectedItem();
 
         if (!prestador_data.prestadorExiste(Integer.parseInt(text_dniPrestador.getText()))) {
 
@@ -292,7 +293,9 @@ public class VistaPrestador extends javax.swing.JFrame {
                 telefono = Long.parseLong(text_telefonoPrestador.getText());
             }
 
-            Prestador prestador = new Prestador(nombre, apellido, dni, domicilio, telefono, checkbox_prestadorActivo.isSelected(), seleccionado.getEspecialidad());
+            Prestador prestador = new Prestador(nombre, apellido, dni, domicilio, telefono, checkbox_prestadorActivo.isSelected(), seleccionado);
+            
+            System.out.println(prestador.toString());
 
             prestador_data.guardarPrestador(prestador);
 
