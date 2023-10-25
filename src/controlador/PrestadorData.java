@@ -155,6 +155,26 @@ public class PrestadorData {
         }
 
     }
+     public void recuperarPrestador(int id) {
+
+        final String QUERY = "UPDATE afiliado SET activo = 1 WHERE idPrestador = ?";
+
+        try {
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            statement.setInt(1, id);
+            int envioExitoso = statement.executeUpdate();
+            if (envioExitoso == 1) {
+
+                JOptionPane.showMessageDialog(null, "¡El prestador se dio de alta satisfactoriamente!");
+            }
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
+
+        }
+
+    }
 
     // Metodo que permite MODIFICAR un Prestador
     public void modificarPrestador(Prestador prestador) {

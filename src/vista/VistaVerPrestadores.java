@@ -1,7 +1,4 @@
-
-
 package vista;
-
 
 import controlador.PrestadorData;
 import java.util.ArrayList;
@@ -14,11 +11,11 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
     PrestadorData prestador_data = new PrestadorData();
     private final DefaultTableModel modelo;
-    
+
     public VistaVerPrestadores() {
         initComponents();
         setResizable(false);
-         ButtonGroup grupoDeBotones = new ButtonGroup();
+        ButtonGroup grupoDeBotones = new ButtonGroup();
         grupoDeBotones.add(radio_mostrarActivos);
         grupoDeBotones.add(radio_mostrarInactivos);
         modelo = new DefaultTableModel() {
@@ -28,10 +25,11 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 return column != 0;
 
             }
-    };
-           armarCabecera();
+        };
+        armarCabecera();
     }
-     private void armarCabecera() {
+
+    private void armarCabecera() {
 
         ArrayList<Object> cabecera = new ArrayList<>();
         cabecera.add("ID");
@@ -49,7 +47,8 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
         table_prestadores.setModel(modelo);
     }
-  private void borrarFilas() {
+
+    private void borrarFilas() {
 
         int rowCount = modelo.getRowCount();
 
@@ -59,7 +58,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
         }
 
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -153,6 +152,11 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
         radio_mostrarInactivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_mostrarInactivos.setForeground(new java.awt.Color(102, 102, 102));
         radio_mostrarInactivos.setText("Mostrar Inactivos");
+        radio_mostrarInactivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radio_mostrarInactivosActionPerformed(evt);
+            }
+        });
         getContentPane().add(radio_mostrarInactivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 280, -1, -1));
 
         radio_mostrarActivos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -192,6 +196,11 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
         button_bajaPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_bajaPrestador.setForeground(new java.awt.Color(102, 102, 102));
         button_bajaPrestador.setText("Baja Prestador");
+        button_bajaPrestador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_bajaPrestadorActionPerformed(evt);
+            }
+        });
         getContentPane().add(button_bajaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, 150, 60));
 
         jSeparator13.setForeground(new java.awt.Color(153, 204, 255));
@@ -203,6 +212,11 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
         button_altaPrestador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         button_altaPrestador.setForeground(new java.awt.Color(102, 102, 102));
         button_altaPrestador.setText("Alta Prestador");
+        button_altaPrestador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_altaPrestadorActionPerformed(evt);
+            }
+        });
         getContentPane().add(button_altaPrestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 330, 150, 60));
 
         pack();
@@ -219,7 +233,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_guardarPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarPrestadorActionPerformed
-         int filaSeleccionada = table_prestadores.getSelectedRow();
+        int filaSeleccionada = table_prestadores.getSelectedRow();
 
         String nombre = null;
         String apellido = null;
@@ -261,12 +275,11 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
         }
 
-                                                          
 
     }//GEN-LAST:event_button_guardarPrestadorActionPerformed
 
     private void radio_mostrarActivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarActivosActionPerformed
-         borrarFilas();
+        borrarFilas();
 
         ArrayList<Prestador> listadoPrestadores_activos = prestador_data.listarActivos();
 
@@ -279,6 +292,82 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
         button_altaPrestador.setEnabled(false);
         button_bajaPrestador.setEnabled(true);
     }//GEN-LAST:event_radio_mostrarActivosActionPerformed
+
+    private void radio_mostrarInactivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarInactivosActionPerformed
+        borrarFilas();
+
+        ArrayList<Prestador> listadoPrestadores_inActivos = prestador_data.listarInActivos();
+
+        for (Prestador prestadores : listadoPrestadores_inActivos) {
+
+            modelo.addRow(new Object[]{prestadores.getIdPrestador(), prestadores.getNombre(), prestadores.getApellido(), prestadores.getDni(), prestadores.getDomicilio(), prestadores.getTelefono()});
+
+        }
+
+        button_altaPrestador.setEnabled(true);
+        button_bajaPrestador.setEnabled(false);
+
+
+    }//GEN-LAST:event_radio_mostrarInactivosActionPerformed
+
+    private void button_bajaPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_bajaPrestadorActionPerformed
+        int filaSeleccionada = table_prestadores.getSelectedRow();
+
+        if (filaSeleccionada != -1) {
+
+           Prestador prestador_apellido;
+
+            TableModel model = table_prestadores.getModel();
+
+            int idFila = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
+
+            Object valorApellido = model.getValueAt(filaSeleccionada, 2);
+
+           // int dni = Integer.parseInt(valorDni.toString());
+
+            prestador_apellido = prestador_data.buscarPrestadorApellido("apellido");
+
+            int id = prestador_apellido.getIdPrestador();
+
+            prestador_data.eliminarPrestador(id);
+
+            modelo.removeRow(filaSeleccionada);
+
+        }
+
+        modelo.fireTableDataChanged();
+
+    }//GEN-LAST:event_button_bajaPrestadorActionPerformed
+
+    private void button_altaPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_altaPrestadorActionPerformed
+         int filaSeleccionada = table_prestadores.getSelectedRow();
+
+        if (filaSeleccionada != -1) {
+
+            Prestador prestador_apellido;
+
+            TableModel model = table_prestadores.getModel();
+
+            int idFila = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
+
+            Object valorApellido = model.getValueAt(filaSeleccionada, 2);
+
+          
+
+            prestador_apellido = prestador_data.buscarPrestadorApellido("apellido");
+
+            int id = prestador_apellido.getIdPrestador();
+
+            prestador_data.recuperarPrestador(id);
+
+            modelo.removeRow(filaSeleccionada);
+
+        }
+
+        modelo.fireTableDataChanged();
+
+
+    }//GEN-LAST:event_button_altaPrestadorActionPerformed
 
     /**
      * @param args the command line arguments
