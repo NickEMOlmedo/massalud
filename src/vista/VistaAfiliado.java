@@ -242,7 +242,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
                     } else {
 
-                        JOptionPane.showMessageDialog(this, "¡Solo se permiten letras, verifique los datos!");
+                        JOptionPane.showMessageDialog(this, "¡Solo se permiten letras en el campo NOMBRE, verifique los datos!");
 
                     }
 
@@ -252,7 +252,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
                     } else {
 
-                        JOptionPane.showMessageDialog(this, "¡Solo se permiten letras, verifique los datos!");
+                        JOptionPane.showMessageDialog(this, "¡Solo se permiten letras en el campo APELLIDO, verifique los datos!");
 
                     }
 
@@ -262,9 +262,11 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
                     } else {
 
-                        JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros, verifique los datos!");
+                        JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros en el campo DNI , verifique los datos!");
 
                     }
+
+                    domicilio = text_domicilioAfiliado.getText();
 
                     if (VerificarInputs.soloNumeros(text_telefonoAfiliado.getText())) {
 
@@ -272,7 +274,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
                     } else {
 
-                        JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros, verifique los datos!");
+                        JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros en el campo TELEFONO, verifique los datos!");
 
                     }
 
@@ -288,7 +290,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
             } catch (NumberFormatException ex) {
 
-                JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros, verifique los datos!");
+                JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros en el campo DNI , verifique los datos!");
             }
 
         } else {

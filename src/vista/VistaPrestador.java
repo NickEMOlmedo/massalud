@@ -7,6 +7,7 @@ import javax.swing.DefaultComboBoxModel;
 import java.util.ArrayList;
 import controlador.EspecialidadData;
 import modelo.Especialidad;
+
 public class VistaPrestador extends javax.swing.JFrame {
 
     private final DefaultComboBoxModel modeloComboPrestador;
@@ -262,49 +263,80 @@ public class VistaPrestador extends javax.swing.JFrame {
     }//GEN-LAST:event_button_limpiarPrestadorActionPerformed
 
     private void button_guardarPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarPrestadorActionPerformed
-        
+
         String nombre = null;
         String apellido = null;
         int dni = 0;
-        String domicilio = text_domicilioPrestador.getText();
+        String domicilio = null;
         long telefono = 0;
 
         Especialidad seleccionado = (Especialidad) combobox_especialidadPrestador.getSelectedItem();
 
-        if (!prestador_data.prestadorExiste(Integer.parseInt(text_dniPrestador.getText()))) {
+        if (!text_nombrePrestador.getText().isEmpty() && !text_apellidoPrestador.getText().isEmpty() && !text_dniPrestador.getText().isEmpty() && !text_domicilioPrestador.getText().isEmpty() && !text_telefonoPrestador.getText().isEmpty()) {
 
-            if (VerificarInputs.soloLetras(text_nombrePrestador.getText())) {
+            try {
 
-                nombre = text_nombrePrestador.getText();
+                if (!prestador_data.prestadorExiste(Integer.parseInt(text_dniPrestador.getText()))) {
+
+                    if (VerificarInputs.soloLetras(text_nombrePrestador.getText())) {
+
+                        nombre = text_nombrePrestador.getText();
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "¡Solo se permiten letras en el campo NOMBRE, verifique los datos!");
+
+                    }
+
+                    if (VerificarInputs.soloLetras(text_apellidoPrestador.getText())) {
+
+                        apellido = text_apellidoPrestador.getText();
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "¡Solo se permiten letras en el campo APELLIDO, verifique los datos!");
+
+                    }
+
+                    if (VerificarInputs.soloNumeros(text_dniPrestador.getText())) {
+
+                        dni = Integer.valueOf(text_dniPrestador.getText());
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros en el campo DNI , verifique los datos!");
+
+                    }
+
+                    domicilio = text_domicilioPrestador.getText();
+
+                    if (VerificarInputs.soloNumeros(text_telefonoPrestador.getText())) {
+
+                        telefono = Long.parseLong(text_telefonoPrestador.getText());
+                        
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros en el campo TELEFONO , verifique los datos!");
+
+                    }
+
+                    Prestador prestador = new Prestador(nombre, apellido, dni, domicilio, telefono, checkbox_prestadorActivo.isSelected(), seleccionado);
+
+                    System.out.println(prestador.toString());
+
+                    prestador_data.guardarPrestador(prestador);
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "¡El prestador ya existe!");
+
+                }
+
+            } catch (NumberFormatException ex) {
+
+                JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros, verifique los datos!");
+
             }
-
-            if (VerificarInputs.soloLetras(text_apellidoPrestador.getText())) {
-
-                apellido = text_apellidoPrestador.getText();
-            }
-
-            if (VerificarInputs.soloNumeros(text_dniPrestador.getText())) {
-
-                dni = Integer.valueOf(text_dniPrestador.getText());
-            }
-
-            if (VerificarInputs.soloNumeros(text_telefonoPrestador.getText())) {
-
-                telefono = Long.parseLong(text_telefonoPrestador.getText());
-            }
-             if(nombre.isEmpty()|| apellido.isEmpty()){
-           JOptionPane.showMessageDialog(this, "No puede haber campos vacios"); 
-           return;
-             }
-            Prestador prestador = new Prestador(nombre, apellido, dni, domicilio, telefono, checkbox_prestadorActivo.isSelected(), seleccionado);
-            
-            System.out.println(prestador.toString());
-
-            prestador_data.guardarPrestador(prestador);
-
-        } else {
-
-            JOptionPane.showMessageDialog(null, "¡El prestador ya existe!");
 
         }
 
