@@ -227,43 +227,73 @@ public class VistaAfiliado extends javax.swing.JFrame {
         String nombre = null;
         String apellido = null;
         int dni = 0;
-        String domicilio = text_domicilioAfiliado.getText();
+        String domicilio = null;
         long telefono = 0;
 
-        if (!afiliado_data.afiliadoExiste(Integer.parseInt(text_dniAfiliado.getText()))) {
+        if (!text_nombreAfiliado.getText().isEmpty() && !text_apellidoAfiliado.getText().isEmpty() && !text_dniAfiliado.getText().isEmpty() && !text_domicilioAfiliado.getText().isEmpty() && !text_telefonoAfiliado.getText().isEmpty()) {
 
-            if (VerificarInputs.soloLetras(text_nombreAfiliado.getText())) {
+            try {
 
-                nombre = text_nombreAfiliado.getText();
+                if (!afiliado_data.afiliadoExiste(Integer.parseInt(text_dniAfiliado.getText()))) {
+
+                    if (VerificarInputs.soloLetras(text_nombreAfiliado.getText())) {
+
+                        nombre = text_nombreAfiliado.getText();
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "¡Solo se permiten letras, verifique los datos!");
+
+                    }
+
+                    if (VerificarInputs.soloLetras(text_apellidoAfiliado.getText())) {
+
+                        apellido = text_apellidoAfiliado.getText();
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "¡Solo se permiten letras, verifique los datos!");
+
+                    }
+
+                    if (VerificarInputs.soloNumeros(text_dniAfiliado.getText())) {
+
+                        dni = Integer.parseInt(text_dniAfiliado.getText());
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros, verifique los datos!");
+
+                    }
+
+                    if (VerificarInputs.soloNumeros(text_telefonoAfiliado.getText())) {
+
+                        telefono = Long.parseLong(text_telefonoAfiliado.getText());
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros, verifique los datos!");
+
+                    }
+
+                    Afiliado afiliado = new Afiliado(nombre, apellido, dni, domicilio, telefono, checkbox_afiliadoActivo.isSelected());
+
+                    afiliado_data.guardarAfiliado(afiliado);
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "¡El afiliado ya existe!");
+
+                }
+
+            } catch (NumberFormatException ex) {
+
+                JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros, verifique los datos!");
             }
-
-            if (VerificarInputs.soloLetras(text_apellidoAfiliado.getText())) {
-
-                apellido = text_apellidoAfiliado.getText();
-            }
-
-            if (VerificarInputs.soloNumeros(text_dniAfiliado.getText())) {
-
-                dni = Integer.valueOf(text_dniAfiliado.getText());
-            }
-
-            if (VerificarInputs.soloNumeros(text_telefonoAfiliado.getText())) {
-
-                telefono = Long.parseLong(text_telefonoAfiliado.getText());
-            }
-            
-            if(nombre.isEmpty()|| apellido.isEmpty()){
-           JOptionPane.showMessageDialog(this, "No puede haber campos vacios"); 
-           return;
-             }
-
-            Afiliado afiliado = new Afiliado(nombre, apellido, dni, domicilio, telefono, checkbox_afiliadoActivo.isSelected());
-
-            afiliado_data.guardarAfiliado(afiliado);
 
         } else {
 
-            JOptionPane.showMessageDialog(null, "¡El afiliado ya existe!");
+            JOptionPane.showMessageDialog(this, "¡No se permiten campos vacios, verifique los datos!");
 
         }
 
