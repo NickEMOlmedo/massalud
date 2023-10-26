@@ -24,13 +24,13 @@ public class VistaPrestador extends javax.swing.JFrame {
     PrestadorData prestador_data = new PrestadorData();
 
     public void cargarCombo() {
-
+        //lista las especialidades activas
         ArrayList<Especialidad> listarActivos = especialidad_data.listarActivos();
 
         // Limpia el modelo actual si es necesario
         modeloComboPrestador.removeAllElements();
 
-        // Agrega los objetos Alumno al modelo del ComboBox
+        // Agrega los objetos Especialidad al modelo del ComboBox
         for (Especialidad especialidad : listarActivos) {
 
             modeloComboPrestador.addElement(especialidad);
@@ -292,7 +292,10 @@ public class VistaPrestador extends javax.swing.JFrame {
 
                 telefono = Long.parseLong(text_telefonoPrestador.getText());
             }
-
+             if(nombre.isEmpty()|| apellido.isEmpty()){
+           JOptionPane.showMessageDialog(this, "No puede haber campos vacios"); 
+           return;
+             }
             Prestador prestador = new Prestador(nombre, apellido, dni, domicilio, telefono, checkbox_prestadorActivo.isSelected(), seleccionado);
             
             System.out.println(prestador.toString());

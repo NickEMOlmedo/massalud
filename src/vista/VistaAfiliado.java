@@ -113,6 +113,11 @@ public class VistaAfiliado extends javax.swing.JFrame {
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
         text_apellidoAfiliado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        text_apellidoAfiliado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_apellidoAfiliadoActionPerformed(evt);
+            }
+        });
         getContentPane().add(text_apellidoAfiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 280, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -246,6 +251,11 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
                 telefono = Long.parseLong(text_telefonoAfiliado.getText());
             }
+            
+            if(nombre.isEmpty()|| apellido.isEmpty()){
+           JOptionPane.showMessageDialog(this, "No puede haber campos vacios"); 
+           return;
+             }
 
             Afiliado afiliado = new Afiliado(nombre, apellido, dni, domicilio, telefono, checkbox_afiliadoActivo.isSelected());
 
@@ -279,6 +289,10 @@ public class VistaAfiliado extends javax.swing.JFrame {
     private void text_telefonoAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_telefonoAfiliadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_text_telefonoAfiliadoActionPerformed
+
+    private void text_apellidoAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_apellidoAfiliadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_apellidoAfiliadoActionPerformed
 
     /**
      * @param args the command line arguments
