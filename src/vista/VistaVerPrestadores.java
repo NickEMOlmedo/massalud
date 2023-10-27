@@ -5,6 +5,7 @@ import controlador.PrestadorData;
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import modelo.Especialidad;
@@ -61,7 +62,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
         cabecera.add("Domicilio");
         cabecera.add("Telefono");
         cabecera.add("Especialidad");
-        
+
         for (Object lector : cabecera) {
 
             modelo.addColumn(lector);
@@ -289,35 +290,96 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_guardarPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarPrestadorActionPerformed
-        
+
         int filaSeleccionada = table_prestadores.getSelectedRow();
+
+        String nombre_inicial = modelo.getValueAt(filaSeleccionada, 1).toString();
+        String apellido_inicial = modelo.getValueAt(filaSeleccionada, 2).toString();
+        int dni_inicial = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 3).toString());
+        String domicilio_inicial = modelo.getValueAt(filaSeleccionada, 4).toString();
+        long telefono_inicial = Long.parseLong(modelo.getValueAt(filaSeleccionada, 5).toString());
 
         String nombre = null;
         String apellido = null;
         int dni = 0;
-        String domicilio = modelo.getValueAt(filaSeleccionada, 4).toString();
+        String domicilio = null;
         long telefono = 0;
+        int contador = 0;
 
         if (filaSeleccionada != -1) {
 
-            if (VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 1).toString())) {
+            if (!modelo.getValueAt(filaSeleccionada, 1).toString().isEmpty() && VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 1).toString())) {
 
                 nombre = modelo.getValueAt(filaSeleccionada, 1).toString();
+
+                if (!nombre.equals(nombre_inicial)) {
+
+                    contador++;
+                }
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "¡Solo se permiten letras en el campo NOMBRE y no puede estar vacio!");
+
             }
 
-            if (VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 2).toString())) {
+            if (!modelo.getValueAt(filaSeleccionada, 2).toString().isEmpty() && VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 2).toString())) {
 
                 apellido = modelo.getValueAt(filaSeleccionada, 2).toString();
+
+                if (!apellido.equals(apellido_inicial)) {
+
+                    contador++;
+                }
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "¡Solo se permiten letras en el campo APELLIDO y no puede estar vacio");
+
             }
 
-            if (VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 3).toString())) {
+            if (!modelo.getValueAt(filaSeleccionada, 3).toString().isEmpty() && VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 3).toString())) {
 
                 dni = Integer.valueOf(modelo.getValueAt(filaSeleccionada, 3).toString());
+
+                if (dni != dni_inicial) {
+
+                    contador++;
+                }
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros en el campo DNI y no puede estar vacio!");
             }
 
-            if (VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 5).toString())) {
+            if (!modelo.getValueAt(filaSeleccionada, 4).toString().isEmpty()) {
+
+                domicilio = modelo.getValueAt(filaSeleccionada, 4).toString();
+
+                if (!domicilio.equals(domicilio_inicial)) {
+
+                    contador++;
+                }
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "¡El campo DOMICILIO no puede estar vacio!");
+
+            }
+
+            if (!modelo.getValueAt(filaSeleccionada, 5).toString().isEmpty() && VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 5).toString())) {
 
                 telefono = Long.parseLong(modelo.getValueAt(filaSeleccionada, 5).toString());
+
+                if (telefono != telefono_inicial) {
+
+                    contador++;
+                }
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros en el campo TELEFONO y no puede estar vacio!");
+
             }
 
             Prestador modificarPrestador = prestador_data.buscarPrestadorApellido(apellido);
@@ -328,7 +390,15 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             modificarPrestador.setDomicilio(domicilio);
             modificarPrestador.setTelefono(telefono);
 
-            prestador_data.modificarPrestador(modificarPrestador);
+            if (contador > 0) {
+
+                prestador_data.modificarPrestador(modificarPrestador);
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "¡No se ha modificado ningun dato del prestador!");
+
+            }
 
         }
 
@@ -336,7 +406,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     }//GEN-LAST:event_button_guardarPrestadorActionPerformed
 
     private void radio_mostrarActivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarActivosActionPerformed
-       
+
         borrarFilas();
 
         ArrayList<Prestador> listadoPrestadores_activos = prestador_data.listarActivos();
@@ -370,7 +440,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     }//GEN-LAST:event_radio_mostrarInactivosActionPerformed
 
     private void button_bajaPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_bajaPrestadorActionPerformed
-        
+
         int filaSeleccionada = table_prestadores.getSelectedRow();
 
         if (filaSeleccionada != -1) {
@@ -382,11 +452,11 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             int idFila = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
 
             String valor_apellido = (String) model.getValueAt(filaSeleccionada, 2);
-            
+
             prestador_apellido = prestador_data.buscarPrestadorApellido(valor_apellido);
-            
+
             int id = prestador_apellido.getIdPrestador();
-            
+
             prestador_data.eliminarPrestador(id);
 
             modelo.removeRow(filaSeleccionada);
@@ -398,7 +468,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     }//GEN-LAST:event_button_bajaPrestadorActionPerformed
 
     private void button_altaPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_altaPrestadorActionPerformed
-        
+
         int filaSeleccionada = table_prestadores.getSelectedRow();
 
         if (filaSeleccionada != -1) {
@@ -410,11 +480,11 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             int idFila = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
 
             String valor_apellido = (String) model.getValueAt(filaSeleccionada, 2);
-            
+
             prestador_apellido = prestador_data.buscarPrestadorApellido_inactivo(valor_apellido);
-            
+
             int id = prestador_apellido.getIdPrestador();
-                        
+
             prestador_data.recuperarPrestador(id);
 
             modelo.removeRow(filaSeleccionada);
@@ -429,8 +499,6 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     private void combobox_EspecialidadesPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combobox_EspecialidadesPrestadorActionPerformed
 
         Especialidad seleccionado = (Especialidad) combobox_EspecialidadesPrestador.getSelectedItem();
-        
-        System.out.println(seleccionado);
 
         if (radio_mostrarActivos.isSelected()) {
 
