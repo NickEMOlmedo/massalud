@@ -293,29 +293,17 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
         int filaSeleccionada = table_prestadores.getSelectedRow();
 
-        String nombre_inicial = modelo.getValueAt(filaSeleccionada, 1).toString();
-        String apellido_inicial = modelo.getValueAt(filaSeleccionada, 2).toString();
-        int dni_inicial = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 3).toString());
-        String domicilio_inicial = modelo.getValueAt(filaSeleccionada, 4).toString();
-        long telefono_inicial = Long.parseLong(modelo.getValueAt(filaSeleccionada, 5).toString());
-
-        String nombre = null;
-        String apellido = null;
-        int dni = 0;
-        String domicilio = null;
-        long telefono = 0;
-        int contador = 0;
-
         if (filaSeleccionada != -1) {
+
+            String nombre = null;
+            String apellido = null;
+            int dni = 0;
+            String domicilio = null;
+            long telefono = 0;
 
             if (!modelo.getValueAt(filaSeleccionada, 1).toString().isEmpty() && VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 1).toString())) {
 
                 nombre = modelo.getValueAt(filaSeleccionada, 1).toString();
-
-                if (!nombre.equals(nombre_inicial)) {
-
-                    contador++;
-                }
 
             } else {
 
@@ -327,11 +315,6 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
                 apellido = modelo.getValueAt(filaSeleccionada, 2).toString();
 
-                if (!apellido.equals(apellido_inicial)) {
-
-                    contador++;
-                }
-
             } else {
 
                 JOptionPane.showMessageDialog(this, "¡Solo se permiten letras en el campo APELLIDO y no puede estar vacio");
@@ -342,11 +325,6 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
                 dni = Integer.valueOf(modelo.getValueAt(filaSeleccionada, 3).toString());
 
-                if (dni != dni_inicial) {
-
-                    contador++;
-                }
-
             } else {
 
                 JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros en el campo DNI y no puede estar vacio!");
@@ -355,11 +333,6 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             if (!modelo.getValueAt(filaSeleccionada, 4).toString().isEmpty()) {
 
                 domicilio = modelo.getValueAt(filaSeleccionada, 4).toString();
-
-                if (!domicilio.equals(domicilio_inicial)) {
-
-                    contador++;
-                }
 
             } else {
 
@@ -370,11 +343,6 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             if (!modelo.getValueAt(filaSeleccionada, 5).toString().isEmpty() && VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 5).toString())) {
 
                 telefono = Long.parseLong(modelo.getValueAt(filaSeleccionada, 5).toString());
-
-                if (telefono != telefono_inicial) {
-
-                    contador++;
-                }
 
             } else {
 
@@ -390,18 +358,12 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             modificarPrestador.setDomicilio(domicilio);
             modificarPrestador.setTelefono(telefono);
 
-            if (contador > 0) {
+            prestador_data.modificarPrestador(modificarPrestador);
 
-                prestador_data.modificarPrestador(modificarPrestador);
-
-            } else {
-
-                JOptionPane.showMessageDialog(this, "¡No se ha modificado ningun dato del prestador!");
-
-            }
-
+        } else {
+            
+            JOptionPane.showMessageDialog(this, "No se ha seleccionado ninguna fila.");
         }
-
 
     }//GEN-LAST:event_button_guardarPrestadorActionPerformed
 
@@ -543,16 +505,21 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaVerPrestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerPrestadores.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaVerPrestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerPrestadores.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaVerPrestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerPrestadores.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaVerPrestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerPrestadores.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
