@@ -313,7 +313,7 @@ public class VistaPrestador extends javax.swing.JFrame {
                     if (VerificarInputs.soloNumeros(text_telefonoPrestador.getText())) {
 
                         telefono = Long.parseLong(text_telefonoPrestador.getText());
-                        
+
                     } else {
 
                         JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros en el campo TELEFONO , verifique los datos!");
@@ -321,8 +321,6 @@ public class VistaPrestador extends javax.swing.JFrame {
                     }
 
                     Prestador prestador = new Prestador(nombre, apellido, dni, domicilio, telefono, checkbox_prestadorActivo.isSelected(), seleccionado);
-
-                    System.out.println(prestador.toString());
 
                     prestador_data.guardarPrestador(prestador);
 

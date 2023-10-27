@@ -362,7 +362,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
         } else {
             
-            JOptionPane.showMessageDialog(this, "No se ha seleccionado ninguna fila.");
+            JOptionPane.showMessageDialog(this, "¡No se ha seleccionado ninguna fila!");
         }
 
     }//GEN-LAST:event_button_guardarPrestadorActionPerformed
