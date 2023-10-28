@@ -295,15 +295,23 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
         if (filaSeleccionada != -1) {
 
-            String nombre = null;
-            String apellido = null;
+            String nombre = "";
+            String apellido = "";
             int dni = 0;
-            String domicilio = null;
+            String domicilio = "";
             long telefono = 0;
+
+            boolean v_nombre = false;
+            boolean v_apellido = false;
+            boolean v_dni = false;
+            boolean v_domicilio = false;
+            boolean v_telefono = false;
 
             if (!modelo.getValueAt(filaSeleccionada, 1).toString().isEmpty() && VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 1).toString())) {
 
                 nombre = modelo.getValueAt(filaSeleccionada, 1).toString();
+
+                v_nombre = true;
 
             } else {
 
@@ -314,6 +322,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             if (!modelo.getValueAt(filaSeleccionada, 2).toString().isEmpty() && VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 2).toString())) {
 
                 apellido = modelo.getValueAt(filaSeleccionada, 2).toString();
+                v_apellido = true;
 
             } else {
 
@@ -324,6 +333,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             if (!modelo.getValueAt(filaSeleccionada, 3).toString().isEmpty() && VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 3).toString())) {
 
                 dni = Integer.valueOf(modelo.getValueAt(filaSeleccionada, 3).toString());
+                v_dni = true;
 
             } else {
 
@@ -333,6 +343,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             if (!modelo.getValueAt(filaSeleccionada, 4).toString().isEmpty()) {
 
                 domicilio = modelo.getValueAt(filaSeleccionada, 4).toString();
+                v_domicilio = true;
 
             } else {
 
@@ -343,6 +354,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             if (!modelo.getValueAt(filaSeleccionada, 5).toString().isEmpty() && VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 5).toString())) {
 
                 telefono = Long.parseLong(modelo.getValueAt(filaSeleccionada, 5).toString());
+                v_telefono = true;
 
             } else {
 
@@ -352,16 +364,38 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
             Prestador modificarPrestador = prestador_data.buscarPrestadorApellido(apellido);
 
-            modificarPrestador.setNombre(nombre);
-            modificarPrestador.setApellido(apellido);
-            modificarPrestador.setDni(dni);
-            modificarPrestador.setDomicilio(domicilio);
-            modificarPrestador.setTelefono(telefono);
+            if (v_nombre == true) {
+
+                modificarPrestador.setNombre(nombre);
+            }
+
+            if (v_apellido == true) {
+
+                modificarPrestador.setNombre(apellido);
+            }
+
+            if (v_dni == true) {
+
+                modificarPrestador.setDni(dni);
+
+            }
+
+            if (v_domicilio) {
+
+                modificarPrestador.setDomicilio(domicilio);
+
+            }
+
+            if (v_telefono == true) {
+
+                modificarPrestador.setTelefono(telefono);
+
+            }
 
             prestador_data.modificarPrestador(modificarPrestador);
 
         } else {
-            
+
             JOptionPane.showMessageDialog(this, "¡No se ha seleccionado ninguna fila!");
         }
 
