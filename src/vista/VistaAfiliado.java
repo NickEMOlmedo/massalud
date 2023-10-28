@@ -230,6 +230,8 @@ public class VistaAfiliado extends javax.swing.JFrame {
         String domicilio = null;
         long telefono = 0;
 
+        int contador = 0;
+
         if (!text_nombreAfiliado.getText().isEmpty() && !text_apellidoAfiliado.getText().isEmpty() && !text_dniAfiliado.getText().isEmpty() && !text_domicilioAfiliado.getText().isEmpty() && !text_telefonoAfiliado.getText().isEmpty()) {
 
             try {
@@ -239,6 +241,8 @@ public class VistaAfiliado extends javax.swing.JFrame {
                     if (VerificarInputs.soloLetras(text_nombreAfiliado.getText())) {
 
                         nombre = text_nombreAfiliado.getText();
+
+                        contador++;
 
                     } else {
 
@@ -250,6 +254,8 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
                         apellido = text_apellidoAfiliado.getText();
 
+                        contador++;
+
                     } else {
 
                         JOptionPane.showMessageDialog(this, "¡Solo se permiten letras en el campo APELLIDO, verifique los datos!");
@@ -259,6 +265,8 @@ public class VistaAfiliado extends javax.swing.JFrame {
                     if (VerificarInputs.soloNumeros(text_dniAfiliado.getText())) {
 
                         dni = Integer.parseInt(text_dniAfiliado.getText());
+
+                        contador++;
 
                     } else {
 
@@ -272,15 +280,25 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
                         telefono = Long.parseLong(text_telefonoAfiliado.getText());
 
+                        contador++;
+
                     } else {
 
                         JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros en el campo TELEFONO, verifique los datos!");
 
                     }
 
-                    Afiliado afiliado = new Afiliado(nombre, apellido, dni, domicilio, telefono, checkbox_afiliadoActivo.isSelected());
+                    if (contador == 4) {
 
-                    afiliado_data.guardarAfiliado(afiliado);
+                        Afiliado afiliado = new Afiliado(nombre, apellido, dni, domicilio, telefono, checkbox_afiliadoActivo.isSelected());
+
+                        afiliado_data.guardarAfiliado(afiliado);
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "¡Verifique los datos ingresados en el formulario!");
+
+                    }
 
                 } else {
 
