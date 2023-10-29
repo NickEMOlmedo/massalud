@@ -30,10 +30,11 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             @Override
             public boolean isCellEditable(int row, int column) {
 
-                return column != 0;
+                return column != 0 && column != 6 ;
 
             }
         };
+
         combobox_EspecialidadesPrestador.setModel(modeloComboEspecialidades);
         armarCabecera();
     }
@@ -295,6 +296,8 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
         if (filaSeleccionada != -1) {
 
+            int id = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
+
             String nombre = "";
             String apellido = "";
             int dni = 0;
@@ -307,10 +310,12 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             boolean v_domicilio = false;
             boolean v_telefono = false;
 
+            Prestador modificarPrestador = new Prestador();
+            modificarPrestador = prestador_data.buscarPrestador_id(id);
+
             if (!modelo.getValueAt(filaSeleccionada, 1).toString().isEmpty() && VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 1).toString())) {
 
                 nombre = modelo.getValueAt(filaSeleccionada, 1).toString();
-
                 v_nombre = true;
 
             } else {
@@ -362,8 +367,6 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
             }
 
-            Prestador modificarPrestador = prestador_data.buscarPrestadorApellido(apellido);
-
             if (v_nombre == true) {
 
                 modificarPrestador.setNombre(nombre);
@@ -371,7 +374,8 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
             if (v_apellido == true) {
 
-                modificarPrestador.setNombre(apellido);
+                modificarPrestador.setApellido(apellido);
+
             }
 
             if (v_dni == true) {

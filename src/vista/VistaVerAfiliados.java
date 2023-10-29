@@ -3,6 +3,7 @@ package vista;
 import controlador.AfiliadoData;
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import modelo.Afiliado;
@@ -22,7 +23,7 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
             @Override
             public boolean isCellEditable(int row, int column) {
 
-                return column != 0;
+                return column != 0 ;
 
             }
 
@@ -166,7 +167,7 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
                 "ID", "Nombre", "Apellido", "DNI", "Domicilio", "Telefono"
             }
         ));
-        table_afiliados.setCellSelectionEnabled(true);
+        table_afiliados.setColumnSelectionAllowed(false);
         jScrollPane1.setViewportView(table_afiliados);
         table_afiliados.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -260,45 +261,116 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
 
         int filaSeleccionada = table_afiliados.getSelectedRow();
 
-        String nombre = null;
-        String apellido = null;
-        int dni = 0;
-        String domicilio = modelo.getValueAt(filaSeleccionada, 4).toString();
-        long telefono = 0;
-
         if (filaSeleccionada != -1) {
 
-            if (VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 1).toString())) {
+            int id = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
+
+            String nombre = "";
+            String apellido = "";
+            int dni = 0;
+            String domicilio = "";
+            long telefono = 0;
+
+            boolean v_nombre = false;
+            boolean v_apellido = false;
+            boolean v_dni = false;
+            boolean v_domicilio = false;
+            boolean v_telefono = false;
+
+            Afiliado modificarAfiliado = new Afiliado();
+            modificarAfiliado = afiliado_data.buscarAfiliado_id(id);
+
+            if (!modelo.getValueAt(filaSeleccionada, 1).toString().isEmpty() && VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 1).toString())) {
 
                 nombre = modelo.getValueAt(filaSeleccionada, 1).toString();
+
+                v_nombre = true;
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "¡Solo se permiten letras en el campo NOMBRE y no puede estar vacio!");
+
             }
 
-            if (VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 2).toString())) {
+            if (!modelo.getValueAt(filaSeleccionada, 2).toString().isEmpty() && VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 2).toString())) {
 
                 apellido = modelo.getValueAt(filaSeleccionada, 2).toString();
+                v_apellido = true;
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "¡Solo se permiten letras en el campo APELLIDO y no puede estar vacio");
+
             }
 
-            if (VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 3).toString())) {
+            if (!modelo.getValueAt(filaSeleccionada, 3).toString().isEmpty() && VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 3).toString())) {
 
                 dni = Integer.valueOf(modelo.getValueAt(filaSeleccionada, 3).toString());
+                v_dni = true;
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros en el campo DNI y no puede estar vacio!");
             }
 
-            if (VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 5).toString())) {
+            if (!modelo.getValueAt(filaSeleccionada, 4).toString().isEmpty()) {
+
+                domicilio = modelo.getValueAt(filaSeleccionada, 4).toString();
+                v_domicilio = true;
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "¡El campo DOMICILIO no puede estar vacio!");
+
+            }
+
+            if (!modelo.getValueAt(filaSeleccionada, 5).toString().isEmpty() && VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 5).toString())) {
 
                 telefono = Long.parseLong(modelo.getValueAt(filaSeleccionada, 5).toString());
+                v_telefono = true;
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros en el campo TELEFONO y no puede estar vacio!");
+
             }
 
-            Afiliado modificarAfiliado = afiliado_data.buscarAfiliado_dni(dni);
+            if (v_nombre == true) {
 
-            modificarAfiliado.setNombre(nombre);
-            modificarAfiliado.setApellido(apellido);
-            modificarAfiliado.setDni(dni);
-            modificarAfiliado.setDomicilio(domicilio);
-            modificarAfiliado.setTelefono(telefono);
+                modificarAfiliado.setNombre(nombre);
+            }
+
+            if (v_apellido == true) {
+
+                modificarAfiliado.setApellido(apellido);
+            }
+
+            if (v_dni == true) {
+
+                
+                modificarAfiliado.setDni(dni);
+
+            }
+
+            if (v_domicilio) {
+
+                modificarAfiliado.setDomicilio(domicilio);
+
+            }
+
+            if (v_telefono == true) {
+
+                modificarAfiliado.setTelefono(telefono);
+
+            }
 
             afiliado_data.modificarAfiliado(modificarAfiliado);
 
+        } else {
+
+            JOptionPane.showMessageDialog(this, "¡No se ha seleccionado ninguna fila!");
         }
+
 
     }//GEN-LAST:event_button_guardarAfiliadoActionPerformed
 
