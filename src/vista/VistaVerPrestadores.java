@@ -293,29 +293,25 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
         int filaSeleccionada = table_prestadores.getSelectedRow();
 
-        String nombre_inicial = modelo.getValueAt(filaSeleccionada, 1).toString();
-        String apellido_inicial = modelo.getValueAt(filaSeleccionada, 2).toString();
-        int dni_inicial = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 3).toString());
-        String domicilio_inicial = modelo.getValueAt(filaSeleccionada, 4).toString();
-        long telefono_inicial = Long.parseLong(modelo.getValueAt(filaSeleccionada, 5).toString());
-
-        String nombre = null;
-        String apellido = null;
-        int dni = 0;
-        String domicilio = null;
-        long telefono = 0;
-        int contador = 0;
-
         if (filaSeleccionada != -1) {
+
+            String nombre = "";
+            String apellido = "";
+            int dni = 0;
+            String domicilio = "";
+            long telefono = 0;
+
+            boolean v_nombre = false;
+            boolean v_apellido = false;
+            boolean v_dni = false;
+            boolean v_domicilio = false;
+            boolean v_telefono = false;
 
             if (!modelo.getValueAt(filaSeleccionada, 1).toString().isEmpty() && VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 1).toString())) {
 
                 nombre = modelo.getValueAt(filaSeleccionada, 1).toString();
 
-                if (!nombre.equals(nombre_inicial)) {
-
-                    contador++;
-                }
+                v_nombre = true;
 
             } else {
 
@@ -326,11 +322,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             if (!modelo.getValueAt(filaSeleccionada, 2).toString().isEmpty() && VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 2).toString())) {
 
                 apellido = modelo.getValueAt(filaSeleccionada, 2).toString();
-
-                if (!apellido.equals(apellido_inicial)) {
-
-                    contador++;
-                }
+                v_apellido = true;
 
             } else {
 
@@ -341,11 +333,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             if (!modelo.getValueAt(filaSeleccionada, 3).toString().isEmpty() && VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 3).toString())) {
 
                 dni = Integer.valueOf(modelo.getValueAt(filaSeleccionada, 3).toString());
-
-                if (dni != dni_inicial) {
-
-                    contador++;
-                }
+                v_dni = true;
 
             } else {
 
@@ -355,11 +343,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             if (!modelo.getValueAt(filaSeleccionada, 4).toString().isEmpty()) {
 
                 domicilio = modelo.getValueAt(filaSeleccionada, 4).toString();
-
-                if (!domicilio.equals(domicilio_inicial)) {
-
-                    contador++;
-                }
+                v_domicilio = true;
 
             } else {
 
@@ -370,11 +354,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
             if (!modelo.getValueAt(filaSeleccionada, 5).toString().isEmpty() && VerificarInputs.soloNumeros(modelo.getValueAt(filaSeleccionada, 5).toString())) {
 
                 telefono = Long.parseLong(modelo.getValueAt(filaSeleccionada, 5).toString());
-
-                if (telefono != telefono_inicial) {
-
-                    contador++;
-                }
+                v_telefono = true;
 
             } else {
 
@@ -384,24 +364,40 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
 
             Prestador modificarPrestador = prestador_data.buscarPrestadorApellido(apellido);
 
-            modificarPrestador.setNombre(nombre);
-            modificarPrestador.setApellido(apellido);
-            modificarPrestador.setDni(dni);
-            modificarPrestador.setDomicilio(domicilio);
-            modificarPrestador.setTelefono(telefono);
+            if (v_nombre == true) {
 
-            if (contador > 0) {
+                modificarPrestador.setNombre(nombre);
+            }
 
-                prestador_data.modificarPrestador(modificarPrestador);
+            if (v_apellido == true) {
 
-            } else {
+                modificarPrestador.setNombre(apellido);
+            }
 
-                JOptionPane.showMessageDialog(this, "¡No se ha modificado ningun dato del prestador!");
+            if (v_dni == true) {
+
+                modificarPrestador.setDni(dni);
 
             }
 
-        }
+            if (v_domicilio) {
 
+                modificarPrestador.setDomicilio(domicilio);
+
+            }
+
+            if (v_telefono == true) {
+
+                modificarPrestador.setTelefono(telefono);
+
+            }
+
+            prestador_data.modificarPrestador(modificarPrestador);
+
+        } else {
+
+            JOptionPane.showMessageDialog(this, "¡No se ha seleccionado ninguna fila!");
+        }
 
     }//GEN-LAST:event_button_guardarPrestadorActionPerformed
 
@@ -543,16 +539,21 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaVerPrestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerPrestadores.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaVerPrestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerPrestadores.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaVerPrestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerPrestadores.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaVerPrestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVerPrestadores.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
