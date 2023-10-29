@@ -239,7 +239,7 @@ public class VistaOrden extends javax.swing.JFrame {
         } catch (NumberFormatException nf) { 
             JOptionPane.showMessageDialog(null, "Vrifique los campos");
         } catch (NullPointerException np) {
-            JOptionPane.showMessageDialog(null, "Verifique el número ingresado");
+            JOptionPane.showMessageDialog(null, "¡No se permiten campos vacios, verifique los datos!");
         }
     }//GEN-LAST:event_button_guardarOrdenActionPerformed
 
@@ -274,7 +274,7 @@ public class VistaOrden extends javax.swing.JFrame {
           } catch (NumberFormatException nf) { 
             JOptionPane.showMessageDialog(null, "Vrifique los campos");
         } catch (NullPointerException np) {
-            JOptionPane.showMessageDialog(null, "Verifique el número ingresado");
+            JOptionPane.showMessageDialog(null, "Debe ingresar el dni del afiliado para buscar");
         }
     }//GEN-LAST:event_button_buscarAfiliado_ordenesActionPerformed
 
@@ -286,7 +286,7 @@ public class VistaOrden extends javax.swing.JFrame {
         } catch (NumberFormatException nf) { 
             JOptionPane.showMessageDialog(null, "Vrifique los campos");
         } catch (NullPointerException np) {
-            JOptionPane.showMessageDialog(null, "Verifique el número ingresado");
+            JOptionPane.showMessageDialog(null, "Ingrese el apellido del Prestador para buscar");
         }
     }//GEN-LAST:event_button_BuscarPrestador_ordenesActionPerformed
 
