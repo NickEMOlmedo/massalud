@@ -235,6 +235,9 @@ public class VistaOrden extends javax.swing.JFrame {
 
     private void button_guardarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarOrdenActionPerformed
 
+        ArrayList<Orden> ordenesEnVista = orden_data.ListarOrdenes();
+
+        boolean ordenDuplicada = false;
         double importe = 0.0;
 
         try {
@@ -257,9 +260,27 @@ public class VistaOrden extends javax.swing.JFrame {
 
             Prestador idPrestador = prestador_data.buscarPrestador_id(Integer.valueOf(jComboBox2_prestador.getItemAt(jComboBox2_prestador.getSelectedIndex()).getIdPrestador()));
 
-            Orden nuevaOrden = new Orden(fecha, formaPago, importe, idAfiliado, idPrestador);
+            for (Orden ordenExistente : ordenesEnVista) {
 
-            orden_data.cargarOrden(nuevaOrden);
+                if (ordenExistente.getAfiliado().getIdAfiliado() == idAfiliado.getIdAfiliado()
+                        && ordenExistente.getPrestador().getIdPrestador() == idPrestador.getIdPrestador()
+                        && ordenExistente.getFecha().equals(fecha)) {
+
+                    ordenDuplicada = true;
+
+                    break;
+                }
+            }
+
+            if (ordenDuplicada) {
+
+                JOptionPane.showMessageDialog(this, "Ya existe una orden para este afiliado, prestador y fecha.");
+
+            } else {
+
+                Orden nuevaOrden = new Orden(fecha, formaPago, importe, idAfiliado, idPrestador);
+                orden_data.cargarOrden(nuevaOrden);
+            }
 
         } catch (NumberFormatException nf) {
 

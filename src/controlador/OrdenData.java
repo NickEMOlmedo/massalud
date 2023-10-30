@@ -175,4 +175,33 @@ public class OrdenData {
         }
 
     }
+
+    public ArrayList<Orden> ListarOrdenes() {
+        ArrayList<Orden> ordenesF = new ArrayList();
+        final String QUERY = "SELECT * FROM orden ";
+        Orden orden = null;
+        try {
+            PreparedStatement statement = nuevaConexion.prepareStatement(QUERY);
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                orden = new Orden();
+                orden.setIdOrden(result.getInt("idOrden"));
+                orden.setFecha(result.getDate("fecha").toLocalDate());
+                orden.setFormaPago(result.getString("formaPago"));
+                orden.setImporte(result.getDouble("importe"));
+                Afiliado afiliado = afiData.buscarAfiliado_id(result.getInt("idAfiliado"));
+                Prestador prestador = presData.buscarPrestador_id(result.getInt("idPrestador"));
+                orden.setAfiliado(afiliado);
+                orden.setPrestador(prestador);
+                ordenesF.add(orden);
+            }
+            statement.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "¡No se pudo realizar la operacion, intente nuevamente! ERROR: " + ex);
+        }
+        return ordenesF;
+
+    }
+
 }
