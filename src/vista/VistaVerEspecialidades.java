@@ -20,6 +20,7 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
     public VistaVerEspecialidades() {
         initComponents();
         setResizable(false);
+        setLocationRelativeTo(null);
         ButtonGroup grupoDeBotones = new ButtonGroup();
         grupoDeBotones.add(radio_mostrarActivos);
         grupoDeBotones.add(radio_mostrarInactivos);

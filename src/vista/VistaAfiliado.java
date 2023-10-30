@@ -9,6 +9,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
     public VistaAfiliado() {
         initComponents();
         setResizable(false);
+        setLocationRelativeTo(null);
 
     }
 

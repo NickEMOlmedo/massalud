@@ -16,6 +16,7 @@ public class VistaPrestador extends javax.swing.JFrame {
     public VistaPrestador() {
         initComponents();
         setResizable(false);
+        setLocationRelativeTo(null);
         modeloComboPrestador = new DefaultComboBoxModel<>(); // Crea el modelo de ComboBox
 
         combobox_especialidadPrestador.setModel(modeloComboPrestador); // Asigna el modelo al JComboBox

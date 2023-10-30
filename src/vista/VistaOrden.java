@@ -22,6 +22,7 @@ public class VistaOrden extends javax.swing.JFrame {
     public VistaOrden() {
         initComponents();
         setResizable(false);
+        setLocationRelativeTo(null);
         cargarComboBox();
         cargarComboBox1();
 

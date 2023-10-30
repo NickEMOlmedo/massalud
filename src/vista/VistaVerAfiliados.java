@@ -16,6 +16,7 @@ public class VistaVerAfiliados extends javax.swing.JFrame {
     public VistaVerAfiliados() {
         initComponents();
         setResizable(false);
+        setLocationRelativeTo(null);
         ButtonGroup grupoDeBotones = new ButtonGroup();
         grupoDeBotones.add(radio_mostrarActivos);
         grupoDeBotones.add(radio_mostrarInactivos);

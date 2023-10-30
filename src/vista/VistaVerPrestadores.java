@@ -21,6 +21,7 @@ public class VistaVerPrestadores extends javax.swing.JFrame {
     public VistaVerPrestadores() {
         initComponents();
         setResizable(false);
+        setLocationRelativeTo(null);
         ButtonGroup grupoDeBotones = new ButtonGroup();
         grupoDeBotones.add(radio_mostrarActivos);
         grupoDeBotones.add(radio_mostrarInactivos);

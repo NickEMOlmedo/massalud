@@ -23,6 +23,7 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
     public VistaVerOrdenes() {
         initComponents();
         setResizable(false);
+        setLocationRelativeTo(null);
         ButtonGroup grupoDeBotones = new ButtonGroup();
         grupoDeBotones.add(radio_mostrarPorAfiliado);
         grupoDeBotones.add(radio_mostrarPorPrestador);
