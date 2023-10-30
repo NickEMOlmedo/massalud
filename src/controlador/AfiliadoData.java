@@ -128,6 +128,7 @@ public class AfiliadoData {
             if (updateExitoso == 1) {
 
                 JOptionPane.showMessageDialog(null, "!Se modificaron los datos del afiliado Satisfactoriamente!");
+                
             } else {
 
                 JOptionPane.showMessageDialog(null, "!Error al Modificar los Datos del Afiliado, intente Nuevamente!");
@@ -223,7 +224,7 @@ public class AfiliadoData {
 
             if (result.next()) {
                 afiliado = new Afiliado();
-                afiliado.setIdAfiliado(id);
+                afiliado.setIdAfiliado(result.getInt("idAfiliado"));
                 afiliado.setNombre(result.getString("nombre"));
                 afiliado.setApellido(result.getString("apellido"));
                 afiliado.setDni(result.getInt("dni"));

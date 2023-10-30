@@ -3,6 +3,7 @@ package vista;
 import controlador.EspecialidadData;
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import modelo.Especialidad;
@@ -359,17 +360,29 @@ public class VistaVerEspecialidades extends javax.swing.JFrame {
 
         if (filaSeleccionada != -1) {
 
-            if (VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 1).toString())) {
+            if (VerificarInputs.soloLetras(modelo.getValueAt(filaSeleccionada, 1).toString()) && !modelo.getValueAt(filaSeleccionada, 1).toString().isEmpty()) {
 
                 especialidad = modelo.getValueAt(filaSeleccionada, 1).toString();
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "¡Solo se permiten letras en el campo ESPECIALIDAD y no puede estar vacio!");
+
             }
+
+            Especialidad modificarEspecialidad = especialidad_data.buscarEspecialidad(id);
+
+            modificarEspecialidad.setEspecialidad(especialidad);
+
+            especialidad_data.modificarEspecialidad(modificarEspecialidad);
+
+        } else {
+
+            JOptionPane.showMessageDialog(this, "¡No se ha seleccionado ninguna fila!");
+
         }
 
-        Especialidad modificarEspecialidad = especialidad_data.buscarEspecialidad(id);
 
-        modificarEspecialidad.setEspecialidad(especialidad);
-
-        especialidad_data.modificarEspecialidad(modificarEspecialidad);
     }//GEN-LAST:event_button_guardarEspecialidadActionPerformed
 
     private void button_bajaEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_bajaEspecialidadActionPerformed

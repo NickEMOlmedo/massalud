@@ -9,6 +9,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
     public VistaAfiliado() {
         initComponents();
         setResizable(false);
+
     }
 
     AfiliadoData afiliado_data = new AfiliadoData();
@@ -207,6 +208,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void button_limpiarAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_limpiarAfiliadoActionPerformed
         text_nombreAfiliado.setText("");
         text_apellidoAfiliado.setText("");
@@ -214,7 +216,6 @@ public class VistaAfiliado extends javax.swing.JFrame {
         text_domicilioAfiliado.setText("");
         text_telefonoAfiliado.setText("");
         checkbox_afiliadoActivo.setSelected(false);
-
 
     }//GEN-LAST:event_button_limpiarAfiliadoActionPerformed
 
@@ -274,7 +275,16 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
                     }
 
-                    domicilio = text_domicilioAfiliado.getText();
+                    if (!text_domicilioAfiliado.getText().isEmpty()) {
+
+                        domicilio = text_domicilioAfiliado.getText();
+                        
+                        contador++;
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "¡El campo domicilio no puede estar vacio, verifique nuevamente!");
+                    }
 
                     if (VerificarInputs.soloNumeros(text_telefonoAfiliado.getText())) {
 
@@ -288,7 +298,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
                     }
 
-                    if (contador == 4) {
+                    if (contador == 5) {
 
                         Afiliado afiliado = new Afiliado(nombre, apellido, dni, domicilio, telefono, checkbox_afiliadoActivo.isSelected());
 
