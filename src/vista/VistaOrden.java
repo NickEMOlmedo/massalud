@@ -1,12 +1,15 @@
 package vista;
 
 import controlador.AfiliadoData;
+import controlador.EspecialidadData;
 import controlador.OrdenData;
 import controlador.PrestadorData;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Afiliado;
+import modelo.Especialidad;
 import modelo.Orden;
 import modelo.Prestador;
 
@@ -14,14 +17,17 @@ public class VistaOrden extends javax.swing.JFrame {
 
     private AfiliadoData afiliado_data;
     private PrestadorData prestador_data;
+    private EspecialidadData especialidad_data;
     
     public VistaOrden() {
         initComponents();
         setResizable(false);
         cargarComboBox();
+        cargarComboBox1();
         
         afiliado_data=new AfiliadoData();
         prestador_data=new PrestadorData();
+        especialidad_data=new EspecialidadData();
     }
     OrdenData orden_data=new OrdenData();
     
@@ -55,11 +61,11 @@ public class VistaOrden extends javax.swing.JFrame {
         txt_afiliadoOrden = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         button_buscarAfiliado_ordenes = new javax.swing.JButton();
-        txt_prestadorOrden = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        button_BuscarPrestador_ordenes = new javax.swing.JButton();
         button_guardarOrden = new javax.swing.JButton();
         button_limpiarOrden = new javax.swing.JButton();
+        jComboBox1_especialidad = new javax.swing.JComboBox<>();
+        jComboBox2_prestador = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -173,21 +179,10 @@ public class VistaOrden extends javax.swing.JFrame {
         });
         getContentPane().add(button_buscarAfiliado_ordenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, 30));
 
-        txt_prestadorOrden.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(txt_prestadorOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 220, 30));
-
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(102, 102, 102));
         jLabel17.setText("Prestador:");
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
-
-        button_BuscarPrestador_ordenes.setText("Buscar");
-        button_BuscarPrestador_ordenes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_BuscarPrestador_ordenesActionPerformed(evt);
-            }
-        });
-        getContentPane().add(button_BuscarPrestador_ordenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, -1, 30));
 
         button_guardarOrden.setBackground(new java.awt.Color(255, 255, 255));
         button_guardarOrden.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -198,7 +193,7 @@ public class VistaOrden extends javax.swing.JFrame {
                 button_guardarOrdenActionPerformed(evt);
             }
         });
-        getContentPane().add(button_guardarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 110, 30));
+        getContentPane().add(button_guardarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, 110, 30));
 
         button_limpiarOrden.setBackground(new java.awt.Color(255, 255, 255));
         button_limpiarOrden.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -209,7 +204,16 @@ public class VistaOrden extends javax.swing.JFrame {
                 button_limpiarOrdenActionPerformed(evt);
             }
         });
-        getContentPane().add(button_limpiarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 520, 110, 30));
+        getContentPane().add(button_limpiarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 550, 110, 30));
+
+        jComboBox1_especialidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1_especialidadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jComboBox1_especialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 290, 30));
+
+        getContentPane().add(jComboBox2_prestador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 290, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -232,7 +236,7 @@ public class VistaOrden extends javax.swing.JFrame {
             String formaPago = (String) combobox_formaPago.getSelectedItem();
             Double importe = Double.valueOf(txt_importeOrden.getText());
             Afiliado idAfiliado = afiliado_data.buscarAfiliado_id(Integer.valueOf(txt_afiliadoOrden.getText()));
-            Prestador idPrestador = prestador_data.buscarPrestador_id(Integer.valueOf(txt_prestadorOrden.getText()));
+            Prestador idPrestador = prestador_data.buscarPrestador_id(Integer.valueOf(jComboBox2_prestador.getItemAt(jComboBox2_prestador.getSelectedIndex()).getIdPrestador()));
 
             Orden nuevaOrden = new Orden(fecha, formaPago, importe, idAfiliado, idPrestador);
             orden_data.cargarOrden(nuevaOrden);
@@ -247,7 +251,6 @@ public class VistaOrden extends javax.swing.JFrame {
         // TODO add your handling code here:
         txt_importeOrden.setText("");
         txt_afiliadoOrden.setText("");
-        txt_prestadorOrden.setText("");
     }//GEN-LAST:event_button_limpiarOrdenActionPerformed
 
     private void button_verOrdenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_verOrdenesActionPerformed
@@ -278,17 +281,18 @@ public class VistaOrden extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_button_buscarAfiliado_ordenesActionPerformed
 
-    private void button_BuscarPrestador_ordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_BuscarPrestador_ordenesActionPerformed
+    private void jComboBox1_especialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1_especialidadActionPerformed
         // TODO add your handling code here:
-        try{
-        Prestador prestador_Encontrado=prestador_data.buscarPrestadorApellido(txt_prestadorOrden.getText());
-        txt_prestadorOrden.setText(String.valueOf(prestador_Encontrado.getIdPrestador()));
-        } catch (NumberFormatException nf) { 
-            JOptionPane.showMessageDialog(null, "Vrifique los campos");
-        } catch (NullPointerException np) {
-            JOptionPane.showMessageDialog(null, "Ingrese el apellido del Prestador para buscar");
+        Especialidad seleccionado = (Especialidad) jComboBox1_especialidad.getSelectedItem();
+        PrestadorData prestador_data=new PrestadorData();
+        ArrayList<Prestador> listaPrestador = prestador_data.listarActivosPorEspecialidad(seleccionado.getIdEspecialidad());
+        jComboBox2_prestador.removeAllItems();
+
+        for (Prestador prestador : listaPrestador) {
+
+            jComboBox2_prestador.addItem(prestador);
         }
-    }//GEN-LAST:event_button_BuscarPrestador_ordenesActionPerformed
+    }//GEN-LAST:event_jComboBox1_especialidadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,7 +330,6 @@ public class VistaOrden extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton button_BuscarPrestador_ordenes;
     private javax.swing.JButton button_buscarAfiliado_ordenes;
     private javax.swing.JButton button_guardarOrden;
     private javax.swing.JButton button_limpiarOrden;
@@ -335,6 +338,8 @@ public class VistaOrden extends javax.swing.JFrame {
     private javax.swing.JButton button_verOrdenes;
     private javax.swing.JComboBox<String> combobox_formaPago;
     private com.toedter.calendar.JDateChooser date_fechaOrden;
+    private javax.swing.JComboBox<Especialidad> jComboBox1_especialidad;
+    private javax.swing.JComboBox<Prestador> jComboBox2_prestador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -351,12 +356,20 @@ public class VistaOrden extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTextField txt_afiliadoOrden;
     private javax.swing.JTextField txt_importeOrden;
-    private javax.swing.JTextField txt_prestadorOrden;
     // End of variables declaration//GEN-END:variables
 
     private void cargarComboBox(){
         combobox_formaPago.addItem("Efectivo");
         combobox_formaPago.addItem("Débito");
-        combobox_formaPago.addItem("Tarjeta De Crédito");
+    }
+    
+    private void cargarComboBox1() {
+        EspecialidadData especialidad_data = new EspecialidadData();
+        ArrayList<Especialidad> listaEspecialidad = especialidad_data.listarActivos();
+        jComboBox1_especialidad.removeAllItems();
+        for (Especialidad especialidad : listaEspecialidad) {
+            jComboBox1_especialidad.addItem(especialidad);
+        }
+
     }
 }
