@@ -90,7 +90,7 @@ public class Afiliado {
 
     @Override
     public String toString() {
-        return "ID: "+ idAfiliado+" "+nombre + " " + apellido + " DNI: " + dni;
+        return nombre + " " + apellido + " DNI: " + dni;
     }
 
 }
