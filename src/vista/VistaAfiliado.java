@@ -278,6 +278,8 @@ public class VistaAfiliado extends javax.swing.JFrame {
                     if (!text_domicilioAfiliado.getText().isEmpty()) {
 
                         domicilio = text_domicilioAfiliado.getText();
+                        
+                        contador++;
 
                     } else {
 
@@ -296,7 +298,7 @@ public class VistaAfiliado extends javax.swing.JFrame {
 
                     }
 
-                    if (contador == 4) {
+                    if (contador == 5) {
 
                         Afiliado afiliado = new Afiliado(nombre, apellido, dni, domicilio, telefono, checkbox_afiliadoActivo.isSelected());
 

@@ -270,6 +270,8 @@ public class VistaPrestador extends javax.swing.JFrame {
         String domicilio = null;
         long telefono = 0;
 
+        int contador = 0;
+
         Especialidad seleccionado = (Especialidad) combobox_especialidadPrestador.getSelectedItem();
 
         if (!text_nombrePrestador.getText().isEmpty() && !text_apellidoPrestador.getText().isEmpty() && !text_dniPrestador.getText().isEmpty() && !text_domicilioPrestador.getText().isEmpty() && !text_telefonoPrestador.getText().isEmpty()) {
@@ -282,6 +284,8 @@ public class VistaPrestador extends javax.swing.JFrame {
 
                         nombre = text_nombrePrestador.getText();
 
+                        contador++;
+
                     } else {
 
                         JOptionPane.showMessageDialog(this, "¡Solo se permiten letras en el campo NOMBRE, verifique los datos!");
@@ -291,6 +295,8 @@ public class VistaPrestador extends javax.swing.JFrame {
                     if (VerificarInputs.soloLetras(text_apellidoPrestador.getText())) {
 
                         apellido = text_apellidoPrestador.getText();
+
+                        contador++;
 
                     } else {
 
@@ -302,17 +308,31 @@ public class VistaPrestador extends javax.swing.JFrame {
 
                         dni = Integer.valueOf(text_dniPrestador.getText());
 
+                        contador++;
+
                     } else {
 
                         JOptionPane.showMessageDialog(this, "¡Solo se permiten numeros en el campo DNI , verifique los datos!");
 
                     }
 
-                    domicilio = text_domicilioPrestador.getText();
+                    if (!text_domicilioPrestador.getText().isEmpty()) {
+
+                        domicilio = text_domicilioPrestador.getText();
+
+                        contador++;
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "¡El campo domicilio no puede estar vacio, verifique nuevamente!");
+
+                    }
 
                     if (VerificarInputs.soloNumeros(text_telefonoPrestador.getText())) {
 
                         telefono = Long.parseLong(text_telefonoPrestador.getText());
+
+                        contador++;
 
                     } else {
 
@@ -320,9 +340,17 @@ public class VistaPrestador extends javax.swing.JFrame {
 
                     }
 
-                    Prestador prestador = new Prestador(nombre, apellido, dni, domicilio, telefono, checkbox_prestadorActivo.isSelected(), seleccionado);
+                    if (contador == 5) {
 
-                    prestador_data.guardarPrestador(prestador);
+                        Prestador prestador = new Prestador(nombre, apellido, dni, domicilio, telefono, checkbox_prestadorActivo.isSelected(), seleccionado);
+
+                        prestador_data.guardarPrestador(prestador);
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "¡Verifique los datos ingresados en el formulario!");
+
+                    }
 
                 } else {
 
@@ -336,8 +364,10 @@ public class VistaPrestador extends javax.swing.JFrame {
 
             }
 
-        }
+        } else {
 
+            JOptionPane.showMessageDialog(this, "¡No se permiten campos vacios, verifique los datos!");
+        }
 
     }//GEN-LAST:event_button_guardarPrestadorActionPerformed
 
