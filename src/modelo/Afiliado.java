@@ -87,14 +87,10 @@ public class Afiliado {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
-    
-    
-
-
 
     @Override
     public String toString() {
-        return "AFILIADO: " + "ID: " + idAfiliado + " NOMBRE: " + nombre + " APELLIDO: " + apellido + " DNI: " + dni + " DOMICILIO: " + domicilio + " TELEFONO: " + telefono + " ACTIVO: " + activo;
+        return nombre + " " + apellido + " DNI: " + dni;
     }
 
 }

@@ -6,7 +6,6 @@ import controlador.PrestadorData;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -20,11 +19,11 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
     AfiliadoData afiliado_data = new AfiliadoData();
     PrestadorData prestador_data = new PrestadorData();
     private final DefaultTableModel modelo;
-    
+
     public VistaVerOrdenes() {
         initComponents();
         setResizable(false);
-         ButtonGroup grupoDeBotones = new ButtonGroup();
+        ButtonGroup grupoDeBotones = new ButtonGroup();
         grupoDeBotones.add(radio_mostrarPorAfiliado);
         grupoDeBotones.add(radio_mostrarPorPrestador);
         modelo = new DefaultTableModel() {
@@ -39,8 +38,8 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
 
         armarCabecera();
     }
-    
-     private void armarCabecera() {
+
+    private void armarCabecera() {
 
         ArrayList<Object> cabecera = new ArrayList<>();
         cabecera.add("ID");
@@ -58,8 +57,8 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
 
         table_ordenes.setModel(modelo);
     }
-     
-      private void borrarFilas() {
+
+    private void borrarFilas() {
 
         int rowCount = modelo.getRowCount();
 
@@ -270,60 +269,61 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_Afiliado_PrestadorActionPerformed
 
     private void radio_mostrarPorAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarPorAfiliadoActionPerformed
-        // TODO add your handling code here:
-        try{
-        Afiliado afiliado_Encontrado=afiliado_data.buscarAfiliado_dni(Integer.valueOf(txt_Afiliado_Prestador.getText()));
-        
-         borrarFilas();
 
-        ArrayList<Orden> listadoDeOrdenes_porAfiliado = orden_data.Orden_SacadasPorAfiliado(afiliado_Encontrado.getIdAfiliado());
-        for(Orden ordenes:listadoDeOrdenes_porAfiliado){
-        
-            modelo.addRow(new Object[]{ordenes.getIdOrden(),ordenes.getFecha(),ordenes.getFormaPago(),ordenes.getImporte(),ordenes.getAfiliado().getIdAfiliado(),ordenes.getPrestador().getIdPrestador()});
-        }    
-        }catch (NumberFormatException nf) { 
-            JOptionPane.showMessageDialog(null, "Debe ingresar DNI del afiliado activo");
+        try {
+            Afiliado afiliado_Encontrado = afiliado_data.buscarAfiliado_dni(Integer.valueOf(txt_Afiliado_Prestador.getText()));
+
+            borrarFilas();
+
+            ArrayList<Orden> listadoDeOrdenes_porAfiliado = orden_data.Orden_SacadasPorAfiliado(afiliado_Encontrado.getIdAfiliado());
+            for (Orden ordenes : listadoDeOrdenes_porAfiliado) {
+
+                modelo.addRow(new Object[]{ordenes.getIdOrden(), ordenes.getFecha(), ordenes.getFormaPago(), ordenes.getImporte(), ordenes.getAfiliado().getIdAfiliado(), ordenes.getPrestador().getIdPrestador()});
+            }
+        } catch (NumberFormatException nf) {
+            JOptionPane.showMessageDialog(null, "¡Debe ingresar DNI del afiliado activo!");
         } catch (NullPointerException np) {
-            JOptionPane.showMessageDialog(null, "Debe ingresar DNI del afiliado");
+            JOptionPane.showMessageDialog(null, "¡Debe ingresar DNI del afiliado!");
         }
     }//GEN-LAST:event_radio_mostrarPorAfiliadoActionPerformed
 
     private void radio_mostrarPorPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mostrarPorPrestadorActionPerformed
-        // TODO add your handling code here:
-        try{
-         Prestador prestador_Encontrado=prestador_data.buscarPrestadorApellido(String.valueOf(txt_Afiliado_Prestador.getText()));
-        
-         borrarFilas();
 
-        ArrayList<Orden> listadoDeOrdenes_porPrestador = orden_data.Orden_SacadasSegunPrestador(prestador_Encontrado.getIdPrestador());
-        for(Orden ordenes:listadoDeOrdenes_porPrestador){
-        
-            modelo.addRow(new Object[]{ordenes.getIdOrden(),ordenes.getFecha(),ordenes.getFormaPago(),ordenes.getImporte(),ordenes.getAfiliado().getIdAfiliado(),ordenes.getPrestador().getIdPrestador()});
-        }   
-        }catch (NumberFormatException nf) { 
-            JOptionPane.showMessageDialog(null, "Vrifique los campos");
+        try {
+            Prestador prestador_Encontrado = prestador_data.buscarPrestadorApellido(String.valueOf(txt_Afiliado_Prestador.getText()));
+
+            borrarFilas();
+
+            ArrayList<Orden> listadoDeOrdenes_porPrestador = orden_data.Orden_SacadasSegunPrestador(prestador_Encontrado.getIdPrestador());
+
+            for (Orden ordenes : listadoDeOrdenes_porPrestador) {
+
+                modelo.addRow(new Object[]{ordenes.getIdOrden(), ordenes.getFecha(), ordenes.getFormaPago(), ordenes.getImporte(), ordenes.getAfiliado().getIdAfiliado(), ordenes.getPrestador().getIdPrestador()});
+            }
+        } catch (NumberFormatException nf) {
+            JOptionPane.showMessageDialog(null, "¡Verifique los campos!");
         } catch (NullPointerException np) {
-            JOptionPane.showMessageDialog(null, "Debe ingresar el apellido del prestador activo");
+            JOptionPane.showMessageDialog(null, "¡Debe ingresar el apellido del prestador activo!");
         }
     }//GEN-LAST:event_radio_mostrarPorPrestadorActionPerformed
 
     private void button_ordenesPorFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_ordenesPorFechaActionPerformed
-        // TODO add your handling code here:
-        try{
-         LocalDate fecha = jDateChooser_fecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-         borrarFilas();
-         ArrayList<Orden>listadoDeOrdenes_porFecha=orden_data.Orden_EmitidaPorFecha(fecha);
-         for(Orden ordenes:listadoDeOrdenes_porFecha){
-         
-             modelo.addRow(new Object[]{ordenes.getIdOrden(),ordenes.getFecha(),ordenes.getFormaPago(),ordenes.getImporte(),ordenes.getAfiliado().getIdAfiliado(),ordenes.getPrestador().getIdPrestador()});
-         }
+        
+        try {
+            LocalDate fecha = jDateChooser_fecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            borrarFilas();
+            ArrayList<Orden> listadoDeOrdenes_porFecha = orden_data.Orden_EmitidaPorFecha(fecha);
+            for (Orden ordenes : listadoDeOrdenes_porFecha) {
+
+                modelo.addRow(new Object[]{ordenes.getIdOrden(), ordenes.getFecha(), ordenes.getFormaPago(), ordenes.getImporte(), ordenes.getAfiliado().getIdAfiliado(), ordenes.getPrestador().getIdPrestador()});
+            }
         } catch (NullPointerException np) {
-            JOptionPane.showMessageDialog(null, "Debe ingresar una Fecha");
+            JOptionPane.showMessageDialog(null, "¡Debe ingresar una Fecha!");
         }
     }//GEN-LAST:event_button_ordenesPorFechaActionPerformed
 
     private void button_eliminarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_eliminarOrdenActionPerformed
-        // TODO add your handling code here:
+       
         int filaSeleccionada = table_ordenes.getSelectedRow();
         if (filaSeleccionada != -1) {
 
@@ -334,11 +334,13 @@ public class VistaVerOrdenes extends javax.swing.JFrame {
             orden_data.eliminarOrden(idAfiliado, idPrestador);
 
             modelo.removeRow(filaSeleccionada);
+
         } else {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila");
+            
+            JOptionPane.showMessageDialog(null, "¡Debe seleccionar una fila!");
         }
         modelo.fireTableDataChanged();
-        
+
     }//GEN-LAST:event_button_eliminarOrdenActionPerformed
 
     /**

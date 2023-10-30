@@ -104,7 +104,7 @@ public class Prestador {
    
     @Override
     public String toString() {
-        return "PRESTADOR: " + "ID: " + idPrestador + " NOMBRE: " + nombre + " APELLIDO: " + apellido + " DNI: " + dni + "DOMICILIO:  " +domicilio +"TELEFONO: "+ telefono + "ACTIVO: " + activo + " ESPECIALIDAD: " + especialidad;
+        return  nombre +" "+ apellido+" "+ especialidad;
     }
     
     

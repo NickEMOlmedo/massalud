@@ -18,19 +18,19 @@ public class VistaOrden extends javax.swing.JFrame {
     private AfiliadoData afiliado_data;
     private PrestadorData prestador_data;
     private EspecialidadData especialidad_data;
-    
+
     public VistaOrden() {
         initComponents();
         setResizable(false);
         cargarComboBox();
         cargarComboBox1();
-        
-        afiliado_data=new AfiliadoData();
-        prestador_data=new PrestadorData();
-        especialidad_data=new EspecialidadData();
+
+        afiliado_data = new AfiliadoData();
+        prestador_data = new PrestadorData();
+        especialidad_data = new EspecialidadData();
     }
-    OrdenData orden_data=new OrdenData();
-    
+    OrdenData orden_data = new OrdenData();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -229,20 +229,34 @@ public class VistaOrden extends javax.swing.JFrame {
     }//GEN-LAST:event_button_salirActionPerformed
 
     private void button_guardarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarOrdenActionPerformed
-        // TODO add your handling code here:
-         
+
+        double importe = 0.0;
+
         try {
+
             LocalDate fecha = date_fechaOrden.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             String formaPago = (String) combobox_formaPago.getSelectedItem();
-            Double importe = Double.valueOf(txt_importeOrden.getText());
+
+            if (VerificarInputs.soloNumeros(txt_importeOrden.getText())) {
+
+                importe = Double.parseDouble(txt_importeOrden.getText());
+
+            }
+                        
             Afiliado idAfiliado = afiliado_data.buscarAfiliado_id(Integer.valueOf(txt_afiliadoOrden.getText()));
+            
             Prestador idPrestador = prestador_data.buscarPrestador_id(Integer.valueOf(jComboBox2_prestador.getItemAt(jComboBox2_prestador.getSelectedIndex()).getIdPrestador()));
 
             Orden nuevaOrden = new Orden(fecha, formaPago, importe, idAfiliado, idPrestador);
+            
             orden_data.cargarOrden(nuevaOrden);
-        } catch (NumberFormatException nf) { 
-            JOptionPane.showMessageDialog(null, "Vrifique los campos");
+
+        } catch (NumberFormatException nf) {
+
+            JOptionPane.showMessageDialog(null, "¡Verifique los campos!");
+
         } catch (NullPointerException np) {
+
             JOptionPane.showMessageDialog(null, "¡No se permiten campos vacios, verifique los datos!");
         }
     }//GEN-LAST:event_button_guardarOrdenActionPerformed
@@ -263,28 +277,34 @@ public class VistaOrden extends javax.swing.JFrame {
 
     private void date_fechaOrdenPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_date_fechaOrdenPropertyChange
         // TODO add your handling code here:
-        if(date_fechaOrden.getDate()!=null){
-        
-            LocalDate fechaN=date_fechaOrden.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        if (date_fechaOrden.getDate() != null) {
+
+            LocalDate fechaN = date_fechaOrden.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         }
     }//GEN-LAST:event_date_fechaOrdenPropertyChange
 
     private void button_buscarAfiliado_ordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_buscarAfiliado_ordenesActionPerformed
         // TODO add your handling code here:
-        try{
-        Afiliado afiliado_Encontrado=afiliado_data.buscarAfiliado_dni(Integer.valueOf(txt_afiliadoOrden.getText()));
-         txt_afiliadoOrden.setText(String.valueOf(afiliado_Encontrado.getIdAfiliado()));
-          } catch (NumberFormatException nf) { 
-            JOptionPane.showMessageDialog(null, "Vrifique los campos");
+        try {
+
+            Afiliado afiliado_encontrado = afiliado_data.buscarAfiliado_dni(Integer.valueOf(txt_afiliadoOrden.getText()));
+
+            txt_afiliadoOrden.setText(afiliado_encontrado.toString());
+
+        } catch (NumberFormatException nf) {
+
+            JOptionPane.showMessageDialog(null, "¡Verifique los campos!");
+
         } catch (NullPointerException np) {
-            JOptionPane.showMessageDialog(null, "Debe ingresar el dni del afiliado para buscar");
+
+            JOptionPane.showMessageDialog(null, "¡Debe ingresar el dni del afiliado para buscar!");
         }
     }//GEN-LAST:event_button_buscarAfiliado_ordenesActionPerformed
 
     private void jComboBox1_especialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1_especialidadActionPerformed
         // TODO add your handling code here:
         Especialidad seleccionado = (Especialidad) jComboBox1_especialidad.getSelectedItem();
-        PrestadorData prestador_data=new PrestadorData();
+        PrestadorData prestador_data = new PrestadorData();
         ArrayList<Prestador> listaPrestador = prestador_data.listarActivosPorEspecialidad(seleccionado.getIdEspecialidad());
         jComboBox2_prestador.removeAllItems();
 
@@ -358,11 +378,11 @@ public class VistaOrden extends javax.swing.JFrame {
     private javax.swing.JTextField txt_importeOrden;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarComboBox(){
+    private void cargarComboBox() {
         combobox_formaPago.addItem("Efectivo");
         combobox_formaPago.addItem("Débito");
     }
-    
+
     private void cargarComboBox1() {
         EspecialidadData especialidad_data = new EspecialidadData();
         ArrayList<Especialidad> listaEspecialidad = especialidad_data.listarActivos();
