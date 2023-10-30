@@ -231,25 +231,19 @@ public class VistaOrden extends javax.swing.JFrame {
 
     private void button_guardarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarOrdenActionPerformed
 
-        double importe = 0.0;
-
         try {
 
             LocalDate fecha = date_fechaOrden.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             String formaPago = (String) combobox_formaPago.getSelectedItem();
 
-            if (VerificarInputs.soloNumeros(txt_importeOrden.getText())) {
+            double importe = Double.parseDouble(txt_importeOrden.getText());
 
-                importe = Double.parseDouble(txt_importeOrden.getText());
-
-            }
-                        
             Afiliado idAfiliado = afiliado_data.buscarAfiliado_id(Integer.valueOf(txt_afiliadoOrden.getText()));
-            
+
             Prestador idPrestador = prestador_data.buscarPrestador_id(Integer.valueOf(jComboBox2_prestador.getItemAt(jComboBox2_prestador.getSelectedIndex()).getIdPrestador()));
 
             Orden nuevaOrden = new Orden(fecha, formaPago, importe, idAfiliado, idPrestador);
-            
+
             orden_data.cargarOrden(nuevaOrden);
 
         } catch (NumberFormatException nf) {
