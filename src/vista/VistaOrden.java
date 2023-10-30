@@ -19,6 +19,8 @@ public class VistaOrden extends javax.swing.JFrame {
     private PrestadorData prestador_data;
     private EspecialidadData especialidad_data;
 
+    Afiliado afiliado_encontrado;
+
     public VistaOrden() {
         initComponents();
         setResizable(false);
@@ -29,7 +31,9 @@ public class VistaOrden extends javax.swing.JFrame {
         afiliado_data = new AfiliadoData();
         prestador_data = new PrestadorData();
         especialidad_data = new EspecialidadData();
+
     }
+
     OrdenData orden_data = new OrdenData();
 
     /**
@@ -231,14 +235,25 @@ public class VistaOrden extends javax.swing.JFrame {
 
     private void button_guardarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_guardarOrdenActionPerformed
 
+        double importe = 0.0;
+
         try {
 
             LocalDate fecha = date_fechaOrden.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
             String formaPago = (String) combobox_formaPago.getSelectedItem();
 
-            double importe = Double.parseDouble(txt_importeOrden.getText());
+            if (VerificarInputs.soloNumeros(txt_importeOrden.getText())) {
 
-            Afiliado idAfiliado = afiliado_data.buscarAfiliado_id(Integer.valueOf(txt_afiliadoOrden.getText()));
+                importe = Double.valueOf(txt_importeOrden.getText());
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "¡Solo se pueden ingresar numeros en el importe!");
+
+            }
+
+            Afiliado idAfiliado = afiliado_data.buscarAfiliado_id(afiliado_encontrado.getIdAfiliado());
 
             Prestador idPrestador = prestador_data.buscarPrestador_id(Integer.valueOf(jComboBox2_prestador.getItemAt(jComboBox2_prestador.getSelectedIndex()).getIdPrestador()));
 
@@ -279,10 +294,10 @@ public class VistaOrden extends javax.swing.JFrame {
     }//GEN-LAST:event_date_fechaOrdenPropertyChange
 
     private void button_buscarAfiliado_ordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_buscarAfiliado_ordenesActionPerformed
-        // TODO add your handling code here:
+
         try {
 
-            Afiliado afiliado_encontrado = afiliado_data.buscarAfiliado_dni(Integer.valueOf(txt_afiliadoOrden.getText()));
+            afiliado_encontrado = afiliado_data.buscarAfiliado_dni(Integer.valueOf(txt_afiliadoOrden.getText()));
 
             txt_afiliadoOrden.setText(afiliado_encontrado.toString());
 
@@ -316,7 +331,7 @@ public class VistaOrden extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

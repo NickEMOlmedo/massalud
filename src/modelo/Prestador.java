@@ -104,7 +104,7 @@ public class Prestador {
    
     @Override
     public String toString() {
-        return  nombre +" "+ apellido+" "+ especialidad;
+        return  nombre+"  "+apellido+" - "+ especialidad;
     }
     
     
